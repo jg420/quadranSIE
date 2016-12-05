@@ -1,0 +1,35 @@
+{# SIECoreBundle/Resources/views/Default/head.html.twig #}
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app_ref_sie">
+    <head>
+       
+        {% stylesheets '@SIECoreBundle/Resources/public/css/quadranStyle.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+        {% stylesheets '@SIECoreBundle/Resources/public/css/jquery-ui.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+        
+        <link href="http://127.0.0.1/debug/sie-/web/logo.ico" rel="icon" type="image/x-icon" />
+        
+        
+        {% block javascripts %}
+            {% javascripts '@SIECoreBundle/Resources/public/js/angular.js' %}
+                {#<script src="{{ asset_url }}"></script#}
+            {% endjavascripts %}
+             {% javascripts '@SIECoreBundle/Resources/public/js/jquery.js' %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+            {% javascripts '@SIECoreBundle/Resources/public/js/jquery-ui.js' %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+            {% javascripts '@SIECoreBundle/Resources/public/js/app.js' %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+           
+           
+     
+        {% endblock %} 
+      

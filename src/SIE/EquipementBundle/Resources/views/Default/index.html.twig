@@ -1,0 +1,35 @@
+
+{% include "SIECoreBundle:Default:head.html.twig" %} 
+{% include "SIECoreBundle:Default:search_central.html.twig" %} 
+<title id="titre">EQUIPEMENTS</title>
+nombre equiment : {{nbEquipement}}
+
+<table id="table_equipement">
+    <th id="KeyParam1">Nom</th>
+    <th id="KeyParam2">Centrale</th>
+    <th id="KeyParam3">Constructeur</th>
+    <th id="KeyParam4">Login</th>
+    <th id="KeyParam5">Mot de passe</th>
+    <th id="KeyParam6">Lien</th>
+{% set nb = nbEquipement + 0 %} 
+{% for i in range(0,nbEquipement) %}
+    <tr>
+        <td id="ValParam1{{i}}"><input type="text"/></td>
+        <td id="ValParam2{{i}}"><input type="text"/></td>
+        <td id="ValParam3{{i}}"><input type="text"/></td>
+        <td id="ValParam4{{i}}"><input type="text"/></td>
+        <td id="ValParam5{{i}}"><input type="text"/></td>
+        <td id="ValParam6{{i}}"><input type="text"/></td>
+       <td id="btnModif{{i}}"> 
+            <button>Modif</button>
+       </td>
+       <td id="btnValid{{i}}"> 
+            <button>Valider</button>
+       </td>
+       <td id="btnAnnuler{{i}}"> 
+            <button>Annuler</button>
+       </td>
+        
+    </tr>
+ {% endfor%}    
+</table>
