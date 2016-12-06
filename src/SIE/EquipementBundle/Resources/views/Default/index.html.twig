@@ -1,8 +1,11 @@
 
 {% include "SIECoreBundle:Default:head.html.twig" %} 
-{% include "SIECoreBundle:Default:search_central.html.twig" %} 
+{% include "SIEEquipementBundle:Default:search_equipement.html.twig" %} 
+   {% javascripts '@SIEEquipementBundle/Resources/public/js/front_equipement.js' %}
+    <script src="{{ asset_url }}"></script>          
+    {% endjavascripts %}
 <title id="titre">EQUIPEMENTS</title>
-nombre equiment : {{nbEquipement}}
+<body>
 
 <table id="table_equipement">
     <th id="KeyParam1">Nom</th>
@@ -11,25 +14,44 @@ nombre equiment : {{nbEquipement}}
     <th id="KeyParam4">Login</th>
     <th id="KeyParam5">Mot de passe</th>
     <th id="KeyParam6">Lien</th>
-{% set nb = nbEquipement + 0 %} 
-{% for i in range(0,nbEquipement) %}
-    <tr>
-        <td id="ValParam1{{i}}"><input type="text"/></td>
-        <td id="ValParam2{{i}}"><input type="text"/></td>
-        <td id="ValParam3{{i}}"><input type="text"/></td>
-        <td id="ValParam4{{i}}"><input type="text"/></td>
-        <td id="ValParam5{{i}}"><input type="text"/></td>
-        <td id="ValParam6{{i}}"><input type="text"/></td>
-       <td id="btnModif{{i}}"> 
-            <button>Modif</button>
-       </td>
-       <td id="btnValid{{i}}"> 
-            <button>Valider</button>
-       </td>
-       <td id="btnAnnuler{{i}}"> 
-            <button>Annuler</button>
-       </td>
-        
-    </tr>
- {% endfor%}    
+        {% set nb = nbEquipement + 0 %} {#nbEquipement est envoyé au template via le controlleur #}
+    <br>
+    <br>
+    {% for i in range(0,nbEquipement) %}
+        <tr>
+            <td id="ValParam1{{i}}"><input type="text"/></td>
+            <td id="ValParam2{{i}}"><input type="text"/></td>
+            <td id="ValParam3{{i}}"><input type="text"/></td>
+            <td id="ValParam4{{i}}"><input type="text"/></td>
+            <td id="ValParam5{{i}}"><input type="text"/></td>
+            <td id="ValParam6{{i}}"><input type="text"/></td>
+            <td id="btnModif{{i}}"> 
+                <button id="btn_modif_equipement" class="btn_modifier"  ng-model="btn_modif_central" >
+                    {% image '@SIECoreBundle/Resources/public/images/btn_modif.jpeg'
+                    %}
+                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                    {% endimage %}
+                </button>
+            </td>
+            <td id="btnValid{{i}}"> 
+                <button id="btn_valid_modif_equipement"  class="btn_valider"   value="valider" style="visibility: hidden">
+                    {% image '@SIECoreBundle/Resources/public/images/btn_valider.jpeg'
+                    %}
+                    <img class="img-background-button"   src="{{ asset_url }}"  alt="valider"/>
+                    {% endimage %}
+                </button>
+            </td>
+            <td id="btnAnnuler{{i}}"> 
+                <button ng-model="btn_annuler_modif_equipement" id="btn_annuler_equipement" class="btn_annuler" style="visibility: hidden">
+                    {% image '@SIECoreBundle/Resources/public/images/btn_annuler.jpeg'
+                    %}
+                    <img class="img-background-button"   src="{{ asset_url }}"  alt="annuler"/>
+                    {% endimage %}    
+                </button>
+            </td>
+
+        </tr>
+    {% endfor%}    
 </table>
+</body>
+</html>
