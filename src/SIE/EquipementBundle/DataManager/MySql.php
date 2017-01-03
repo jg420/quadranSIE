@@ -111,7 +111,7 @@ WHERE e.id_equipement=" . $id_equipement;
             e.n_serie_equipement,
             e.version_actuel_equipement,
             c.lib_central,
-            
+            c.id_central,
             te.libelle_type_equipement 
 FROM EQUIPEMENT AS e
 INNER JOIN CORRESPONDANCE_EQUIPEMENT_CENTRAL AS ec ON ec.id_equipement_fk_ec = e.id_equipement
@@ -131,6 +131,7 @@ WHERE ec.id_central_fk_ec=" . $id_central;
                 $return[$i]['lib_equipement'] = utf8_encode($row['lib_equipement']);
                 $return[$i]['type_equipement'] = utf8_encode($row['libelle_type_equipement']);
                 $return[$i]['lib_central'] = utf8_encode($row['lib_central']);
+                $return[$i]['id_central'] = ($row['id_central']);
                 $return[$i]['id_type']=$row['id_type_equipement'];
                 $return[$i]['lib_type']=  utf8_encode($row['lib_type']);
                 $return[$i]['id_constructeur']=$row['id_constructeur'];

@@ -2,13 +2,9 @@
  {% set lien_document = "http://127.0.0.1/debug/sie-/web/app_dev.php/equipement" %} 
 
 <div  id="bloc_resultat_document" ng-controller="result_document_controller">
-   <a href={{lien_document}}> <b class="titreSection" id='titreDocument'>Documents</b></a>
+   <a id="lien_page_document" href={{lien_document}}> <b class="titreSection" id='titreDocument'>Documents</b></a>
     <p id="lib_central_document" class="lib_central"></p>
-    
 
-    <br/>
-    <br/>
-    <br/>
 <button ng-model="btn_ajout_document" id="btn_ajout_document" class="btn_ajout"  >
      {% image '@SIECoreBundle/Resources/public/images/btn_ajout.jpeg'
        %}

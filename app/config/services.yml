@@ -2,32 +2,49 @@
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
 #    parameter_name: value
-    host: "127.0.0.1"
-    login:  "root"
-    mdp:    ""
-    bdd:    "referentiel"
+    host:   192.168.0.250\SQLQUADRAN
+    login:  UserProduction
+    mdp:    password
+    bdd:    REFERENTIEL_COM
 
 services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
-    sie_central.dataManager:
+    sie_central.dataManagerMySQL:
         class:  SIE\CentralBundle\DataManager\MySql
         arguments: [%host%, %login%, %mdp%,%bdd%]
-    
-    sie_equipement.dataManager:
+
+        
+    sie_equipement.dataManagerMySQL:
          class: SIE\EquipementBundle\DataManager\MySql
          arguments: [%host%, %login%, %mdp%,%bdd%]
     
-    sie_contrat.dataManager:
+    sie_contrat.dataManagerMySQL:
          class:  SIE\ContratBundle\DataManager\MySql
          arguments: [%host%, %login%, %mdp%,%bdd%]
     
-    sie_access.dataManager:
+    sie_access.dataManagerMySQL:
          class:  SIE\AccessBundle\DataManager\MySql
          arguments: [%host%, %login%, %mdp%,%bdd%]
          
-    sie_document.dataManager:
+    sie_document.dataManagerMySQL:
          class:  SIE\DocumentBundle\DataManager\MySql
+         arguments: [%host%, %login%, %mdp%,%bdd%]
+         
+    sie_central.dataManagerSqlServeur:
+        class:  SIE\CentralBundle\DataManager\SqlServeur
+        arguments: [%host%, %login%, %mdp%,%bdd%]
+        
+    sie_equipement.dataManagerSqlServeur:
+        class:  SIE\EquipementBundle\DataManager\SqlServeur
+        arguments: [%host%, %login%, %mdp%,%bdd%]
+    
+    sie_contrat.dataManagerSqlServeur:
+         class:  SIE\ContratBundle\DataManager\SqlServeur
+         arguments: [%host%, %login%, %mdp%,%bdd%]
+    
+    sie_access.dataManagerSqlServeur:
+         class:  SIE\AccessBundle\DataManager\SqlServeur
          arguments: [%host%, %login%, %mdp%,%bdd%]
          

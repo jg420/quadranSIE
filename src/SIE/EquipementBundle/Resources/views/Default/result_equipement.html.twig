@@ -2,15 +2,10 @@
 
  {% set lien_equipement = "http://127.0.0.1/debug/sie-/web/app_dev.php/equipement" %} 
 <div id="bloc_resultat_equipement" class="bloc_resultat_details" ng-controller="result_equipement_controller">
-    <a href= {{lien_equipement }}><b class="titreSection">Equipements</b></a>
+    <a id="lien_page_equipement" href= {{lien_equipement }}><b class="titreSection">Equipements</b></a>
     <p id="lib_central_equipement" class="lib_central"></p>
     <!--Affichage
     <input id="chck_auto_refresh_equipement" type="checkbox"/>-->
-
- 
-    
-    <br/>
-    <br/>
     <!--<input id="btn_last_equipement" type="button" value="prec"/>-->
     <button ng-model="btn_ajout_equipement" id="btn_ajout_equipement" class="btn_ajout"  >
         {% image '@SIECoreBundle/Resources/public/images/btn_ajout.jpeg'

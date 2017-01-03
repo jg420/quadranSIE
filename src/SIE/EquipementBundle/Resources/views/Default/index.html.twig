@@ -19,12 +19,12 @@
     <br>
     {% for i in range(0,nbEquipement) %}
         <tr>
-            <td id="ValParam1{{i}}"><input type="text"/></td>
-            <td id="ValParam2{{i}}"><input type="text"/></td>
-            <td id="ValParam3{{i}}"><input type="text"/></td>
-            <td id="ValParam4{{i}}"><input type="text"/></td>
-            <td id="ValParam5{{i}}"><input type="text"/></td>
-            <td id="ValParam6{{i}}"><input type="text"/></td>
+            <td id="lib_equipement{{i}}"><input type="text"/></td>
+            <td id="lib_centrale{{i}}"><input type="text"/></td>
+            <td id="lib_constructeur{{i}}"><input type="text"/></td>
+            <td id="login{{i}}"><input type="text"/></td>
+            <td id="mdp{{i}}"><input type="text"/></td>
+            <td id="lien{{i}}"><input type="text"/></td>
             <td id="btnModif{{i}}"> 
                 <button id="btn_modif_equipement" class="btn_modifier"  ng-model="btn_modif_central" >
                     {% image '@SIECoreBundle/Resources/public/images/btn_modif.jpeg'

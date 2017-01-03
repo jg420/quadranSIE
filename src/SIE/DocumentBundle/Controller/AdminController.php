@@ -21,7 +21,7 @@ class AdminController extends Controller {
 
     private function setUpDataManager() {
         // On récupère le service
-        $this->dataManager = $this->container->get('sie_document.dataManager');
+        $this->dataManager = $this->container->get('sie_document.dataManagerMySQL');
     }
 
     public function add_documentAction() {

@@ -1,17 +1,14 @@
 {# SIE/CentralBundle/Resources/views/form/result_detail.html.twig #}
  {% set lien_acces = "http://127.0.0.1/debug/sie-/web/app_dev.php/acces" %} 
 <div id="bloc_resultat_access" class="bloc_resultat_details" ng-controller="access_equipement_controller">
-    <a href={{lien_acces}}><b class="titreSection" id='titreAccess'>Access</b></a>
+    <a id="lien_page_acces" href={{lien_acces}}><b class="titreSection" id='titreAccess'>Access</b></a>
     <p id="lib_central_access" class="lib_central"></p>
-    
-    <br/>
+
     <p id="lib_equipement_access" class="lib_equipement"></p>
     <p id="info_access" ></p>
     <!--Affichage
     <input id="chck_auto_refresh_access" type="checkbox"/>-->
-    <br/>
-    <br/>
-    <br/>
+   
     <button ng-model="btn_ajout_access" id="btn_ajout_access" class="btn_ajout"  >
         {% image '@SIECoreBundle/Resources/public/images/btn_ajout.jpeg'
         %}

@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// src/SIE/CentralBundle/Controller/ORMController
+// src/SIE/CentralBundle/Controller/AdminController
 
 namespace SIE\CentralBundle\Controller;
 
@@ -33,7 +33,7 @@ class AdminController extends Controller {
     
     private function setUpDataManager(){
         // On récupère le service
-          $this->dataManager = $this->container->get('sie_central.dataManager');       
+          $this->dataManager = $this->container->get('sie_central.dataManagerSqlServeur');       
     }
     public function indexAction() {
         
@@ -53,6 +53,7 @@ class AdminController extends Controller {
 
     }
 
+    //TODO ERASE
     public function showAllAction() {
         $central = new Central();
         $form = $this->createForm('SIE\CoreBundle\Form\CentralType', $central);

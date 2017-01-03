@@ -123,6 +123,66 @@ return array (
       ),
     ),
   ),
+  '3649b80' => 
+  array (
+    0 => 
+    array (
+      0 => '@SIECoreBundle/Resources/public/css/quadranStyle.css',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/css/3649b80.css',
+      'name' => '3649b80',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
+  '3eb98b1' => 
+  array (
+    0 => 
+    array (
+      0 => '@SIECentralBundle/Resources/public/js/formCentral.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/3eb98b1.js',
+      'name' => '3eb98b1',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
+  'da82b2d' => 
+  array (
+    0 => 
+    array (
+      0 => '@SIECoreBundle/Resources/public/js/front_search.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/da82b2d.js',
+      'name' => 'da82b2d',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
   'dff4dbb' => 
   array (
     0 => 
@@ -236,26 +296,6 @@ return array (
     array (
       'output' => '_controller/js/a5be7e7.js',
       'name' => 'a5be7e7',
-      'debug' => NULL,
-      'combine' => NULL,
-      'vars' => 
-      array (
-      ),
-    ),
-  ),
-  'da82b2d' => 
-  array (
-    0 => 
-    array (
-      0 => '@SIECoreBundle/Resources/public/js/front_search.js',
-    ),
-    1 => 
-    array (
-    ),
-    2 => 
-    array (
-      'output' => '_controller/js/da82b2d.js',
-      'name' => 'da82b2d',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 

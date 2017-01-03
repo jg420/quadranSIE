@@ -1,5 +1,5 @@
 <?php
-
+// src/SIE/EquipementBundle/Controller/AdminController
 namespace SIE\EquipementBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -12,7 +12,7 @@ class AdminController extends Controller
     var $dataManager;
     private function setUpDataManager(){
         // On récupère le service
-          $this->dataManager = $this->container->get('sie_equipement.dataManager');       
+          $this->dataManager = $this->container->get('sie_equipement.dataManagerMySQL');       
     }
     public function indexAction()
     {

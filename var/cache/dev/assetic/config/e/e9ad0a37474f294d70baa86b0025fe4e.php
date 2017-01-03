@@ -123,6 +123,46 @@ return array (
       ),
     ),
   ),
+  'da82b2d' => 
+  array (
+    0 => 
+    array (
+      0 => '@SIECoreBundle/Resources/public/js/front_search.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/da82b2d.js',
+      'name' => 'da82b2d',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
+  '66960f5' => 
+  array (
+    0 => 
+    array (
+      0 => '@SIECoreBundle/Resources/public/js/setUp.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/66960f5.js',
+      'name' => '66960f5',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
   'dff4dbb' => 
   array (
     0 => 
@@ -236,26 +276,6 @@ return array (
     array (
       'output' => '_controller/js/a5be7e7.js',
       'name' => 'a5be7e7',
-      'debug' => NULL,
-      'combine' => NULL,
-      'vars' => 
-      array (
-      ),
-    ),
-  ),
-  'da82b2d' => 
-  array (
-    0 => 
-    array (
-      0 => '@SIECoreBundle/Resources/public/js/front_search.js',
-    ),
-    1 => 
-    array (
-    ),
-    2 => 
-    array (
-      'output' => '_controller/js/da82b2d.js',
-      'name' => 'da82b2d',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 

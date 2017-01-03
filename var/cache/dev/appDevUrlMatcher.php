@@ -190,17 +190,30 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            if (0 === strpos($pathinfo, '/images/a935514')) {
-                // _assetic_a935514
-                if ($pathinfo === '/images/a935514.jpeg') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'a935514',  'pos' => NULL,  '_format' => 'jpeg',  '_route' => '_assetic_a935514',);
-                }
+        }
 
-                // _assetic_a935514_0
-                if ($pathinfo === '/images/a935514_btn_ajout_1.jpeg') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'a935514',  'pos' => 0,  '_format' => 'jpeg',  '_route' => '_assetic_a935514_0',);
-                }
+        if (0 === strpos($pathinfo, '/js/e4453c8')) {
+            // _assetic_e4453c8
+            if ($pathinfo === '/js/e4453c8.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'e4453c8',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_e4453c8',);
+            }
 
+            // _assetic_e4453c8_0
+            if ($pathinfo === '/js/e4453c8_front_equipement_1.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'e4453c8',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_e4453c8_0',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/images/a935514')) {
+            // _assetic_a935514
+            if ($pathinfo === '/images/a935514.jpeg') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'a935514',  'pos' => NULL,  '_format' => 'jpeg',  '_route' => '_assetic_a935514',);
+            }
+
+            // _assetic_a935514_0
+            if ($pathinfo === '/images/a935514_btn_ajout_1.jpeg') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'a935514',  'pos' => 0,  '_format' => 'jpeg',  '_route' => '_assetic_a935514_0',);
             }
 
         }
@@ -283,6 +296,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 // _assetic_584d851_0
                 if ($pathinfo === '/js/584d851_app_1.js') {
                     return array (  '_controller' => 'assetic.controller:render',  'name' => '584d851',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_584d851_0',);
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/js/66960f5')) {
+                // _assetic_66960f5
+                if ($pathinfo === '/js/66960f5.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '66960f5',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_66960f5',);
+                }
+
+                // _assetic_66960f5_0
+                if ($pathinfo === '/js/66960f5_setUp_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '66960f5',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_66960f5_0',);
                 }
 
             }

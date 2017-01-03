@@ -4,6 +4,9 @@
 
 
 {% block javascripts %}
+    {% javascripts '@SIECoreBundle/Resources/public/js/setUp.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
     {% javascripts '@SIECentralBundle/Resources/public/js/front_page.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
@@ -15,8 +18,9 @@
     <script src="{{ asset_url }}"></script>          
     {% endjavascripts %}
     {% javascripts '@SIEDocumentBundle/Resources/public/js/front_result_doc.js' %}
-    <script src="{{ asset_url }}"></script>          
+    <script src="{{ asset_url }}"></script>   
     {% endjavascripts %}
+ 
     {% javascripts '@SIEEquipementBundle/Resources/public/js/front_result_equipement.js' %}
     <script src="{{ asset_url }}"></script>          
     {% endjavascripts %}
@@ -51,7 +55,7 @@
         </tr
         <tr>
             <td>
-                {% include "SIECentralBundle:form:result.html.twig" %} 
+                {% include "SIECentralBundle:form:result_central.html.twig" %} 
             </td>
             <td>
                 {% include "SIEDocumentBundle:Default:result_document.html.twig" %} 

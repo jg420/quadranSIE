@@ -2,7 +2,7 @@
 
 //SIE/CentralBundle/DataManager/MySql.php
 
-namespace SIE\CentralBundle\DataManager;
+//namespace SIE\CentralBundle\DataManager;
 
 class MySql{
      var $mysqli;

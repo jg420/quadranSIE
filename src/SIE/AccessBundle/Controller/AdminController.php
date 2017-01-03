@@ -90,7 +90,8 @@ class AdminController extends Controller
     }
    private function setUpDataManager(){
         // On récupère le service
-          $this->dataManager = $this->container->get('sie_access.dataManager');       
+          //$this->dataManager = $this->container->get('sie_access.dataManagerMySQL');       
+          $this->dataManager = $this->container->get('sie_access.dataManagerSqlServeur');       
     }
     
     public function testAccessAction($adresse,$port){
