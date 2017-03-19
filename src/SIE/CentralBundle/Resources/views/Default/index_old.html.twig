@@ -1,0 +1,70 @@
+{# SIECentralBundle/Resources/views/index.html.twig #}
+{% include "SIECoreBundle:Default:head.html.twig" %} 
+
+
+
+{% block javascripts %}
+    {% javascripts '@SIECentralBundle/Resources/public/js/front_page.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% javascripts '@SIECentralBundle/Resources/public/js/app_search_central.js' %}
+    {#<script src="{{ asset_url }}"></script>#}
+    {% endjavascripts %}
+
+    {% javascripts '@SIEAccessBundle/Resources/public/js/front_result_equipement_access.js' %}
+    <script src="{{ asset_url }}"></script>          
+    {% endjavascripts %}
+    {% javascripts '@SIEDocumentBundle/Resources/public/js/front_result_doc.js' %}
+    <script src="{{ asset_url }}"></script>          
+    {% endjavascripts %}
+    {% javascripts '@SIEEquipementBundle/Resources/public/js/front_result_equipement.js' %}
+    <script src="{{ asset_url }}"></script>          
+    {% endjavascripts %}
+    {% javascripts '@SIECentralBundle/Resources/public/js/front_result_central.js' %}
+    <script src="{{ asset_url }}"></script>          
+    {% endjavascripts %}
+    {% javascripts '@SIECoreBundle/Resources/public/js/front_search.js' %}
+    <script src="{{ asset_url }}"></script> 
+    {% endjavascripts %}
+{% endblock %}
+<title id="titre">REFERENTIEL</title>
+{# <meta name="viewport" content="width=device-width, initial-scale=1.0"/>#}
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <!-- A CHARGER DEPUIS LA VUE PERE-
+                <li><a href="page_direction_regionales.xhtml">Directions Regionales</a></li>
+                <li><a href="page_central.xhtml">Centrales </a></li>
+                <li><a href="page_equipement.xhtml">Equipements</a></li>-->
+
+            </ul>
+        </nav>
+    </header>
+
+    <table class="table">
+        <tr>
+            <td>
+                {% include "SIECoreBundle:Default:search.html.twig" %}
+            </td>
+        </tr
+        <tr>
+            <td>
+                {% include "SIECentralBundle:form:result_central.html.twig" %} 
+            </td>
+            <td>
+                {% include "SIEDocumentBundle:Default:result_document.html.twig" %} 
+            </td>
+            <td>
+                {% include "SIEEquipementBundle:Default:result_equipement.html.twig" %} 
+            </td>
+            <td>
+                {% include "SIEAccessBundle:Default:result_access.html.twig" %} 
+            </td>
+            {#<a id="lienPDF" href="../form/formCentral.php?pdf=1">Referenciel PDF</a>#}
+        </tr>
+    </table>      
+
+</body>
+</html>

@@ -99,18 +99,16 @@ INNER JOIN DIRECTION_REGIONALES AS d ON c.id_direction = d.id_direction
        d.lib_direction as lib_direction,
        d.id_direction as id_direction,
        c.code_analytique as code_ana,
-       c.societe as societe       
+       c.societe as societe, 
+	   c.puissance      
        
  FROM CENTRAL AS c
-INNER JOIN DIRECTION_REGIONALES AS d,
-            TYPE_CENTRAL AS tc,
-            CHARGE_EXPLOITATION as cex          
+INNER JOIN DIRECTION_REGIONALES AS d ON c.id_direction = d.id_direction
+INNER JOIN TYPE_CENTRAL AS tc ON  tc.id_type_central = c.id_type_central
+INNER JOIN CHARGE_EXPLOITATION as cex ON cex.id_cex=c.id_cex          
  
 WHERE 
- tc.id_type_central = c.id_type_central
-AND c.id_direction = d.id_direction
-AND cex.id_cex=c.id_cex 
-AND c.id_central=".$id_central;
+c.id_central=".$id_central;
         //echo $request;
         $result = $this->sqlsrv->query($request);
         $return = null;
@@ -126,9 +124,10 @@ AND c.id_central=".$id_central;
                 $return[$i]['id_direction'] = $row['id_direction'];
                 $return[$i]['code_ana'] = utf8_encode($row['code_ana']);
                 $return[$i]['societe'] = utf8_encode($row['societe']);
+                $return[$i]['puissance'] = ($row['puissance']);
                 $i++;
             }
-            $result->free();
+                
         }
         $this->closeBDD();
         return $return;

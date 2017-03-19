@@ -15,7 +15,7 @@ namespace SIE\DocumentBundle\DataManager;
  */
 class SqlServeur {
 
-    var $mysqli;
+    var $sqlsrv;
     var $login;
     var $mdp;
     var $bdd;
@@ -34,27 +34,24 @@ class SqlServeur {
 
     function connectBDD() {
 
-        //$mysqli = new mysqli("127.0.0.1", "root", "", "referenciel");
-        $this->mysqli = new \mysqli($this->host, $this->login, $this->mdp, $this->bdd);
+        //$sqlsrv = new sqlsrv("127.0.0.1", "root", "", "referenciel");
+        $this->sqlsrv = new \PDO(
+                'sqlsrv:server=' . $this->host . ';Database=' . $this->bdd, $this->login, $this->mdp);
 
-        $db = $this->mysqli;
-        if ($db->connect_errno > 0) {
-            die('Unable to connect to database [' . $db->connect_error . ']');
-        }
+        $db = $this->sqlsrv;
     }
-
     function closeBDD() {
 
 
-        if (isset($this->mysqli)) {
-            $this->mysqli->close();
+        if (isset($this->sqlsrv)) {
+            $this->sqlsrv= null;
         }
     }
 
     function getAll() {
         $this->connectBDD();
         $request = "";
-        $this->mysqli->query($request);
+        $this->sqlsrv->query($request);
 
 
         $this->closeBDD();
@@ -65,7 +62,7 @@ class SqlServeur {
         $request =" SELECT * FROM CORRESPONDANCE_DOCUMENT_CENTRAL AS cdc "
                 . " INNER JOIN DOCUMENT as d ON cdc.id_document=d.id_document "
                 . " WHERE cdc.id_central=" . $id_central;
-        $result = $this->mysqli->query($request);
+        $result = $this->sqlsrv->query($request);
         //echo $request;
         $return = null;
         if ($result) {
@@ -90,12 +87,12 @@ class SqlServeur {
         $request1 = "INSERT INTO DOCUMENT (lib_document,lien_document) "
                 . "VALUES ('" . $lib_doc . "','".$path_upload_file.$lib_doc."')";
         
-        $this->mysqli->query($request1);
+        $this->sqlsrv->query($request1);
 
         $request = "SELECT id_document FROM DOCUMENT  "
                 . "WHERE lib_document LIKE '" . $lib_doc . "'";
 
-        $result = $this->mysqli->query($request);
+        $result = $this->sqlsrv->query($request);
         $return="";
         if ($result) {
             $i = 0;
@@ -114,11 +111,11 @@ class SqlServeur {
          $request1 = "UPDATE DOCUMENT SET lib_document='".$lib_doc           
                 . "' WHERE id_document=".$id_document;
                 ;
-        $this->mysqli->query($request1);
+        $this->sqlsrv->query($request1);
         
         $request = "INSERT INTO CORRESPONDANCE_DOCUMENT_CENTRAL (id_central,id_document) "
                 . "VALUES (" . $id_central. ",".$id_doc.")";
-        $this->mysqli->query($request);
+        $this->sqlsrv->query($request);
         
          $this->closeBDD();
          return $request1;

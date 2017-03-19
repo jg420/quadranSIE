@@ -21,16 +21,23 @@ class AdminController extends Controller {
 
     private function setUpDataManager() {
         // On récupère le service
-        $this->dataManager = $this->container->get('sie_document.dataManagerMySQL');
+        $this->dataManager = $this->container->get('sie_document.dataManagerSqlServeur');
     }
 
     public function add_documentAction() {
         $this->setUpDataManager();
         $request = Request::createFromGlobals();
+        
+        //recuperation du document
         $file = $request->files->get('file_document');
+        
+        //recuperation du nom du fichier
         $name = $file->getClientOriginalName();
+               
+        //recuperation de l'emplacement general de stockage fichier
         $path= $this->container->getParameter('uploaded_file_path');
-        //TODO in service 
+        
+        
         $uploaddir =  $path;
         $uploadfile = $uploaddir  .$name;
 
@@ -47,6 +54,66 @@ class AdminController extends Controller {
         );
     }
 
+    public function add_document_by_CentralAction($path_central) {
+        $this->setUpDataManager();
+        $request = Request::createFromGlobals();
+        
+        //recuperation du document
+        $file = $request->files->get('file_document');
+        
+        //recuperation du nom du fichier
+        $name = $file->getClientOriginalName();
+               
+        //recuperation de l'emplacement general de stockage fichier
+        $path= $this->container->getParameter('uploaded_file_path');
+        
+        
+        $uploaddir =  $path;
+        $uploadfile = $uploaddir  .$name;
+
+        if (move_uploaded_file($file, $uploadfile)) {
+            $return = "OK";
+        } else {
+            $return = var_dump($file);
+        }
+
+        // return new Response($return);
+
+        return new Response($this->dataManager
+                        ->ajoute_document($name)
+        );
+    }
+    
+    public function add_document_by_EquipementAction($path_central) {
+        $this->setUpDataManager();
+        $request = Request::createFromGlobals();
+        
+        //recuperation du document
+        $file = $request->files->get('file_document');
+        
+        //recuperation du nom du fichier
+        $name = $file->getClientOriginalName();
+               
+        //recuperation de l'emplacement general de stockage fichier
+        $path= $this->container->getParameter('uploaded_file_path');
+        
+        
+        $uploaddir =  $path;
+        $uploadfile = $uploaddir  .$name;
+
+        if (move_uploaded_file($file, $uploadfile)) {
+            $return = "OK";
+        } else {
+            $return = var_dump($file);
+        }
+
+        // return new Response($return);
+
+        return new Response($this->dataManager
+                        ->ajoute_document($name)
+        );
+    }
+    
     function add_document_centralAction() {
         $this->setUpDataManager();
         $request = Request::createFromGlobals();

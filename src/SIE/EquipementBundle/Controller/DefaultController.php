@@ -13,13 +13,14 @@ class DefaultController extends Controller
     var $dataManager;
     private function setUpDataManager(){
         // On récupère le service
-          $this->dataManager = $this->container->get('sie_equipement.dataManager');       
+          $this->dataManager = $this->container->get('sie_equipement.dataManagerSqlServeur');       
     }
     public function indexAction()
     {
         
         //return new Response($this->renvoiNbEquipement());
-        return $this->render('SIEEquipementBundle:Default:index.html.twig',array('nbEquipement'=>$this->renvoiNbEquipement()));
+        return $this->render('SIEEquipementBundle:Default:index.html.twig',
+                array('nbEquipement'=>$this->renvoiNbEquipement()));
     }
   
     private function renvoiNbEquipement()
@@ -43,9 +44,17 @@ class DefaultController extends Controller
         $this->setUpDataManager();        
         return new JsonResponse($this->dataManager->getEquipement($id_equipement));
     }
+    public function getAllConstructeurAction( ){
+        $this->setUpDataManager();        
+        return new JsonResponse($this->dataManager->getConstructeur());
+    }
+    public function getTypeAction( ){
+        $this->setUpDataManager();        
+        return new JsonResponse($this->dataManager->getType());
+    }
     
-    public function delEquipementAction( ){}
-    
+   /*  public function delEquipementAction( ){}
+   
     public function updateEquipementAction( ){
         $this->setUpDataManager();       
         $request = Request::createFromGlobals();
@@ -93,5 +102,6 @@ class DefaultController extends Controller
                        $type_equipement
                        ));
     }
+    */
     
 }

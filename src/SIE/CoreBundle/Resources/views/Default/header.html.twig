@@ -1,0 +1,63 @@
+
+{% set path_equipement=app.request.scheme ~'://' ~ app.request.httpHost~"/web/app_dev.php/equipement"%}
+{% set path_central=app.request.scheme ~'://' ~ app.request.httpHost~"/web/app_dev.php/central"%}
+{% set path_acceuil=app.request.scheme ~'://' ~ app.request.httpHost~"/web/app_dev.php/"%}
+{% set path_acces=app.request.scheme ~'://' ~ app.request.httpHost~"/web/app_dev.php/access"%}
+ 
+ 
+{% block javascripts %}
+    {% javascripts '@SIECoreBundle/Resources/public/js/setUp.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% javascripts '@SIECentralBundle/Resources/public/js/front_page.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% javascripts '@SIECentralBundle/Resources/public/js/front_result_central.js' %}
+    {#<script src="{{ asset_url }}"></script>#}
+    {% endjavascripts %}
+
+ 
+    {% javascripts '@SIEDocumentBundle/Resources/public/js/front_result_doc.js' %}
+    <script src="{{ asset_url }}"></script>   
+    {% endjavascripts %}
+ 
+    {% javascripts '@SIEEquipementBundle/Resources/public/js/front_result_equipement.js' %}
+    <script src="{{ asset_url }}"></script>          
+    {% endjavascripts %}
+    {% javascripts '@SIECentralBundle/Resources/public/js/front_result_central.js' %}
+    <script src="{{ asset_url }}"></script>          
+    {% endjavascripts %}
+    {% javascripts '@SIECoreBundle/Resources/public/js/front_search.js' %}
+    <script src="{{ asset_url }}"></script> 
+    {% endjavascripts %}
+       {% javascripts '@SIEAccessBundle/Resources/public/js/front_result_equipement_access.js' %}
+    <script src="{{ asset_url }}"></script>          
+    {% endjavascripts %}
+{% endblock %}
+<title id="titre">REFERENTIEL</title>
+{# <meta name="viewport" content="width=device-width, initial-scale=1.0"/>#}
+ <header>
+        
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+       
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href={{ path_acceuil}}>Réferenciel SIE</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <!--<li id="lien_menu_acceuil"><a href="">Acceuil</a></li>-->
+                <li id="lien_menu_central"><a href={{ path_central}}>Centrales</a></li>
+            <li id="lien_menu_equipement"  ><a href={{ path_equipement}}>Equipements</a></li>
+            <li id="lien_menu_equipement"  ><a href={{ path_acces}}>Acces</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+     
+    </nav>
+    </header>
+</head>

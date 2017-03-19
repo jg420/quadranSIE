@@ -7,7 +7,7 @@ sie_equipement_homepage:
 
 get_all_cons:
     path:     /getAllConstructeur
-    defaults: { _controller: "SIEEquipementBundle:Default:getConstructeurs" }
+    defaults: { _controller: "SIEEquipementBundle:Default:getAllConstructeur" }
     methods:  [GET]
     
 get_all_type:
@@ -22,12 +22,23 @@ sie_get_equipements:
 get_equipement:
     path:     /getEquipement/{id_equipement}
     defaults: { _controller: "SIEEquipementBundle:Admin:getEquipement" }
+
+get_equipement_etendu:
+    path:    /getDetailEquipement/{id_equipement}
+    defaults: { _controller: "SIEEquipementBundle:Admin:getDetailEquipement" }
     
 get_all_equipement:
     path:   /getAll
     defaults: { _controller: "SIEEquipementBundle:Admin:getAll" }
-
-
+   
+get_all_access:
+    path:   /getAccess/{id_equipement}
+    defaults: { _controller: "SIEEquipementBundle:Default:getAccess" }
+    
+get_all_equipement_etendue:
+    path:   /getAllEtendue
+    defaults: { _controller: "SIEEquipementBundle:Admin:getAllEtendue" }
+    
 add_equipement:
     path:     /addEquipement
     defaults: { _controller: "SIEEquipementBundle:Admin:addEquipement" }

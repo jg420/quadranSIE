@@ -1,0 +1,276 @@
+/* 
+ * Copyright (C) 2016 g.juillerot
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+var pathEquipement = hostPath_dev + "equipement/";
+
+var pathEquipements = hostPath_dev + "equipement/";
+
+var equipements = [];
+
+equipements['lib_centrale'] = [];
+equipements['id_equipement'] = [];  //id_equipement
+equipements['lib_equipement'] = [];  //lib_equipement
+equipements['id_constructeur'] = [];  //id_constructeur
+equipements['lib_constructeur'] = [];  //lib_constructeur
+equipements['id_type'] = [];  //id_type
+equipements['lib_type'] = [];  //lib_type
+equipements['id_version'] = [];  //id_version
+equipements['version'] = [];  //version
+equipements['num serie'] = [];     //num serie
+equipements['mac_adresse'] = [];
+equipements['adresse_ip'] = [];
+equipements['port'] = [];
+equipements['protocol'] = [];
+equipements['login'] = [];
+equipements['mdp'] = [];
+
+
+
+var constructeurs = [];
+equipements['id_constructeur'] = [];    //id_constructeur
+equipements['lib_constructeur'] = [];    //lib_constructeur
+
+var typeEquipement = [];
+typeEquipement[0] = [];
+typeEquipement[1] = [];
+
+var acces = [];
+acces['idAcces'] = [];
+acces['libAcces'] = [];
+
+
+var id_equipement = "";  //equipement en cours
+
+var newEquipement = false;
+
+$(document).ready(function () {
+
+
+    fe_chargeParametreInitial();
+    fe_chargeToutLesEquipements();
+    fe_afficheToutLesEquipements();
+
+
+
+    $('#lien_menu_equipement').attr("class", "active");
+
+    $('#btn_modif_equipement').click(function () {
+        if (id_central !== "") {
+            fre_active_input();
+            fre_afficheBtnValidAnnulle();
+            fre_loadConstructeur();
+            fre_displayConstructeur();
+            fre_loadType();
+            fre_displayType();
+
+        } else {
+
+            alert(msgNoCentral);
+        }
+    });
+
+    $('#btn_valid_modif_equipement').click(function () {
+
+        if (id_central !== "" & fre_formulaire_est_valide()) {
+            //validation de la modification
+
+            if (newEquipement) {
+                fre_addEquipement()
+            } else {
+                fre_modifEquipement();
+            }
+        } else {
+
+            alert("Saisie non valide");
+
+        }
+        fre_desactive_input();
+        fre_cacheBtnValidAnnulle();
+    });
+
+    $('#btn_annuler_modif_equipement').click(function () {
+
+
+        //UI
+        $('#btn_valid_modif_equipement').attr('style', 'visibility:hidden');
+        $('#btn_annuler_modif_equipement').attr('style', 'visibility:hidden');
+
+        $('#lib_equipement').attr('disabled', 'disabled');
+        $('#mac_equipement').attr('disabled', 'disabled');
+        $('#version_equipement').attr('disabled', 'disabled');
+        fre_displayEquipementByIdEquipement(id_equipement);
+
+    });
+
+
+});
+
+
+function fe_chargeParametreInitial() {
+    $('#lien_page_equipement').attr('href', pathEquipements);
+}
+;
+
+function fe_chargeToutLesEquipements() {
+    $.ajax({
+        method: 'GET',
+        async: false,
+        url: pathEquipements + 'getAllEtendue',
+        //  data: {'id_central':id_central},
+        dataType: 'json', // on veut un retour JSON
+        success: function (json) {
+            var i = 0;
+
+            $.each(json, function (index, value) { // pour chaque noeud JSON
+                equipements['id_equipement'][index] = value.id_equipement;
+                equipements['lib_equipement'][index] = value.lib_equipement;
+                ;
+                equipements['lib_centrale'][index] = value.lib_central;
+                equipements['id_constructeur'][index] = value.id_constructeur;
+                equipements['lib_constructeur'][index] = value.lib_constructeur;
+                //equipements['id_type'][index]=value.id_type;
+                //equipements['lib_type'][index]=value.lib_type;
+
+                //fe_chercheEtChargeAccessEquipement(value.id_equipement);
+
+
+                i++;
+            });
+        },
+        error: function () {
+        }
+    });
+}
+;
+
+function fe_chercheEtChargeAccessEquipement(i) {
+
+
+    $.ajax({
+        method: 'GET',
+        async: false,
+        url: pathEquipements + 'getAllEtendue',
+        dataType: 'json', // on veut un retour JSON
+        success: function (json) {
+            var i = 0;
+
+            $.each(json, function (index, value) { // pour chaque noeud JSON
+                equipements['adresse_ip'][index] = value.adresse_ip;
+                equipements['login'][index] = value.login;
+                equipements['mdp'][index] = value.password;
+                i++;
+            });
+        },
+        error: function () {
+        }
+    });
+}
+;
+function fe_afficheToutLesEquipements() {
+    //$('#lib_equipement1').val(equipements['lib_equipement'[i]]);
+
+    for (var i = 0; i < equipements['lib_equipement'].length; i++) {
+        var libEquipement = '#lib_equipement' + i;
+        //  $('t:nth-child('+i+')').append("equipements['lib_equipement']");
+        $(libEquipement).append(equipements['lib_equipement'][i]);
+
+        /*var id_constructeur='#id_constructeur'+i;
+         $(id_constructeur).val(equipements['id_constructeur'][i]);*/
+
+        var libConstructeur = '#lib_constructeur' + i;
+        //$(libConstructeur).val('fff');
+        $(libConstructeur).append(
+                //$(libConstructeur).append("<option id=" + equipements['id_constructeur'][i] + ">" +
+                equipements['lib_constructeur'][i]
+                );
+
+        /* var libCentrale = '#lib_centrale' + i;
+         $(libCentrale).val(
+         equipements['lib_centrale'][i]);
+         
+         var id_type='#id_type'+i;
+         $(id_type).val(equipements['id_type'][i]);
+         
+         var lib_type='#lib_type'+i;
+         $(lib_type).val(equipements['lib_type']);
+         
+         var id_version='#id_version'+i;
+         $(id_version).val(equipements['id_version']);
+         
+         var lien_access='#lien_access'+i;
+         $(lien_access).val(equipements['adresse_ip'][i]);
+         */
+        var login = '#login' + i;
+        $(login).val(equipements['login'][i]);
+
+        var mdp = '#password' + i;
+        $(mdp).val(equipements['mdp'][i]);
+
+        var ip = '#ip' + i;
+        $(ip).val(equipements['adresse_ip'][i]);
+
+        var protocol = '#protocol' + i;
+        $(protocol).val(equipements['protocol'][i]);
+    }
+
+}
+
+function fe_modifieEquipement() {
+
+}
+
+function fe_select(i) {
+    //j efface l'anciene selection graphique
+    $('.list-group-item').attr("class", "list-group-item list-group-item-action flex-column align-items-start");
+
+
+    var v = '#lien_equipement' + i;
+    var attribut = "list-group-item list-group-item-action flex-column align-items-start active"
+    $(v).attr("class", attribut);
+
+
+
+}
+
+function fe_css_select_details_equipement() {
+   /* $('#menu_details').attr("class", "active");
+    $('#menu_acces').attr("class", "");
+    $('#menu_config').attr("class", "");*/
+    
+    $('#config_equipement').attr("class", "tab-pane fade");
+    $('#acces_equipement').attr("class", "tab-pane fade");
+    $('#details_equipement').attr("class", "tab-pane fade in active");
+}
+function fe_css_select_acces_equipement() {
+    /*$('#menu_details').attr("class", "");
+    $('#menu_acces').attr("class", "active");
+    //$('#menu_config').attr("class", "");*/
+    
+    $('#config_equipement').attr("class", "tab-pane fade");
+    $('#acces_equipement').attr("class", "tab-pane fade in active");
+    $('#details_equipement').attr("class", "tab-pane fade");
+     
+}
+function fe_css_select_config_equipement() {
+    /*$('#menu_details').attr("class", "");
+    $('#menu_acces').attr("class", "none");
+    $('#menu_config').attr("class", "active");*/
+     
+    $('#config_equipement').attr("class", "tab-pane fade in active");
+    $('#acces_equipement').attr("class", "tab-pane fade");
+    $('#details_equipement').attr("class", "tab-pane fade");
+}

@@ -47,7 +47,7 @@
     </button> 
     #}
     <br/>
-    <button ng-model="btn_valid_modif_equipement" id="btn_valid_modif_equipement"  class="btn_suivant"  value="valider" style="visibility: hidden">
+    <button id="btn_valid_modif_equipement"  class="btn_suivant"  value="valider" style="visibility: hidden">
         {% image '@SIECoreBundle/Resources/public/images/btn_valider.jpeg'
         %}
         <img class="img-background-button"   src="{{ asset_url }}"  alt="valider"/>
@@ -55,7 +55,7 @@
     </button>
 
 
-    <button ng-model="btn_annuler_modif_equipement" id="btn_annuler_modif_equipement" class="btn_annuler" style="visibility: hidden">
+    <button   id="btn_annuler_modif_equipement" class="btn_annuler" style="visibility: hidden">
         {% image '@SIECoreBundle/Resources/public/images/btn_annuler.jpeg'
         %}
         <img class="img-background-button"   src="{{ asset_url }}"  alt="annuler"/>
@@ -70,25 +70,25 @@
 
     <b>Equipement :</b>
     <br/>                     
-    <select ng-model="equipement" id="select_equipement"   >
+    <select  id="select_equipement"   >
     </select>
     <br/>
     <br/>
     <br/>
     <b>Constructeur :</b>
     <br/>
-    <select ng-model="constructeur" id="constructeur" disabled='disabled' >
+    <select   id="constructeur" disabled='disabled' >
     </select>
 
     <br/>
     <b>Type :</b>
     </br>
-    <select disabled="disabled" id="type_equipement">
+    <select id="type_equipement" disabled="disabled" >
     </select>
      </br>       
     <b>Nom : </b>
     <br/>
-    <input ng-model="lib_equipement" id="lib_equipement" type="text" disabled='disabled'>
+    <input  id="lib_equipement" type="text" disabled='disabled'>
     <br/>
     {#
     <b>adresse mac : </b><br/>
@@ -96,11 +96,11 @@
     <br/>#}
 
     <b>Version : </b><br/>
-    <input ng-model="version_equipement" id="version_equipement" type="text" disabled='disabled'>
+    <input  id="version_equipement" type="text" disabled='disabled'>
     <br/>
     
     <b>Numéro de série : </b><br/>
-    <input ng-model="num_serie_equipement" id="num_serie_equipement" type="text" disabled='disabled'>
+    <input   id="num_serie_equipement" type="text" disabled='disabled'>
     <br/>
 
     <input id="id_equipement" type="hidden"/>

@@ -43,26 +43,6 @@ return array (
       ),
     ),
   ),
-  'd4574a7' => 
-  array (
-    0 => 
-    array (
-      0 => '@SIECoreBundle/Resources/public/js/angular.js',
-    ),
-    1 => 
-    array (
-    ),
-    2 => 
-    array (
-      'output' => '_controller/js/d4574a7.js',
-      'name' => 'd4574a7',
-      'debug' => NULL,
-      'combine' => NULL,
-      'vars' => 
-      array (
-      ),
-    ),
-  ),
   'a750637' => 
   array (
     0 => 
@@ -96,26 +76,6 @@ return array (
     array (
       'output' => '_controller/js/2994d72.js',
       'name' => '2994d72',
-      'debug' => NULL,
-      'combine' => NULL,
-      'vars' => 
-      array (
-      ),
-    ),
-  ),
-  '584d851' => 
-  array (
-    0 => 
-    array (
-      0 => '@SIECoreBundle/Resources/public/js/app.js',
-    ),
-    1 => 
-    array (
-    ),
-    2 => 
-    array (
-      'output' => '_controller/js/584d851.js',
-      'name' => '584d851',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 

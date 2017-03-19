@@ -56,11 +56,25 @@ class SqlServeur {
 
     function getAll() {
         $this->connectBDD();
-        $request = "";
-        $this->sqlsrv->query($request);
+        $request = "SELECT * FROM ACCESS";
+       $result = $this->sqlsrv->query($request);
+        $return = null;
+        if ($result) {
+            $i = 0;
+            while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
+                $return[$i]['lib_access'] = $row['lib_access'];
+                $return[$i]['id_access'] = $row['id_access'];
+                $return[$i]['n_port'] = $row['n_port'];
+                $return[$i]['login'] = $row['login'];
+                $return[$i]['password'] = $row['password'];
+                $return[$i]['id_adresse'] = $row['id_adresse_ip_equipement'];
 
+                $i++;
+            }
+        }
 
         $this->closeBDD();
+        return $return;
     }
 
     function getAccess($id_access) {

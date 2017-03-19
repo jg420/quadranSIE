@@ -1,0 +1,58 @@
+{# SIEAccessBundle/Resources/views/form/apercu_equipement.html.twig #}
+<div class="panel panel-default" id="apercu" >
+    <div class="panel-heading"> <!-- panel heading -->
+
+        <h3 class="panel-title" id="n_apercu"> Apercu </h3> <!-- panel title -->
+    </div>
+    <div class="panel-body"  > 
+        <button   id="btn_ajout_apercu_equipement" class="btn_ajout" style=" float: right;"  >
+            {% image '@SIECoreBundle/Resources/public/images/btn_ajout.jpeg'%}
+            <img  class="img-background-button"    src="{{ asset_url }}"  alt="AJout"/>
+            {% endimage %}
+        </button>
+ 
+
+             
+            <div id="titre_nouvelle_apercu" style="visibility: hidden">nouvel apercu</div>
+            <input  type="text" disabled="true" id="lib_apercu" style="visibility: hidden"  >  
+             <button id="btn_parcourir_apercu" style="visibility: hidden"  >Parcourir</button>
+                <button  id="btn_valid_ajout_apercu" class="btn_valider"    style="visibility: hidden">
+                    {% image '@SIECoreBundle/Resources/public/images/btn_valider.jpeg'%}
+                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                    {% endimage %}
+                </button> 
+                <button  id="btn_annule_ajout_apercu" class="btn_annuler"  style="visibility: hidden"  >
+                    {% image '@SIECoreBundle/Resources/public/images/btn_annuler.jpeg'%}
+
+                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                    {% endimage %}
+                </button> 
+ 
+        <div class="panel-body" id="preview_file">
+            PREVIEW
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+    <div id="nav_apercu" class="panel-footer clearfix"> 
+          
+         
+       
+        <button   id="btn_next_apercu_equipement" class="btn_suivant" style="float: right;"  >
+            {% image '@SIECoreBundle/Resources/public/images/droite.jpeg'%}
+            <img  class="img-background-button"    src="{{ asset_url }}"  alt="AJout"/>
+            {% endimage %}
+        </button>
+       
+        <button   id="btn_last_apercu_equipement" class="btn_precedent" style="float: left;"  >
+            {% image '@SIECoreBundle/Resources/public/images/btn_gauche.jpeg'%}
+            <img  class="img-background-button"    src="{{ asset_url }}"  alt="AJout"/>
+            {% endimage %}
+        </button>
+    </div>

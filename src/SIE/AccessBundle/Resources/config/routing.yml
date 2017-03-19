@@ -1,6 +1,6 @@
 sie_access_homepage:
     path:     /
-    defaults: { _controller: SIEAccessBundle:Default:index }
+    defaults: { _controller: SIEAccessBundle:Admin:index }
 get_access:
     path:     /getAccess/{id_access}/
     defaults: { _controller: "SIEAccessBundle:Admin:getAccess" }

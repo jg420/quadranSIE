@@ -142,4 +142,44 @@ return array (
       ),
     ),
   ),
+  '66960f5' => 
+  array (
+    0 => 
+    array (
+      0 => '@SIECoreBundle/Resources/public/js/setUp.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/66960f5.js',
+      'name' => '66960f5',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
+  '4158b03' => 
+  array (
+    0 => 
+    array (
+      0 => '@SIECentralBundle/Resources/public/js/front_centrale.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/4158b03.js',
+      'name' => '4158b03',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
 );

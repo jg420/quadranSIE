@@ -1,70 +1,94 @@
-{# SIECentralBundle/Resources/views/index.html.twig #}
-{% include "SIECoreBundle:Default:head.html.twig" %} 
+{# SIECentralBundle/Resources/views/form/index.html.twig #}
 
-
-
+{% include "SIECoreBundle:Default:head_sous_menu.html.twig" %} 
+{# include "SIEEquipementBundle:Default:search_equipement.html.twig" #} 
 {% block javascripts %}
-    {% javascripts '@SIECentralBundle/Resources/public/js/front_page.js' %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    {% javascripts '@SIECentralBundle/Resources/public/js/app_search_central.js' %}
-    {#<script src="{{ asset_url }}"></script>#}
-    {% endjavascripts %}
-
-    {% javascripts '@SIEAccessBundle/Resources/public/js/front_result_equipement_access.js' %}
+    {% javascripts '@SIECoreBundle/Resources/public/js/setUp.js' %}
     <script src="{{ asset_url }}"></script>          
     {% endjavascripts %}
-    {% javascripts '@SIEDocumentBundle/Resources/public/js/front_result_doc.js' %}
+    {% javascripts '@SIECentralBundle/Resources/public/js/front_centrale.js' %}
     <script src="{{ asset_url }}"></script>          
-    {% endjavascripts %}
-    {% javascripts '@SIEEquipementBundle/Resources/public/js/front_result_equipement.js' %}
-    <script src="{{ asset_url }}"></script>          
-    {% endjavascripts %}
-    {% javascripts '@SIECentralBundle/Resources/public/js/front_result_central.js' %}
-    <script src="{{ asset_url }}"></script>          
-    {% endjavascripts %}
-    {% javascripts '@SIECoreBundle/Resources/public/js/front_search.js' %}
-    <script src="{{ asset_url }}"></script> 
     {% endjavascripts %}
 {% endblock %}
-<title id="titre">REFERENTIEL</title>
-{# <meta name="viewport" content="width=device-width, initial-scale=1.0"/>#}
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <!-- A CHARGER DEPUIS LA VUE PERE-
-                <li><a href="page_direction_regionales.xhtml">Directions Regionales</a></li>
-                <li><a href="page_central.xhtml">Centrales </a></li>
-                <li><a href="page_equipement.xhtml">Equipements</a></li>-->
+<title id="titre">Centrales</title>
+<body data-spy="scroll" data-target="#detail_central" data-target="#apercu_central" >
+    <!-- <body data-spy="scroll" data-target=".panel-body" data-offset="15">-->
 
-            </ul>
-        </nav>
-    </header>
+    <div class="container ">
+         
+            <div class="col-md-1">
+                <div  id="detail_centrale"   class="panel-fixed affix"  >
+                    <!--  <div  id="detail_equipement"   class="sidebar-nav-fixed  affix"  >
+                         Default panel contents -->
+                    <table><tr><td>
+                    <div class="panel-body">   
+                        {% include "SIECentralBundle:Default:apercu_central.html.twig" %} 
 
-    <table >
-        <tr>
-            <td>
-                {% include "SIECoreBundle:Default:search.html.twig" %}
-            </td>
-        </tr
-        <tr>
-            <td>
-                {% include "SIECentralBundle:form:result_central.html.twig" %} 
-            </td>
-            <td>
-                {% include "SIEDocumentBundle:Default:result_document.html.twig" %} 
-            </td>
-            <td>
-                {% include "SIEEquipementBundle:Default:result_equipement.html.twig" %} 
-            </td>
-            <td>
-                {% include "SIEAccessBundle:Default:result_access.html.twig" %} 
-            </td>
-            {#<a id="lienPDF" href="../form/formCentral.php?pdf=1">Referenciel PDF</a>#}
-        </tr>
-    </table>      
+                    </div>
+                    </td><td>    
+                    <div class="panel-body">   
+                        {% include "SIECentralBundle:Default:detail_central.html.twig" %} 
 
+                    </div></td></tr></table>
+                        
+                </div>
+            </div>
+       
+                        <div  >
+                <!-- <table id="table_equipement"   class="table">
+                    <thead sidebar-nav-fixed  affix>  
+                        <tr>
+                            <th id="KeyParam1">Nom</th>
+                            <th id="KeyParam2">Centrale</th>
+                            <th id="KeyParam3">Constructeur</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        Row 1 -->
+
+                {% set nb = nbCentral + 0 %} {#nbEquipement est envoyé au template via le controlleur #}
+               
+                <div  id="list_principale"  >
+                    {% for i in range(0,nbCentral) %}
+                        <!--<tr>-->
+                        <a onclick="fc_select({{i}});" href="#" id='lien_central{{i}}' class="list-group-item list-group-item-action flex-column align-items-start ">
+                            <!-- <div class="d-flex w-100 justify-content-between"> -->
+                            <h5 class="mb-1"><div id="lib_central{{i}}"></div>
+                               
+                            </h5>  <small id="lib_dr{{i}}"></small>
+                          <!-- <small>lib_centrale{{i}}</small>
+                          
+                        <p class="mb-1"><small>lib_constructeur{{i}}</small> -->
+                        </a>
+                        <!-- </tr>
+                                                <tr id="selectEquipement{{i}}"  > 
+                                                     
+                                                     <td ><input type="text" id="lib_equipement{{i}}"  disabled="disabled"/></td>
+                                                     <td ><input type="text"  size="9" id="lib_centrale{{i}}" disabled="true"></td>
+                                                     <td ><select  class="selectpicker" id="lib_constructeur{{i}}"  disabled="true"></select></td>
+                         
+                                                 </tr>    
+                                                  
+                         
+                         
+                        -->
+                    {% endfor%}
+
+                </div>
+                <!--  </tbody>
+
+
+                </td> 
+
+            </table> -->  
+            </div>
+
+
+
+
+
+        
+                    </div>
 </body>
 </html>

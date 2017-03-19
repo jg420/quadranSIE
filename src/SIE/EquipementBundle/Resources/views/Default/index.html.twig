@@ -1,57 +1,94 @@
+{# SIEEquipementBundle/Resources/views/form/index.html.twig #}
 
 {% include "SIECoreBundle:Default:head.html.twig" %} 
-{% include "SIEEquipementBundle:Default:search_equipement.html.twig" %} 
-   {% javascripts '@SIEEquipementBundle/Resources/public/js/front_equipement.js' %}
+{# include "SIEEquipementBundle:Default:search_equipement.html.twig" #} 
+{% block javascripts %}
+    {% javascripts '@SIECoreBundle/Resources/public/js/setUp.js' %}
     <script src="{{ asset_url }}"></script>          
     {% endjavascripts %}
+    {% javascripts '@SIEEquipementBundle/Resources/public/js/front_equipement.js' %}
+    <script src="{{ asset_url }}"></script>          
+    {% endjavascripts %}
+{% endblock %}
 <title id="titre">EQUIPEMENTS</title>
-<body>
+<body data-spy="scroll" data-target="#detail_equipement" data-target="#apercu_equipement" >
+    <!-- <body data-spy="scroll" data-target=".panel-body" data-offset="15">-->
 
-<table id="table_equipement">
-    <th id="KeyParam1">Nom</th>
-    <th id="KeyParam2">Centrale</th>
-    <th id="KeyParam3">Constructeur</th>
-    <th id="KeyParam4">Login</th>
-    <th id="KeyParam5">Mot de passe</th>
-    <th id="KeyParam6">Lien</th>
-        {% set nb = nbEquipement + 0 %} {#nbEquipement est envoyé au template via le controlleur #}
-    <br>
-    <br>
-    {% for i in range(0,nbEquipement) %}
-        <tr>
-            <td id="lib_equipement{{i}}"><input type="text"/></td>
-            <td id="lib_centrale{{i}}"><input type="text"/></td>
-            <td id="lib_constructeur{{i}}"><input type="text"/></td>
-            <td id="login{{i}}"><input type="text"/></td>
-            <td id="mdp{{i}}"><input type="text"/></td>
-            <td id="lien{{i}}"><input type="text"/></td>
-            <td id="btnModif{{i}}"> 
-                <button id="btn_modif_equipement" class="btn_modifier"  ng-model="btn_modif_central" >
-                    {% image '@SIECoreBundle/Resources/public/images/btn_modif.jpeg'
-                    %}
-                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
-                    {% endimage %}
-                </button>
-            </td>
-            <td id="btnValid{{i}}"> 
-                <button id="btn_valid_modif_equipement"  class="btn_valider"   value="valider" style="visibility: hidden">
-                    {% image '@SIECoreBundle/Resources/public/images/btn_valider.jpeg'
-                    %}
-                    <img class="img-background-button"   src="{{ asset_url }}"  alt="valider"/>
-                    {% endimage %}
-                </button>
-            </td>
-            <td id="btnAnnuler{{i}}"> 
-                <button ng-model="btn_annuler_modif_equipement" id="btn_annuler_equipement" class="btn_annuler" style="visibility: hidden">
-                    {% image '@SIECoreBundle/Resources/public/images/btn_annuler.jpeg'
-                    %}
-                    <img class="img-background-button"   src="{{ asset_url }}"  alt="annuler"/>
-                    {% endimage %}    
-                </button>
-            </td>
+    <div class="container ">
+         
+            <div class="col-md-1">
+                <div  id="detail_equipement"   class="panel-fixed affix"  >
+                    <!--  <div  id="detail_equipement"   class="sidebar-nav-fixed  affix"  >
+                         Default panel contents -->
+                    <table><tr><td>
+                    <div class="panel-body">   
+                        {% include "SIEEquipementBundle:Default:apercu_equipement.html.twig" %} 
+                  
+                    </div>
+                    </td><td>    
+                    <div class="panel-body">   
+                        {% include "SIEEquipementBundle:Default:detail_equipement.html.twig" %} 
 
-        </tr>
-    {% endfor%}    
-</table>
+                    </div></td></tr></table>
+                        
+                </div>
+            </div>
+       
+                        <div  >
+                <!-- <table id="table_equipement"   class="table">
+                    <thead sidebar-nav-fixed  affix>  
+                        <tr>
+                            <th id="KeyParam1">Nom</th>
+                            <th id="KeyParam2">Centrale</th>
+                            <th id="KeyParam3">Constructeur</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        Row 1 -->
+
+                {% set nb = nbEquipement + 0 %} {#nbEquipement est envoyé au template via le controlleur #}
+               
+                <div  id="list_principale"  >
+                    {% for i in range(0,nbEquipement) %}
+                        <!--<tr>-->
+                        <a onclick="fe_select({{i}});" href="#" val="0" id='lien_equipement{{i}}' class="list-group-item list-group-item-action flex-column align-items-start ">
+                            <!-- <div class="d-flex w-100 justify-content-between"> -->
+                            <h5 class="mb-1"><div id="lib_equipement{{i}}"></div>
+                               
+                            </h5>  <small id="lib_constructeur{{i}}"></small>
+                          <!-- <small>lib_centrale{{i}}</small>
+                          
+                        <p class="mb-1"><small>lib_constructeur{{i}}</small> -->
+                        </a>
+                        <!-- </tr>
+                                                <tr id="selectEquipement{{i}}"  > 
+                                                     
+                                                     <td ><input type="text" id="lib_equipement{{i}}"  disabled="disabled"/></td>
+                                                     <td ><input type="text"  size="9" id="lib_centrale{{i}}" disabled="true"></td>
+                                                     <td ><select  class="selectpicker" id="lib_constructeur{{i}}"  disabled="true"></select></td>
+                         
+                                                 </tr>    
+                                                  
+                         
+                         
+                        -->
+                    {% endfor%}
+
+                </div>
+                <!--  </tbody>
+
+
+                </td> 
+
+            </table> -->  
+            </div>
+
+
+
+
+
+        
+                    </div>
 </body>
 </html>

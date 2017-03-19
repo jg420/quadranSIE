@@ -12,28 +12,37 @@ class AdminController extends Controller
     var $dataManager;
     private function setUpDataManager(){
         // On récupère le service
-          $this->dataManager = $this->container->get('sie_equipement.dataManagerMySQL');       
+          $this->dataManager = $this->container->get('sie_equipement.dataManagerSqlServeur');       
     }
-    public function indexAction()
+     public function indexAction()
     {
         
-        return Response($this->renvoiNbEquipement());
-        //return $this->render('SIEEquipementBundle:Default:index.html.twig',array('nbEquipement'=>$this->renvoiNbEquipement()));
+        //return new Response($this->renvoiNbEquipement());
+        return $this->render('SIEEquipementBundle:Default:index.html.twig',
+                array('nbAcces'=>$this->renvoiNbEquipement()));
     }
   
     private function renvoiNbEquipement()
     {
         $this->setUpDataManager();
-        $nb=5;
-        return "--ss-";
-        //return '--'.sizeof($this->dataManager->getAll()[0].'--');
+        return sizeof($this->dataManager->getAll());
     }
     
+   
     
     public function getAllAction(){
          $this->setUpDataManager(); 
          return(new JsonResponse($this->dataManager->getAll()));
-         
+           
+    }
+    public function getAccess(){
+        $this->setUpDataManager(); 
+        return (new JsonResponse($this->dataManager->getAccess()));
+    }
+    public function getAllEtendueAction(){
+         $this->setUpDataManager(); 
+    return(new JsonResponse($this->dataManager->getAllEtendue()));  
+    
     }
     public function getEquipementsByIdCentralAction($id_central){
        $this->setUpDataManager();        
@@ -43,6 +52,10 @@ class AdminController extends Controller
    public function getEquipementAction($id_equipement){
         $this->setUpDataManager();        
         return new JsonResponse($this->dataManager->getEquipement($id_equipement));
+    }
+     public function getDetailEquipementAction($id_equipement){
+        $this->setUpDataManager();        
+        return new JsonResponse($this->dataManager->getDetailEquipement($id_equipement));
     }
     
     public function delEquipementAction( ){}

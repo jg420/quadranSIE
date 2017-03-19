@@ -15,8 +15,8 @@ class __TwigTemplate_d49875340ddb2f6abcd9b080e7f02b9c13d6c598c99a9baae0f53b88764
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_13ac6d8eff32ffb25acbeda5c4b1c6168a1b0309e8afd940d6312260bfd52c9e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_13ac6d8eff32ffb25acbeda5c4b1c6168a1b0309e8afd940d6312260bfd52c9e->enter($__internal_13ac6d8eff32ffb25acbeda5c4b1c6168a1b0309e8afd940d6312260bfd52c9e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIEEquipementBundle:Default:result_equipement.html.twig"));
+        $__internal_833b967a3b7f1013528cf216f4dce8c3b87e31682886b656190093f886a9a853 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_833b967a3b7f1013528cf216f4dce8c3b87e31682886b656190093f886a9a853->enter($__internal_833b967a3b7f1013528cf216f4dce8c3b87e31682886b656190093f886a9a853_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIEEquipementBundle:Default:result_equipement.html.twig"));
 
         // line 2
         echo "
@@ -88,7 +88,7 @@ class __TwigTemplate_d49875340ddb2f6abcd9b080e7f02b9c13d6c598c99a9baae0f53b88764
     ";
         // line 49
         echo "    <br/>
-    <button ng-model=\"btn_valid_modif_equipement\" id=\"btn_valid_modif_equipement\"  class=\"btn_suivant\"  value=\"valider\" style=\"visibility: hidden\">
+    <button id=\"btn_valid_modif_equipement\"  class=\"btn_suivant\"  value=\"valider\" style=\"visibility: hidden\">
         ";
         // line 51
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
@@ -112,7 +112,7 @@ class __TwigTemplate_d49875340ddb2f6abcd9b080e7f02b9c13d6c598c99a9baae0f53b88764
         echo "    </button>
 
 
-    <button ng-model=\"btn_annuler_modif_equipement\" id=\"btn_annuler_modif_equipement\" class=\"btn_annuler\" style=\"visibility: hidden\">
+    <button   id=\"btn_annuler_modif_equipement\" class=\"btn_annuler\" style=\"visibility: hidden\">
         ";
         // line 59
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
@@ -144,35 +144,35 @@ class __TwigTemplate_d49875340ddb2f6abcd9b080e7f02b9c13d6c598c99a9baae0f53b88764
 
     <b>Equipement :</b>
     <br/>                     
-    <select ng-model=\"equipement\" id=\"select_equipement\"   >
+    <select  id=\"select_equipement\"   >
     </select>
     <br/>
     <br/>
     <br/>
     <b>Constructeur :</b>
     <br/>
-    <select ng-model=\"constructeur\" id=\"constructeur\" disabled='disabled' >
+    <select   id=\"constructeur\" disabled='disabled' >
     </select>
 
     <br/>
     <b>Type :</b>
     </br>
-    <select disabled=\"disabled\" id=\"type_equipement\">
+    <select id=\"type_equipement\" disabled=\"disabled\" >
     </select>
      </br>       
     <b>Nom : </b>
     <br/>
-    <input ng-model=\"lib_equipement\" id=\"lib_equipement\" type=\"text\" disabled='disabled'>
+    <input  id=\"lib_equipement\" type=\"text\" disabled='disabled'>
     <br/>
     ";
         // line 97
         echo "
     <b>Version : </b><br/>
-    <input ng-model=\"version_equipement\" id=\"version_equipement\" type=\"text\" disabled='disabled'>
+    <input  id=\"version_equipement\" type=\"text\" disabled='disabled'>
     <br/>
     
     <b>Numéro de série : </b><br/>
-    <input ng-model=\"num_serie_equipement\" id=\"num_serie_equipement\" type=\"text\" disabled='disabled'>
+    <input   id=\"num_serie_equipement\" type=\"text\" disabled='disabled'>
     <br/>
 
     <input id=\"id_equipement\" type=\"hidden\"/>
@@ -182,7 +182,7 @@ class __TwigTemplate_d49875340ddb2f6abcd9b080e7f02b9c13d6c598c99a9baae0f53b88764
 
 ";
         
-        $__internal_13ac6d8eff32ffb25acbeda5c4b1c6168a1b0309e8afd940d6312260bfd52c9e->leave($__internal_13ac6d8eff32ffb25acbeda5c4b1c6168a1b0309e8afd940d6312260bfd52c9e_prof);
+        $__internal_833b967a3b7f1013528cf216f4dce8c3b87e31682886b656190093f886a9a853->leave($__internal_833b967a3b7f1013528cf216f4dce8c3b87e31682886b656190093f886a9a853_prof);
 
     }
 
@@ -260,7 +260,7 @@ class __TwigTemplate_d49875340ddb2f6abcd9b080e7f02b9c13d6c598c99a9baae0f53b88764
     </button> 
     #}
     <br/>
-    <button ng-model=\"btn_valid_modif_equipement\" id=\"btn_valid_modif_equipement\"  class=\"btn_suivant\"  value=\"valider\" style=\"visibility: hidden\">
+    <button id=\"btn_valid_modif_equipement\"  class=\"btn_suivant\"  value=\"valider\" style=\"visibility: hidden\">
         {% image '@SIECoreBundle/Resources/public/images/btn_valider.jpeg'
         %}
         <img class=\"img-background-button\"   src=\"{{ asset_url }}\"  alt=\"valider\"/>
@@ -268,7 +268,7 @@ class __TwigTemplate_d49875340ddb2f6abcd9b080e7f02b9c13d6c598c99a9baae0f53b88764
     </button>
 
 
-    <button ng-model=\"btn_annuler_modif_equipement\" id=\"btn_annuler_modif_equipement\" class=\"btn_annuler\" style=\"visibility: hidden\">
+    <button   id=\"btn_annuler_modif_equipement\" class=\"btn_annuler\" style=\"visibility: hidden\">
         {% image '@SIECoreBundle/Resources/public/images/btn_annuler.jpeg'
         %}
         <img class=\"img-background-button\"   src=\"{{ asset_url }}\"  alt=\"annuler\"/>
@@ -283,25 +283,25 @@ class __TwigTemplate_d49875340ddb2f6abcd9b080e7f02b9c13d6c598c99a9baae0f53b88764
 
     <b>Equipement :</b>
     <br/>                     
-    <select ng-model=\"equipement\" id=\"select_equipement\"   >
+    <select  id=\"select_equipement\"   >
     </select>
     <br/>
     <br/>
     <br/>
     <b>Constructeur :</b>
     <br/>
-    <select ng-model=\"constructeur\" id=\"constructeur\" disabled='disabled' >
+    <select   id=\"constructeur\" disabled='disabled' >
     </select>
 
     <br/>
     <b>Type :</b>
     </br>
-    <select disabled=\"disabled\" id=\"type_equipement\">
+    <select id=\"type_equipement\" disabled=\"disabled\" >
     </select>
      </br>       
     <b>Nom : </b>
     <br/>
-    <input ng-model=\"lib_equipement\" id=\"lib_equipement\" type=\"text\" disabled='disabled'>
+    <input  id=\"lib_equipement\" type=\"text\" disabled='disabled'>
     <br/>
     {#
     <b>adresse mac : </b><br/>
@@ -309,11 +309,11 @@ class __TwigTemplate_d49875340ddb2f6abcd9b080e7f02b9c13d6c598c99a9baae0f53b88764
     <br/>#}
 
     <b>Version : </b><br/>
-    <input ng-model=\"version_equipement\" id=\"version_equipement\" type=\"text\" disabled='disabled'>
+    <input  id=\"version_equipement\" type=\"text\" disabled='disabled'>
     <br/>
     
     <b>Numéro de série : </b><br/>
-    <input ng-model=\"num_serie_equipement\" id=\"num_serie_equipement\" type=\"text\" disabled='disabled'>
+    <input   id=\"num_serie_equipement\" type=\"text\" disabled='disabled'>
     <br/>
 
     <input id=\"id_equipement\" type=\"hidden\"/>

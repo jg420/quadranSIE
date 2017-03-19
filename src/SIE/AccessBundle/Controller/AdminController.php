@@ -10,11 +10,24 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AdminController extends Controller
 {
-    var $dataManager;
-    public function indexAction()
-    {
-        return $this->render('SIEEquipementBundle:Default:index.html.twig');
+        private function setUpDataManager(){
+        // On récupère le service
+          $this->dataManager = $this->container->get('sie_access.dataManagerSqlServeur');       
     }
+     public function indexAction()
+    {
+        
+        //return new Response($this->renvoiNbEquipement());
+        return $this->render('SIEAccessBundle:Default:index.html.twig',
+                array('nbAcces'=>$this->renvoiNbAccess()));
+    }
+  
+    private function renvoiNbAccess()
+    {
+        $this->setUpDataManager();
+        return sizeof($this->dataManager->getAll());
+    }
+    
     public function addAccessAction(){
         $this->setUpDataManager();
        
@@ -88,12 +101,7 @@ class AdminController extends Controller
         
                
     }
-   private function setUpDataManager(){
-        // On récupère le service
-          //$this->dataManager = $this->container->get('sie_access.dataManagerMySQL');       
-          $this->dataManager = $this->container->get('sie_access.dataManagerSqlServeur');       
-    }
-    
+
     public function testAccessAction($adresse,$port){
         $url = 'http://'.$adresse.':'.$port.'';
     $timeout = 10;

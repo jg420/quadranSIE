@@ -1,0 +1,132 @@
+{# SIEEquipementBundle/Resources/views/form/detail_equipement.html.twig #}
+
+<div class="panel panel-default" id="detail" >
+    <div class="panel-heading"> <!-- panel heading -->
+
+        <h3 class="panel-title">Propriétés </h3> <!-- panel title -->
+    </div>
+    <div class="panel-body"  > 
+        <ul class="nav nav-tabs">
+            <li id="menu_details" class="active"><a id="lien_detail_equipement"   data-toggle="tab" href="#detail_equipement">Détails équipements</a></li>
+            <li  id="menu_acces"><a id="lien_acces_equipement" data-toggle="tab"  href="#access_equipement">Accés</a></li>
+            <li  id="menu_config"><a id="lien_config_equipement" data-toggle="tab"    href="#config_equipement">Config</a></li>
+        </ul>
+        <div class="tab-content" >
+            <div id="details_equipement" class="tab-pane fade in active">
+
+                <button  id="btn_modif_details_equipement" class="btn_modifier"  style=" float: right;">
+                    {% image '@SIECoreBundle/Resources/public/images/btn_modif.jpeg'
+                    %}
+                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                    {% endimage %}
+                </button>
+
+                <table class="table-condensed">
+
+                    <tbody class="content_tab" >
+                        <tr><td>Libellé</td><td><input type="text" id="lib_equipement" disabled="true"> 
+                        <tr><td>Numéro de série</td><td><input type="text" id="num_serie" disabled="true"> 
+                        <tr><td>Constructeur</td><td><input type="text" id="lib_constructeur" disabled="true"> 
+                        <tr><td>Adresse ip local</td><td><input type="text" id="adresse_ip_local" disabled="true"> 
+                        <tr><td>Adresse ip vpn</td><td><input type="text" id="adresse_ip_vpn" disabled="true"> 
+                        <tr><td>Adresse Mac</td><td><input type="text" id="adresse_mac" disabled="true"> 
+                        <tr><td>Version firmware</td><td><input type="text" id="version_firmware" disabled="true"> 
+                        <tr><td>
+                                <button  id="btn_valid_modif_details_equipement" class="btn_valider"    style="visibility: hidden">
+                                    {% image '@SIECoreBundle/Resources/public/images/btn_valider.jpeg'%}
+                                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                                    {% endimage %}
+                                </button> 
+                                <button  id="btn_annule_modif_details_equipement" class="btn_annuler"  style="visibility: hidden"  >
+                                    {% image '@SIECoreBundle/Resources/public/images/btn_annuler.jpeg'%}
+
+                                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                                    {% endimage %}
+                                </button> 
+
+                    </tbody>
+
+                </table>
+                <br/>
+
+
+
+            </div>
+            <div id="acces_equipement" class="tab-pane fade">
+                <button   id="btn_modif_acces_equipement" class="btn_modifier"  style=" float: right;" >
+                    {% image '@SIECoreBundle/Resources/public/images/btn_modif.jpeg'
+                    %}
+                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                    {% endimage %}
+                </button>
+                <table class="table-condensed">
+
+                    <tbody class="content_tab" >
+
+                        <tr><td>Libellé acces </td><td> <input type="text" id="lib_acces" disabled="true"> 
+                        <tr><td>Adresse ip </td><td><input type="text" id="adresse_ip" disabled="true">  
+                        <tr><td>Login </td><td><input type="text" id="login" disabled="true">  
+                        <tr><td>Password </td><td><input type="text" id="password" disabled="true">
+                        <tr><td>Port </td><td><input type="text" id="port" disabled="true">  
+                        <tr><td>Protocol</td><td><input type="text" id="protocol" disabled="true">      
+                        <tr><td>
+                                <button  id="btn_valid_modif_acces_equipement" class="btn_valider"    style="visibility: hidden">
+                                    {% image '@SIECoreBundle/Resources/public/images/btn_valider.jpeg'%}
+                                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                                    {% endimage %}
+                                </button> 
+                                <button  id="btn_annule_modif_acces_equipement" class="btn_annuler"  style="visibility: hidden"  >
+                                    {% image '@SIECoreBundle/Resources/public/images/btn_annuler.jpeg'%}
+
+                                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                                    {% endimage %}
+                                </button> 
+                    </tbody>
+
+                </table>
+            </div>
+            <div id="config_equipement" class="tab-pane fade">
+                <button  id="btn_ajout_config_equipement" class="btn_ajout"   style=" float: right;">
+                    {% image '@SIECoreBundle/Resources/public/images/btn_ajout.jpeg'
+                    %}
+                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                    {% endimage %}
+                </button> 
+                <table class="table-condensed"  >
+
+                    <tbody class="content_tab" >
+                        <tr><td>Libellé config </td><td> <input type="text" id="lib_acces" disabled="true"> </td><td> <a href="">Lien config</a></td>
+
+
+                        <tr>   <td><div id="titre_nouvelle_config" style="visibility: hidden">nouvelle config</div> </td>
+                            <td> <input type="text" id="lib_config" disabled="true" style="visibility: hidden"> </td>
+                            <td> <button id="btn_parcourir_config" style="visibility: hidden"  >Parcourir</button>
+                                <button  id="btn_valid_ajout_config" class="btn_valider"    style="visibility: hidden">
+                                    {% image '@SIECoreBundle/Resources/public/images/btn_valider.jpeg'
+                                    %}
+                                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                                    {% endimage %}
+                                </button> 
+                                <button  id="btn_annule_ajout_config" class="btn_annuler"  style="visibility: hidden"  >
+                                    {% image '@SIECoreBundle/Resources/public/images/btn_annuler.jpeg'
+                                    %}
+                                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                                    {% endimage %}
+                                </button> 
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>

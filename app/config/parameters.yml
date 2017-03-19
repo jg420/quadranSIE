@@ -1,5 +1,7 @@
 # This file is auto-generated during the composer install
 parameters:
+    
+    #a enlever car pas à jour et present dans service
     database_host: 192.168.0.250\SQLQUADRAN
     database_port: null
     database_name: referentiel
@@ -10,3 +12,5 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: 712822bc479752aad8c012191f7fc6cd46556c6a
+    #
+    uploaded_file_path: E:\DEV\quadranSIE\web\uploads\

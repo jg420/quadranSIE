@@ -20,12 +20,12 @@ class __TwigTemplate_0a3cfe92485cbd4f77b0a1e0edb751e1951713a4dec6519391fb8a26e87
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_263c8f4e8cbdd24ed26b14a7f0299de955e674cae47c523124334c765ff7e180 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_263c8f4e8cbdd24ed26b14a7f0299de955e674cae47c523124334c765ff7e180->enter($__internal_263c8f4e8cbdd24ed26b14a7f0299de955e674cae47c523124334c765ff7e180_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@SIECore/Default/search_central.html.twig"));
+        $__internal_30064360c403a3cb5999691000713b1a66fb1ffbcc41cfbe2b0689f9bb7828b0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_30064360c403a3cb5999691000713b1a66fb1ffbcc41cfbe2b0689f9bb7828b0->enter($__internal_30064360c403a3cb5999691000713b1a66fb1ffbcc41cfbe2b0689f9bb7828b0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@SIECore/Default/search_central.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_263c8f4e8cbdd24ed26b14a7f0299de955e674cae47c523124334c765ff7e180->leave($__internal_263c8f4e8cbdd24ed26b14a7f0299de955e674cae47c523124334c765ff7e180_prof);
+        $__internal_30064360c403a3cb5999691000713b1a66fb1ffbcc41cfbe2b0689f9bb7828b0->leave($__internal_30064360c403a3cb5999691000713b1a66fb1ffbcc41cfbe2b0689f9bb7828b0_prof);
 
     }
 

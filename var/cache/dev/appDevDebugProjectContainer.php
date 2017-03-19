@@ -145,6 +145,7 @@ class appDevDebugProjectContainer extends Container
             'locale_listener' => 'getLocaleListenerService',
             'logger' => 'getLoggerService',
             'monolog.handler.console' => 'getMonolog_Handler_ConsoleService',
+            'monolog.handler.debug' => 'getMonolog_Handler_DebugService',
             'monolog.handler.main' => 'getMonolog_Handler_MainService',
             'monolog.handler.null_internal' => 'getMonolog_Handler_NullInternalService',
             'monolog.logger.assetic' => 'getMonolog_Logger_AsseticService',
@@ -212,6 +213,7 @@ class appDevDebugProjectContainer extends Container
             'sie_contrat.datamanagermysql' => 'getSieContrat_DatamanagermysqlService',
             'sie_contrat.datamanagersqlserveur' => 'getSieContrat_DatamanagersqlserveurService',
             'sie_document.datamanagermysql' => 'getSieDocument_DatamanagermysqlService',
+            'sie_document.datamanagersqlserveur' => 'getSieDocument_DatamanagersqlserveurService',
             'sie_equipement.datamanagermysql' => 'getSieEquipement_DatamanagermysqlService',
             'sie_equipement.datamanagersqlserveur' => 'getSieEquipement_DatamanagersqlserveurService',
             'streamed_response_listener' => 'getStreamedResponseListenerService',
@@ -1624,7 +1626,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getJmsSerializer_DatetimeHandlerService()
     {
-        return $this->services['jms_serializer.datetime_handler'] = new \JMS\Serializer\Handler\DateHandler('Y-m-d\\TH:i:sO', 'UTC', true);
+        return $this->services['jms_serializer.datetime_handler'] = new \JMS\Serializer\Handler\DateHandler('Y-m-d\\TH:i:sO', 'Europe/Belgrade', true);
     }
 
     /**
@@ -1873,6 +1875,7 @@ class appDevDebugProjectContainer extends Container
         $instance->useMicrosecondTimestamps(true);
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
+        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
@@ -1892,6 +1895,19 @@ class appDevDebugProjectContainer extends Container
         $instance->pushProcessor($this->get('monolog.processor.psr_log_message'));
 
         return $instance;
+    }
+
+    /**
+     * Gets the 'monolog.handler.debug' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Symfony\Bridge\Monolog\Handler\DebugHandler A Symfony\Bridge\Monolog\Handler\DebugHandler instance
+     */
+    protected function getMonolog_Handler_DebugService()
+    {
+        return $this->services['monolog.handler.debug'] = new \Symfony\Bridge\Monolog\Handler\DebugHandler(100, true);
     }
 
     /**
@@ -1938,6 +1954,7 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
+        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
@@ -1955,6 +1972,7 @@ class appDevDebugProjectContainer extends Container
         $this->services['monolog.logger.doctrine'] = $instance = new \Symfony\Bridge\Monolog\Logger('doctrine');
 
         $instance->pushHandler($this->get('monolog.handler.main'));
+        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
@@ -1971,7 +1989,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['monolog.logger.event'] = $instance = new \Symfony\Bridge\Monolog\Logger('event');
 
-        $instance->pushHandler($this->get('monolog.handler.null_internal'));
+        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
@@ -1990,6 +2008,7 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
+        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
@@ -2008,6 +2027,7 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
+        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
@@ -2026,6 +2046,7 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
+        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
@@ -2044,6 +2065,7 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
+        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
@@ -2062,6 +2084,7 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
+        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
@@ -2080,6 +2103,7 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
+        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
@@ -2098,6 +2122,7 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
+        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
@@ -2363,7 +2388,7 @@ class appDevDebugProjectContainer extends Container
 
         $e = new \Symfony\Component\Security\Http\AccessMap();
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($e, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider()), 'main', $a, $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE)), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '58662f1f073f18.85566808', $a, $c), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $e, $c)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), new \Symfony\Component\Security\Http\HttpUtils($d, $d), 'main', NULL, NULL, NULL, $a, false));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($e, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider()), 'main', $a, $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE)), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '58cde6f9a1fcc6.21882187', $a, $c), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $e, $c)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), new \Symfony\Component\Security\Http\HttpUtils($d, $d), 'main', NULL, NULL, NULL, $a, false));
     }
 
     /**
@@ -2693,7 +2718,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSieAccess_DatamanagermysqlService()
     {
-        return $this->services['sie_access.datamanagermysql'] = new \SIE\AccessBundle\DataManager\MySql('192.168.0.250\\SQLQUADRAN', 'UserProduction', 'password', 'REFERENTIEL_COM');
+        return $this->services['sie_access.datamanagermysql'] = new \SIE\AccessBundle\DataManager\MySql('172.20.6.3\\SQLQUADRAN', 'User_dev_GJU', 'Exploitation34!', 'REFERENTIEL_COM');
     }
 
     /**
@@ -2706,7 +2731,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSieAccess_DatamanagersqlserveurService()
     {
-        return $this->services['sie_access.datamanagersqlserveur'] = new \SIE\AccessBundle\DataManager\SqlServeur('192.168.0.250\\SQLQUADRAN', 'UserProduction', 'password', 'REFERENTIEL_COM');
+        return $this->services['sie_access.datamanagersqlserveur'] = new \SIE\AccessBundle\DataManager\SqlServeur('172.20.6.3\\SQLQUADRAN', 'User_dev_GJU', 'Exploitation34!', 'REFERENTIEL_COM');
     }
 
     /**
@@ -2719,7 +2744,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSieCentral_DatamanagermysqlService()
     {
-        return $this->services['sie_central.datamanagermysql'] = new \SIE\CentralBundle\DataManager\MySql('192.168.0.250\\SQLQUADRAN', 'UserProduction', 'password', 'REFERENTIEL_COM');
+        return $this->services['sie_central.datamanagermysql'] = new \SIE\CentralBundle\DataManager\MySql('172.20.6.3\\SQLQUADRAN', 'User_dev_GJU', 'Exploitation34!', 'REFERENTIEL_COM');
     }
 
     /**
@@ -2732,7 +2757,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSieCentral_DatamanagersqlserveurService()
     {
-        return $this->services['sie_central.datamanagersqlserveur'] = new \SIE\CentralBundle\DataManager\SqlServeur('192.168.0.250\\SQLQUADRAN', 'UserProduction', 'password', 'REFERENTIEL_COM');
+        return $this->services['sie_central.datamanagersqlserveur'] = new \SIE\CentralBundle\DataManager\SqlServeur('172.20.6.3\\SQLQUADRAN', 'User_dev_GJU', 'Exploitation34!', 'REFERENTIEL_COM');
     }
 
     /**
@@ -2745,7 +2770,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSieContrat_DatamanagermysqlService()
     {
-        return $this->services['sie_contrat.datamanagermysql'] = new \SIE\ContratBundle\DataManager\MySql('192.168.0.250\\SQLQUADRAN', 'UserProduction', 'password', 'REFERENTIEL_COM');
+        return $this->services['sie_contrat.datamanagermysql'] = new \SIE\ContratBundle\DataManager\MySql('172.20.6.3\\SQLQUADRAN', 'User_dev_GJU', 'Exploitation34!', 'REFERENTIEL_COM');
     }
 
     /**
@@ -2758,7 +2783,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSieContrat_DatamanagersqlserveurService()
     {
-        return $this->services['sie_contrat.datamanagersqlserveur'] = new \SIE\ContratBundle\DataManager\SqlServeur('192.168.0.250\\SQLQUADRAN', 'UserProduction', 'password', 'REFERENTIEL_COM');
+        return $this->services['sie_contrat.datamanagersqlserveur'] = new \SIE\ContratBundle\DataManager\SqlServeur('172.20.6.3\\SQLQUADRAN', 'User_dev_GJU', 'Exploitation34!', 'REFERENTIEL_COM');
     }
 
     /**
@@ -2771,7 +2796,20 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSieDocument_DatamanagermysqlService()
     {
-        return $this->services['sie_document.datamanagermysql'] = new \SIE\DocumentBundle\DataManager\MySql('192.168.0.250\\SQLQUADRAN', 'UserProduction', 'password', 'REFERENTIEL_COM');
+        return $this->services['sie_document.datamanagermysql'] = new \SIE\DocumentBundle\DataManager\MySql('172.20.6.3\\SQLQUADRAN', 'User_dev_GJU', 'Exploitation34!', 'REFERENTIEL_COM');
+    }
+
+    /**
+     * Gets the 'sie_document.datamanagersqlserveur' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \SIE\DocumentBundle\DataManager\SqlServeur A SIE\DocumentBundle\DataManager\SqlServeur instance
+     */
+    protected function getSieDocument_DatamanagersqlserveurService()
+    {
+        return $this->services['sie_document.datamanagersqlserveur'] = new \SIE\DocumentBundle\DataManager\SqlServeur('172.20.6.3\\SQLQUADRAN', 'User_dev_GJU', 'Exploitation34!', 'REFERENTIEL_COM');
     }
 
     /**
@@ -2784,7 +2822,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSieEquipement_DatamanagermysqlService()
     {
-        return $this->services['sie_equipement.datamanagermysql'] = new \SIE\EquipementBundle\DataManager\MySql('192.168.0.250\\SQLQUADRAN', 'UserProduction', 'password', 'REFERENTIEL_COM');
+        return $this->services['sie_equipement.datamanagermysql'] = new \SIE\EquipementBundle\DataManager\MySql('172.20.6.3\\SQLQUADRAN', 'User_dev_GJU', 'Exploitation34!', 'REFERENTIEL_COM');
     }
 
     /**
@@ -2797,7 +2835,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSieEquipement_DatamanagersqlserveurService()
     {
-        return $this->services['sie_equipement.datamanagersqlserveur'] = new \SIE\EquipementBundle\DataManager\SqlServeur('192.168.0.250\\SQLQUADRAN', 'UserProduction', 'password', 'REFERENTIEL_COM');
+        return $this->services['sie_equipement.datamanagersqlserveur'] = new \SIE\EquipementBundle\DataManager\SqlServeur('172.20.6.3\\SQLQUADRAN', 'User_dev_GJU', 'Exploitation34!', 'REFERENTIEL_COM');
     }
 
     /**
@@ -3851,7 +3889,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('58662f1f073f18.85566808')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('58cde6f9a1fcc6.21882187')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
@@ -4069,9 +4107,10 @@ class appDevDebugProjectContainer extends Container
             'mailer_user' => NULL,
             'mailer_password' => NULL,
             'secret' => '712822bc479752aad8c012191f7fc6cd46556c6a',
-            'host' => '192.168.0.250\\SQLQUADRAN',
-            'login' => 'UserProduction',
-            'mdp' => 'password',
+            'uploaded_file_path' => ($this->targetDirs[3].'\\web\\uploads\\'),
+            'host' => '172.20.6.3\\SQLQUADRAN',
+            'login' => 'User_dev_GJU',
+            'mdp' => 'Exploitation34!',
             'bdd' => 'REFERENTIEL_COM',
             'locale' => 'en',
             'fragment.renderer.hinclude.global_template' => NULL,

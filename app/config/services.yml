@@ -2,10 +2,14 @@
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
 #    parameter_name: value
-    host:   192.168.0.250\SQLQUADRAN
-    login:  UserProduction
-    mdp:    password
-    bdd:    REFERENTIEL_COM
+    # host:   P702-288-GJU\SQLEXPRESS    
+      host:   172.20.6.3\SQLQUADRAN
+    #login:   Dev
+      login:   User_dev_GJU 
+    #mdp:     Quadran1234
+      mdp:     Exploitation34!
+    #bdd:    REF_COM
+      bdd:    REFERENTIEL_COM
 
 services:
 #    service_name:
@@ -46,5 +50,9 @@ services:
     
     sie_access.dataManagerSqlServeur:
          class:  SIE\AccessBundle\DataManager\SqlServeur
+         arguments: [%host%, %login%, %mdp%,%bdd%]
+         
+    sie_document.dataManagerSqlServeur:
+         class:  SIE\DocumentBundle\DataManager\SqlServeur
          arguments: [%host%, %login%, %mdp%,%bdd%]
          

@@ -35,15 +35,36 @@ class AdminController extends Controller {
         // On récupère le service
           $this->dataManager = $this->container->get('sie_central.dataManagerSqlServeur');       
     }
-    public function indexAction() {
+     public function indexAction()
+    {
         
-        return $this->render('SIECentralBundle:Default:index.html.twig');
+        //return new Response($this->renvoiNbEquipement());
+        return $this->render('SIECentralBundle:Default:index.html.twig',
+                array('nbCentral'=>$this->renvoiNbCentrale()));
     }
-
+  
+    private function renvoiNbCentrale()
+    {
+        $this->setUpDataManager();
+        return sizeof($this->dataManager->getAllCentral());
+    }
+    
+    public function getCentralAction($id){
+         $this->setUpDataManager(); 
+         return(new JsonResponse($this->dataManager->getCentral($id)));
+    }
+    
     public function json_getAll_centralAction() {
         $this->setUpDataManager();
 
         return new JsonResponse($this->dataManager->getAllCentral());
+
+    }
+    public function json_getAllEtendue_centralAction() {
+        $this->setUpDataManager();
+
+        //return new JsonResponse($this->dataManager->getAllCentral());
+        return new JsonResponse(null);
 
     }
       public function get_societeAction() {

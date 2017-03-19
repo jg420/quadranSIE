@@ -16,225 +16,204 @@ class __TwigTemplate_60f0fff51ea503856bc738b2f56465a220f0c4d9ac7d2b48492f56b335e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_32ff79ca8ba1d8773605ce60565fe7e5b677547a5b224b99c733ca2692e9f4a2 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_32ff79ca8ba1d8773605ce60565fe7e5b677547a5b224b99c733ca2692e9f4a2->enter($__internal_32ff79ca8ba1d8773605ce60565fe7e5b677547a5b224b99c733ca2692e9f4a2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIECentralBundle:Default:index.html.twig"));
+        $__internal_9045c320c2d16594e0fe3dca00401c6d15ebcbb8f829f10c5ddefa16577efd4e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_9045c320c2d16594e0fe3dca00401c6d15ebcbb8f829f10c5ddefa16577efd4e->enter($__internal_9045c320c2d16594e0fe3dca00401c6d15ebcbb8f829f10c5ddefa16577efd4e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIECentralBundle:Default:index.html.twig"));
 
         // line 2
-        $this->loadTemplate("SIECoreBundle:Default:head.html.twig", "SIECentralBundle:Default:index.html.twig", 2)->display($context);
-        echo " 
-
-
-
+        echo "
 ";
-        // line 6
+        // line 3
+        $this->loadTemplate("SIECoreBundle:Default:head_sous_menu.html.twig", "SIECentralBundle:Default:index.html.twig", 3)->display($context);
+        echo " 
+";
+        // line 4
+        echo " 
+";
+        // line 5
         $this->displayBlock('javascripts', $context, $blocks);
+        // line 13
+        echo "<title id=\"titre\">Centrales</title>
+<body data-spy=\"scroll\" data-target=\"#detail_central\" data-target=\"#apercu_central\" >
+    <!-- <body data-spy=\"scroll\" data-target=\".panel-body\" data-offset=\"15\">-->
+
+    <div class=\"container \">
+         
+            <div class=\"col-md-1\">
+                <div  id=\"detail_centrale\"   class=\"panel-fixed affix\"  >
+                    <!--  <div  id=\"detail_equipement\"   class=\"sidebar-nav-fixed  affix\"  >
+                         Default panel contents -->
+                    <table><tr><td>
+                    <div class=\"panel-body\">   
+                        ";
+        // line 25
+        $this->loadTemplate("SIECentralBundle:Default:apercu_central.html.twig", "SIECentralBundle:Default:index.html.twig", 25)->display($context);
+        echo " 
+
+                    </div>
+                    </td><td>    
+                    <div class=\"panel-body\">   
+                        ";
         // line 30
-        echo "<title id=\"titre\">REFERENTIEL</title>
-";
-        // line 32
-        echo "</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <!-- A CHARGER DEPUIS LA VUE PERE-
-                <li><a href=\"page_direction_regionales.xhtml\">Directions Regionales</a></li>
-                <li><a href=\"page_central.xhtml\">Centrales </a></li>
-                <li><a href=\"page_equipement.xhtml\">Equipements</a></li>-->
+        $this->loadTemplate("SIECentralBundle:Default:detail_central.html.twig", "SIECentralBundle:Default:index.html.twig", 30)->display($context);
+        echo " 
 
-            </ul>
-        </nav>
-    </header>
+                    </div></td></tr></table>
+                        
+                </div>
+            </div>
+       
+                        <div  >
+                <!-- <table id=\"table_equipement\"   class=\"table\">
+                    <thead sidebar-nav-fixed  affix>  
+                        <tr>
+                            <th id=\"KeyParam1\">Nom</th>
+                            <th id=\"KeyParam2\">Centrale</th>
+                            <th id=\"KeyParam3\">Constructeur</th>
+                        </tr>
+                    </thead>
 
-    <table >
-        <tr>
-            <td>
+                    <tbody>
+                        Row 1 -->
+
                 ";
-        // line 49
-        $this->loadTemplate("SIECoreBundle:Default:search.html.twig", "SIECentralBundle:Default:index.html.twig", 49)->display($context);
         // line 50
-        echo "            </td>
-        </tr
-        <tr>
-            <td>
-                ";
-        // line 54
-        $this->loadTemplate("SIECentralBundle:form:result_central.html.twig", "SIECentralBundle:Default:index.html.twig", 54)->display($context);
-        echo " 
-            </td>
-            <td>
-                ";
-        // line 57
-        $this->loadTemplate("SIEDocumentBundle:Default:result_document.html.twig", "SIECentralBundle:Default:index.html.twig", 57)->display($context);
-        echo " 
-            </td>
-            <td>
-                ";
-        // line 60
-        $this->loadTemplate("SIEEquipementBundle:Default:result_equipement.html.twig", "SIECentralBundle:Default:index.html.twig", 60)->display($context);
-        echo " 
-            </td>
-            <td>
-                ";
-        // line 63
-        $this->loadTemplate("SIEAccessBundle:Default:result_access.html.twig", "SIECentralBundle:Default:index.html.twig", 63)->display($context);
-        echo " 
-            </td>
-            ";
-        // line 66
-        echo "        </tr>
-    </table>      
+        $context["nb"] = ((isset($context["nbCentral"]) ? $context["nbCentral"] : $this->getContext($context, "nbCentral")) + 0);
+        echo " ";
+        // line 51
+        echo "               
+                <div  id=\"list_principale\"  >
+                    ";
+        // line 53
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(range(0, (isset($context["nbCentral"]) ? $context["nbCentral"] : $this->getContext($context, "nbCentral"))));
+        foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
+            // line 54
+            echo "                        <!--<tr>-->
+                        <a onclick=\"fc_select(";
+            // line 55
+            echo twig_escape_filter($this->env, $context["i"], "html", null, true);
+            echo ");\" href=\"#\" id='lien_central";
+            echo twig_escape_filter($this->env, $context["i"], "html", null, true);
+            echo "' class=\"list-group-item list-group-item-action flex-column align-items-start \">
+                            <!-- <div class=\"d-flex w-100 justify-content-between\"> -->
+                            <h5 class=\"mb-1\"><div id=\"lib_central";
+            // line 57
+            echo twig_escape_filter($this->env, $context["i"], "html", null, true);
+            echo "\"></div>
+                               
+                            </h5>  <small id=\"lib_dr";
+            // line 59
+            echo twig_escape_filter($this->env, $context["i"], "html", null, true);
+            echo "\"></small>
+                          <!-- <small>lib_centrale";
+            // line 60
+            echo twig_escape_filter($this->env, $context["i"], "html", null, true);
+            echo "</small>
+                          
+                        <p class=\"mb-1\"><small>lib_constructeur";
+            // line 62
+            echo twig_escape_filter($this->env, $context["i"], "html", null, true);
+            echo "</small> -->
+                        </a>
+                        <!-- </tr>
+                                                <tr id=\"selectEquipement";
+            // line 65
+            echo twig_escape_filter($this->env, $context["i"], "html", null, true);
+            echo "\"  > 
+                                                     
+                                                     <td ><input type=\"text\" id=\"lib_equipement";
+            // line 67
+            echo twig_escape_filter($this->env, $context["i"], "html", null, true);
+            echo "\"  disabled=\"disabled\"/></td>
+                                                     <td ><input type=\"text\"  size=\"9\" id=\"lib_centrale";
+            // line 68
+            echo twig_escape_filter($this->env, $context["i"], "html", null, true);
+            echo "\" disabled=\"true\"></td>
+                                                     <td ><select  class=\"selectpicker\" id=\"lib_constructeur";
+            // line 69
+            echo twig_escape_filter($this->env, $context["i"], "html", null, true);
+            echo "\"  disabled=\"true\"></select></td>
+                         
+                                                 </tr>    
+                                                  
+                         
+                         
+                        -->
+                    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 77
+        echo "
+                </div>
+                <!--  </tbody>
 
-</body>
-</html>
-";
+
+                </td> 
+
+            </table> -->  
+            </div>
+
+
+
+
+
         
-        $__internal_32ff79ca8ba1d8773605ce60565fe7e5b677547a5b224b99c733ca2692e9f4a2->leave($__internal_32ff79ca8ba1d8773605ce60565fe7e5b677547a5b224b99c733ca2692e9f4a2_prof);
+                    </div>
+</body>
+</html>";
+        
+        $__internal_9045c320c2d16594e0fe3dca00401c6d15ebcbb8f829f10c5ddefa16577efd4e->leave($__internal_9045c320c2d16594e0fe3dca00401c6d15ebcbb8f829f10c5ddefa16577efd4e_prof);
 
     }
 
-    // line 6
+    // line 5
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_0a7c6143b08654c9957b64cd18680e4234448e07368f7b996d970fd165e56cf2 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_0a7c6143b08654c9957b64cd18680e4234448e07368f7b996d970fd165e56cf2->enter($__internal_0a7c6143b08654c9957b64cd18680e4234448e07368f7b996d970fd165e56cf2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_1e802167d06b295c43d0f9f0932be63444f007fa7458ffed3f6527ac74a210e6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_1e802167d06b295c43d0f9f0932be63444f007fa7458ffed3f6527ac74a210e6->enter($__internal_1e802167d06b295c43d0f9f0932be63444f007fa7458ffed3f6527ac74a210e6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 7
+        // line 6
         echo "    ";
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "dff4dbb_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_dff4dbb_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/dff4dbb_front_page_1.js");
-            // line 8
-            echo "    <script src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script>
-    ";
-        } else {
-            // asset "dff4dbb"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_dff4dbb") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/dff4dbb.js");
-            echo "    <script src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script>
-    ";
-        }
-        unset($context["asset_url"]);
-        // line 10
-        echo "    ";
-        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "1f81795_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_1f81795_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/1f81795_app_search_central_1.js");
-            // line 11
-            echo "    ";
-            // line 12
-            echo "    ";
-        } else {
-            // asset "1f81795"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_1f81795") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/1f81795.js");
-            // line 11
-            echo "    ";
-            // line 12
-            echo "    ";
-        }
-        unset($context["asset_url"]);
-        // line 13
-        echo "
-    ";
-        // line 14
-        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "fc7accb_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_fc7accb_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/fc7accb_front_result_equipement_access_1.js");
-            // line 15
+            // asset "66960f5_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_66960f5_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/66960f5_setUp_1.js");
+            // line 7
             echo "    <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>          
     ";
         } else {
-            // asset "fc7accb"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_fc7accb") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/fc7accb.js");
+            // asset "66960f5"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_66960f5") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/66960f5.js");
             echo "    <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>          
     ";
         }
         unset($context["asset_url"]);
-        // line 17
+        // line 9
         echo "    ";
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "454a49e_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_454a49e_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/454a49e_front_result_doc_1.js");
-            // line 18
+            // asset "4158b03_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_4158b03_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/4158b03_front_centrale_1.js");
+            // line 10
             echo "    <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>          
     ";
         } else {
-            // asset "454a49e"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_454a49e") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/454a49e.js");
+            // asset "4158b03"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_4158b03") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/4158b03.js");
             echo "    <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>          
-    ";
-        }
-        unset($context["asset_url"]);
-        // line 20
-        echo "    ";
-        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "af4783f_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_af4783f_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/af4783f_front_result_equipement_1.js");
-            // line 21
-            echo "    <script src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script>          
-    ";
-        } else {
-            // asset "af4783f"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_af4783f") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/af4783f.js");
-            echo "    <script src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script>          
-    ";
-        }
-        unset($context["asset_url"]);
-        // line 23
-        echo "    ";
-        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "a5be7e7_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_a5be7e7_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/a5be7e7_front_result_central_1.js");
-            // line 24
-            echo "    <script src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script>          
-    ";
-        } else {
-            // asset "a5be7e7"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_a5be7e7") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/a5be7e7.js");
-            echo "    <script src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script>          
-    ";
-        }
-        unset($context["asset_url"]);
-        // line 26
-        echo "    ";
-        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "da82b2d_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_da82b2d_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/da82b2d_front_search_1.js");
-            // line 27
-            echo "    <script src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script> 
-    ";
-        } else {
-            // asset "da82b2d"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_da82b2d") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/da82b2d.js");
-            echo "    <script src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script> 
     ";
         }
         unset($context["asset_url"]);
         
-        $__internal_0a7c6143b08654c9957b64cd18680e4234448e07368f7b996d970fd165e56cf2->leave($__internal_0a7c6143b08654c9957b64cd18680e4234448e07368f7b996d970fd165e56cf2_prof);
+        $__internal_1e802167d06b295c43d0f9f0932be63444f007fa7458ffed3f6527ac74a210e6->leave($__internal_1e802167d06b295c43d0f9f0932be63444f007fa7458ffed3f6527ac74a210e6_prof);
 
     }
 
@@ -250,7 +229,7 @@ class __TwigTemplate_60f0fff51ea503856bc738b2f56465a220f0c4d9ac7d2b48492f56b335e
 
     public function getDebugInfo()
     {
-        return array (  223 => 27,  218 => 26,  204 => 24,  199 => 23,  185 => 21,  180 => 20,  166 => 18,  161 => 17,  147 => 15,  143 => 14,  140 => 13,  136 => 12,  134 => 11,  129 => 12,  127 => 11,  122 => 10,  108 => 8,  103 => 7,  97 => 6,  85 => 66,  80 => 63,  74 => 60,  68 => 57,  62 => 54,  56 => 50,  54 => 49,  35 => 32,  32 => 30,  30 => 6,  23 => 2,);
+        return array (  202 => 10,  197 => 9,  183 => 7,  178 => 6,  172 => 5,  148 => 77,  134 => 69,  130 => 68,  126 => 67,  121 => 65,  115 => 62,  110 => 60,  106 => 59,  101 => 57,  94 => 55,  91 => 54,  87 => 53,  83 => 51,  80 => 50,  57 => 30,  49 => 25,  35 => 13,  33 => 5,  30 => 4,  26 => 3,  23 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -263,76 +242,99 @@ class __TwigTemplate_60f0fff51ea503856bc738b2f56465a220f0c4d9ac7d2b48492f56b335e
 
     public function getSourceContext()
     {
-        return new Twig_Source("{# SIECentralBundle/Resources/views/index.html.twig #}
-{% include \"SIECoreBundle:Default:head.html.twig\" %} 
+        return new Twig_Source("{# SIECentralBundle/Resources/views/form/index.html.twig #}
 
-
-
+{% include \"SIECoreBundle:Default:head_sous_menu.html.twig\" %} 
+{# include \"SIEEquipementBundle:Default:search_equipement.html.twig\" #} 
 {% block javascripts %}
-    {% javascripts '@SIECentralBundle/Resources/public/js/front_page.js' %}
-    <script src=\"{{ asset_url }}\"></script>
-    {% endjavascripts %}
-    {% javascripts '@SIECentralBundle/Resources/public/js/app_search_central.js' %}
-    {#<script src=\"{{ asset_url }}\"></script>#}
-    {% endjavascripts %}
-
-    {% javascripts '@SIEAccessBundle/Resources/public/js/front_result_equipement_access.js' %}
+    {% javascripts '@SIECoreBundle/Resources/public/js/setUp.js' %}
     <script src=\"{{ asset_url }}\"></script>          
     {% endjavascripts %}
-    {% javascripts '@SIEDocumentBundle/Resources/public/js/front_result_doc.js' %}
+    {% javascripts '@SIECentralBundle/Resources/public/js/front_centrale.js' %}
     <script src=\"{{ asset_url }}\"></script>          
-    {% endjavascripts %}
-    {% javascripts '@SIEEquipementBundle/Resources/public/js/front_result_equipement.js' %}
-    <script src=\"{{ asset_url }}\"></script>          
-    {% endjavascripts %}
-    {% javascripts '@SIECentralBundle/Resources/public/js/front_result_central.js' %}
-    <script src=\"{{ asset_url }}\"></script>          
-    {% endjavascripts %}
-    {% javascripts '@SIECoreBundle/Resources/public/js/front_search.js' %}
-    <script src=\"{{ asset_url }}\"></script> 
     {% endjavascripts %}
 {% endblock %}
-<title id=\"titre\">REFERENTIEL</title>
-{# <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>#}
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <!-- A CHARGER DEPUIS LA VUE PERE-
-                <li><a href=\"page_direction_regionales.xhtml\">Directions Regionales</a></li>
-                <li><a href=\"page_central.xhtml\">Centrales </a></li>
-                <li><a href=\"page_equipement.xhtml\">Equipements</a></li>-->
+<title id=\"titre\">Centrales</title>
+<body data-spy=\"scroll\" data-target=\"#detail_central\" data-target=\"#apercu_central\" >
+    <!-- <body data-spy=\"scroll\" data-target=\".panel-body\" data-offset=\"15\">-->
 
-            </ul>
-        </nav>
-    </header>
+    <div class=\"container \">
+         
+            <div class=\"col-md-1\">
+                <div  id=\"detail_centrale\"   class=\"panel-fixed affix\"  >
+                    <!--  <div  id=\"detail_equipement\"   class=\"sidebar-nav-fixed  affix\"  >
+                         Default panel contents -->
+                    <table><tr><td>
+                    <div class=\"panel-body\">   
+                        {% include \"SIECentralBundle:Default:apercu_central.html.twig\" %} 
 
-    <table >
-        <tr>
-            <td>
-                {% include \"SIECoreBundle:Default:search.html.twig\" %}
-            </td>
-        </tr
-        <tr>
-            <td>
-                {% include \"SIECentralBundle:form:result_central.html.twig\" %} 
-            </td>
-            <td>
-                {% include \"SIEDocumentBundle:Default:result_document.html.twig\" %} 
-            </td>
-            <td>
-                {% include \"SIEEquipementBundle:Default:result_equipement.html.twig\" %} 
-            </td>
-            <td>
-                {% include \"SIEAccessBundle:Default:result_access.html.twig\" %} 
-            </td>
-            {#<a id=\"lienPDF\" href=\"../form/formCentral.php?pdf=1\">Referenciel PDF</a>#}
-        </tr>
-    </table>      
+                    </div>
+                    </td><td>    
+                    <div class=\"panel-body\">   
+                        {% include \"SIECentralBundle:Default:detail_central.html.twig\" %} 
 
+                    </div></td></tr></table>
+                        
+                </div>
+            </div>
+       
+                        <div  >
+                <!-- <table id=\"table_equipement\"   class=\"table\">
+                    <thead sidebar-nav-fixed  affix>  
+                        <tr>
+                            <th id=\"KeyParam1\">Nom</th>
+                            <th id=\"KeyParam2\">Centrale</th>
+                            <th id=\"KeyParam3\">Constructeur</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        Row 1 -->
+
+                {% set nb = nbCentral + 0 %} {#nbEquipement est envoyé au template via le controlleur #}
+               
+                <div  id=\"list_principale\"  >
+                    {% for i in range(0,nbCentral) %}
+                        <!--<tr>-->
+                        <a onclick=\"fc_select({{i}});\" href=\"#\" id='lien_central{{i}}' class=\"list-group-item list-group-item-action flex-column align-items-start \">
+                            <!-- <div class=\"d-flex w-100 justify-content-between\"> -->
+                            <h5 class=\"mb-1\"><div id=\"lib_central{{i}}\"></div>
+                               
+                            </h5>  <small id=\"lib_dr{{i}}\"></small>
+                          <!-- <small>lib_centrale{{i}}</small>
+                          
+                        <p class=\"mb-1\"><small>lib_constructeur{{i}}</small> -->
+                        </a>
+                        <!-- </tr>
+                                                <tr id=\"selectEquipement{{i}}\"  > 
+                                                     
+                                                     <td ><input type=\"text\" id=\"lib_equipement{{i}}\"  disabled=\"disabled\"/></td>
+                                                     <td ><input type=\"text\"  size=\"9\" id=\"lib_centrale{{i}}\" disabled=\"true\"></td>
+                                                     <td ><select  class=\"selectpicker\" id=\"lib_constructeur{{i}}\"  disabled=\"true\"></select></td>
+                         
+                                                 </tr>    
+                                                  
+                         
+                         
+                        -->
+                    {% endfor%}
+
+                </div>
+                <!--  </tbody>
+
+
+                </td> 
+
+            </table> -->  
+            </div>
+
+
+
+
+
+        
+                    </div>
 </body>
-</html>
-", "SIECentralBundle:Default:index.html.twig", "E:\\DEV\\quadranSIE\\src\\SIE\\CentralBundle/Resources/views/Default/index.html.twig");
+</html>", "SIECentralBundle:Default:index.html.twig", "E:\\DEV\\quadranSIE\\src\\SIE\\CentralBundle/Resources/views/Default/index.html.twig");
     }
 }

@@ -2,10 +2,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app_ref_sie">
+<html xmlns="http://www.w3.org/1999/xhtml"  >
     <head>
-       
-        {% stylesheets '@SIECoreBundle/Resources/public/css/quadranStyle.css' filter='cssrewrite' %}
+       <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+         {% stylesheets '@SIECoreBundle/Resources/public/css/quadranStyle.css' filter='cssrewrite' %}
         <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         {% endstylesheets %}
         {% stylesheets '@SIECoreBundle/Resources/public/css/jquery-ui.css' %}
@@ -16,20 +17,21 @@
         
         
         {% block javascripts %}
-            {% javascripts '@SIECoreBundle/Resources/public/js/angular.js' %}
-                {#<script src="{{ asset_url }}"></script#}
-            {% endjavascripts %}
+            {# javascripts '@SIECoreBundle/Resources/public/js/angular.js' #}
+                {#<script src="{{ asset_url }}"></script
+            {% endjavascripts %}#}
              {% javascripts '@SIECoreBundle/Resources/public/js/jquery.js' %}
                 <script src="{{ asset_url }}"></script>
             {% endjavascripts %}
             {% javascripts '@SIECoreBundle/Resources/public/js/jquery-ui.js' %}
                 <script src="{{ asset_url }}"></script>
             {% endjavascripts %}
-            {% javascripts '@SIECoreBundle/Resources/public/js/app.js' %}
+            {# javascripts '@SIECoreBundle/Resources/public/js/app.js' 
                 <script src="{{ asset_url }}"></script>
-            {% endjavascripts %}
+            {% endjavascripts %}#}
            
            
      
         {% endblock %} 
       
+{% include "SIECoreBundle:Default:header.html.twig" %} 

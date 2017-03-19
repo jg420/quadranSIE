@@ -1,1 +1,94 @@
-Hello World!
+{# SIEAccessBundle/Resources/views/form/index.html.twig #}
+
+{% include "SIECoreBundle:Default:head.html.twig" %} 
+
+{% block javascripts %}
+    {% javascripts '@SIECoreBundle/Resources/public/js/setUp.js' %}
+    <script src="{{ asset_url }}"></script>          
+    {% endjavascripts %}
+    {% javascripts '@SIEAccessBundle/Resources/public/js/front_acces.js' %}
+    <script src="{{ asset_url }}"></script>          
+    {% endjavascripts %}
+{% endblock %}
+<title id="titre">ACCES</title>
+<body data-spy="scroll" data-target="#detail_acces" data-target="#apercu_acces" >
+    <!-- <body data-spy="scroll" data-target=".panel-body" data-offset="15">-->
+
+    <div class="container ">
+         
+            <div class="col-md-1">
+                <div  id="detail_acces"   class="panel-fixed affix"  >
+                    <!--  <div  id="detail_acces"   class="sidebar-nav-fixed  affix"  >
+                         Default panel contents -->
+                    <table><tr><td>
+                    <div class="panel-body">   
+                        {% include "SIEAccessBundle:Default:apercu_acces.html.twig" %} 
+
+                    </div>
+                    </td><td>    
+                    <div class="panel-body">   
+                        {% include "SIEAccessBundle:Default:detail_acces.html.twig" %} 
+
+                    </div></td></tr></table>
+                        
+                </div>
+            </div>
+       
+                        <div  >
+                <!-- <table id="table_equipement"   class="table">
+                    <thead sidebar-nav-fixed  affix>  
+                        <tr>
+                            <th id="KeyParam1">Nom</th>
+                            <th id="KeyParam2">Centrale</th>
+                            <th id="KeyParam3">Constructeur</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        Row 1 -->
+
+                {% set nb = nbAcces + 0 %} {#nbAcces est envoyé au template via le controlleur #}
+               
+                <div  id="list_principale"  >
+                    {% for i in range(0,nbAcces) %}
+                        <!--<tr>-->
+                        <a onclick="fe_select({{i}});" href="#" id='lien_acces{{i}}' class="list-group-item list-group-item-action flex-column align-items-start ">
+                            <!-- <div class="d-flex w-100 justify-content-between"> -->
+                            <h5 class="mb-1"><div id="lib_acces{{i}}"></div>
+                               
+                            </h5>  <small id="lib_constructeur{{i}}"></small>
+                          <!-- <small>lib_centrale{{i}}</small>
+                          
+                        <p class="mb-1"><small>lib_constructeur{{i}}</small> -->
+                        </a>
+                        <!-- </tr>
+                                                <tr id="selectEquipement{{i}}"  > 
+                                                     
+                                                     <td ><input type="text" id="lib_acces{{i}}"  disabled="disabled"/></td>
+                                                     <td ><input type="text"  size="9" id="lib_centrale{{i}}" disabled="true"></td>
+                                                     <td ><select  class="selectpicker" id="lib_constructeur{{i}}"  disabled="true"></select></td>
+                         
+                                                 </tr>    
+                                                  
+                         
+                         
+                        -->
+                    {% endfor%}
+
+                </div>
+                <!--  </tbody>
+
+
+                </td> 
+
+            </table> -->  
+            </div>
+
+
+
+
+
+        
+                    </div>
+</body>
+</html>

@@ -16,8 +16,8 @@ class __TwigTemplate_4d0864fd96d9906d5018e89d1b68b59ee29cab6a5f2039397568542a817
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_97c818c1ce6cd2a65c8a1472f2d4c86b4e5fa11e086c6c3921b7645043e1e68a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_97c818c1ce6cd2a65c8a1472f2d4c86b4e5fa11e086c6c3921b7645043e1e68a->enter($__internal_97c818c1ce6cd2a65c8a1472f2d4c86b4e5fa11e086c6c3921b7645043e1e68a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIECoreBundle:Default:head.html.twig"));
+        $__internal_55b1c1705febef555c5398ac84280246b840e3fe0f16ee8132012692f6f86b30 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_55b1c1705febef555c5398ac84280246b840e3fe0f16ee8132012692f6f86b30->enter($__internal_55b1c1705febef555c5398ac84280246b840e3fe0f16ee8132012692f6f86b30_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIECoreBundle:Default:head.html.twig"));
 
         // line 2
         echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
@@ -25,13 +25,14 @@ class __TwigTemplate_4d0864fd96d9906d5018e89d1b68b59ee29cab6a5f2039397568542a817
 <!DOCTYPE html>
 <html xmlns=\"http://www.w3.org/1999/xhtml\" ng-app=\"app_ref_sie\">
     <head>
-       
-        ";
-        // line 8
+       <link href=\"//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" rel=\"stylesheet\">
+     <script src=\"//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>
+         ";
+        // line 9
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "81f969e_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_81f969e_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/css/81f969e_quadranStyle_1.css");
-            // line 9
+            // line 10
             echo "        <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" type=\"text/css\" />
@@ -45,12 +46,12 @@ class __TwigTemplate_4d0864fd96d9906d5018e89d1b68b59ee29cab6a5f2039397568542a817
         ";
         }
         unset($context["asset_url"]);
-        // line 11
+        // line 12
         echo "        ";
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "2db1e5c_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_2db1e5c_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/css/2db1e5c_jquery-ui_1.css");
-            // line 12
+            // line 13
             echo "        <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" type=\"text/css\" />
@@ -64,53 +65,42 @@ class __TwigTemplate_4d0864fd96d9906d5018e89d1b68b59ee29cab6a5f2039397568542a817
         ";
         }
         unset($context["asset_url"]);
-        // line 14
+        // line 15
         echo "        
         <link href=\"http://127.0.0.1/debug/sie-/web/logo.ico\" rel=\"icon\" type=\"image/x-icon\" />
         
         
         ";
-        // line 18
+        // line 19
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 34
+        // line 35
         echo " 
       
 ";
+        // line 37
+        $this->loadTemplate("SIECoreBundle:Default:header.html.twig", "SIECoreBundle:Default:head.html.twig", 37)->display($context);
+        echo " ";
         
-        $__internal_97c818c1ce6cd2a65c8a1472f2d4c86b4e5fa11e086c6c3921b7645043e1e68a->leave($__internal_97c818c1ce6cd2a65c8a1472f2d4c86b4e5fa11e086c6c3921b7645043e1e68a_prof);
+        $__internal_55b1c1705febef555c5398ac84280246b840e3fe0f16ee8132012692f6f86b30->leave($__internal_55b1c1705febef555c5398ac84280246b840e3fe0f16ee8132012692f6f86b30_prof);
 
     }
 
-    // line 18
+    // line 19
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_790c2016cb911b4716fd380fe5c89484f23f8c6be77db0032a0c5b6d1640cff4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_790c2016cb911b4716fd380fe5c89484f23f8c6be77db0032a0c5b6d1640cff4->enter($__internal_790c2016cb911b4716fd380fe5c89484f23f8c6be77db0032a0c5b6d1640cff4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_792cda0aadccbe45250ee75aa5aa0a49ecad548a4bdecf88b2ed6c7388efb2ee = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_792cda0aadccbe45250ee75aa5aa0a49ecad548a4bdecf88b2ed6c7388efb2ee->enter($__internal_792cda0aadccbe45250ee75aa5aa0a49ecad548a4bdecf88b2ed6c7388efb2ee_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 19
+        // line 20
         echo "            ";
-        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "d4574a7_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_d4574a7_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/d4574a7_angular_1.js");
-            // line 20
-            echo "                ";
-            // line 21
-            echo "            ";
-        } else {
-            // asset "d4574a7"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_d4574a7") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/d4574a7.js");
-            // line 20
-            echo "                ";
-            // line 21
-            echo "            ";
-        }
-        unset($context["asset_url"]);
-        // line 22
+        // line 21
+        echo "                ";
+        // line 23
         echo "             ";
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "a750637_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_a750637_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/a750637_jquery_1.js");
-            // line 23
+            // line 24
             echo "                <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
@@ -124,12 +114,12 @@ class __TwigTemplate_4d0864fd96d9906d5018e89d1b68b59ee29cab6a5f2039397568542a817
             ";
         }
         unset($context["asset_url"]);
-        // line 25
+        // line 26
         echo "            ";
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "2994d72_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_2994d72_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/2994d72_jquery-ui_1.js");
-            // line 26
+            // line 27
             echo "                <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
@@ -143,32 +133,15 @@ class __TwigTemplate_4d0864fd96d9906d5018e89d1b68b59ee29cab6a5f2039397568542a817
             ";
         }
         unset($context["asset_url"]);
-        // line 28
+        // line 29
         echo "            ";
-        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "584d851_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_584d851_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/584d851_app_1.js");
-            // line 29
-            echo "                <script src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script>
-            ";
-        } else {
-            // asset "584d851"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_584d851") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/584d851.js");
-            echo "                <script src=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script>
-            ";
-        }
-        unset($context["asset_url"]);
-        // line 31
+        // line 32
         echo "           
            
      
         ";
         
-        $__internal_790c2016cb911b4716fd380fe5c89484f23f8c6be77db0032a0c5b6d1640cff4->leave($__internal_790c2016cb911b4716fd380fe5c89484f23f8c6be77db0032a0c5b6d1640cff4_prof);
+        $__internal_792cda0aadccbe45250ee75aa5aa0a49ecad548a4bdecf88b2ed6c7388efb2ee->leave($__internal_792cda0aadccbe45250ee75aa5aa0a49ecad548a4bdecf88b2ed6c7388efb2ee_prof);
 
     }
 
@@ -184,7 +157,7 @@ class __TwigTemplate_4d0864fd96d9906d5018e89d1b68b59ee29cab6a5f2039397568542a817
 
     public function getDebugInfo()
     {
-        return array (  166 => 31,  152 => 29,  147 => 28,  133 => 26,  128 => 25,  114 => 23,  109 => 22,  105 => 21,  103 => 20,  98 => 21,  96 => 20,  91 => 19,  85 => 18,  76 => 34,  74 => 18,  68 => 14,  54 => 12,  49 => 11,  35 => 9,  31 => 8,  23 => 2,);
+        return array (  139 => 32,  137 => 29,  123 => 27,  118 => 26,  104 => 24,  99 => 23,  97 => 21,  95 => 20,  89 => 19,  81 => 37,  77 => 35,  75 => 19,  69 => 15,  55 => 13,  50 => 12,  36 => 10,  32 => 9,  23 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -203,8 +176,9 @@ class __TwigTemplate_4d0864fd96d9906d5018e89d1b68b59ee29cab6a5f2039397568542a817
 <!DOCTYPE html>
 <html xmlns=\"http://www.w3.org/1999/xhtml\" ng-app=\"app_ref_sie\">
     <head>
-       
-        {% stylesheets '@SIECoreBundle/Resources/public/css/quadranStyle.css' filter='cssrewrite' %}
+       <link href=\"//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" rel=\"stylesheet\">
+     <script src=\"//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>
+         {% stylesheets '@SIECoreBundle/Resources/public/css/quadranStyle.css' filter='cssrewrite' %}
         <link rel=\"stylesheet\" href=\"{{ asset_url }}\" type=\"text/css\" />
         {% endstylesheets %}
         {% stylesheets '@SIECoreBundle/Resources/public/css/jquery-ui.css' %}
@@ -215,23 +189,23 @@ class __TwigTemplate_4d0864fd96d9906d5018e89d1b68b59ee29cab6a5f2039397568542a817
         
         
         {% block javascripts %}
-            {% javascripts '@SIECoreBundle/Resources/public/js/angular.js' %}
-                {#<script src=\"{{ asset_url }}\"></script#}
-            {% endjavascripts %}
+            {# javascripts '@SIECoreBundle/Resources/public/js/angular.js' #}
+                {#<script src=\"{{ asset_url }}\"></script
+            {% endjavascripts %}#}
              {% javascripts '@SIECoreBundle/Resources/public/js/jquery.js' %}
                 <script src=\"{{ asset_url }}\"></script>
             {% endjavascripts %}
             {% javascripts '@SIECoreBundle/Resources/public/js/jquery-ui.js' %}
                 <script src=\"{{ asset_url }}\"></script>
             {% endjavascripts %}
-            {% javascripts '@SIECoreBundle/Resources/public/js/app.js' %}
+            {# javascripts '@SIECoreBundle/Resources/public/js/app.js' 
                 <script src=\"{{ asset_url }}\"></script>
-            {% endjavascripts %}
+            {% endjavascripts %}#}
            
            
      
         {% endblock %} 
       
-", "SIECoreBundle:Default:head.html.twig", "E:\\DEV\\quadranSIE\\src\\SIE\\CoreBundle/Resources/views/Default/head.html.twig");
+{% include \"SIECoreBundle:Default:header.html.twig\" %} ", "SIECoreBundle:Default:head.html.twig", "E:\\DEV\\quadranSIE\\src\\SIE\\CoreBundle/Resources/views/Default/head.html.twig");
     }
 }

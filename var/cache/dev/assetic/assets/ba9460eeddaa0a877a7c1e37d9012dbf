@@ -1,0 +1,416 @@
+/* 
+ * Copyright (C) 2016 g.juillerot
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+var pathEquipement = hostPath_dev + "equipement/";
+
+var pathEquipements = hostPath_dev + "equipement/";
+
+var equipements = [];
+
+equipements['lib_centrale'] = [];
+equipements['id_equipement'] = [];  //id_equipement
+equipements['lib_equipement'] = [];  //lib_equipement
+equipements['id_constructeur'] = [];  //id_constructeur
+equipements['lib_constructeur'] = [];  //lib_constructeur
+equipements['id_type'] = [];  //id_type
+equipements['lib_type'] = [];  //lib_type
+equipements['id_version'] = [];  //id_version
+equipements['version'] = [];  //version
+equipements['num serie'] = [];     //num serie
+equipements['mac_adresse'] = [];
+equipements['adresse_ip'] = [];
+equipements['port'] = [];
+equipements['protocol'] = [];
+equipements['login'] = [];
+equipements['mdp'] = [];
+
+
+
+var constructeurs = [];
+equipements['id_constructeur'] = [];    //id_constructeur
+equipements['lib_constructeur'] = [];    //lib_constructeur
+
+var typeEquipement = [];
+typeEquipement[0] = [];
+typeEquipement[1] = [];
+
+var acces = [];
+acces['id_acces'] = [];
+acces['lib_acces'] = [];
+acces['adresse_ip_acces'] = [];
+acces['login_acces'] = [];
+acces['port_acces'] = [];
+acces['protocol_acces'] = [];
+
+var config=[];
+config['id_config']=[];
+config['lien_config']=[];
+config['lib_config']=[];
+
+
+var apercu=[];
+apercu['id_apercu']=[];
+apercu['lib_apercu']=[];
+apercu['lien_apercu']=[];
+
+
+var id_equipement = "";  //equipement en cours
+
+var newEquipement = false;
+
+$(document).ready(function () {
+
+
+    fe_chargeParametreInitial();
+    fe_chargeToutLesEquipements();
+    fe_afficheToutLesEquipements();
+
+    
+    fe_affiche_panel_par_defaut();
+   
+    //gestion partie propriété
+    fe_gere_evenement_partie_details_equipement();
+    fe_gere_evenement_partie_acces_equipement();
+    fe_gere_evenement_partie_config_equipement();
+
+    //gestion partie apercu
+    fe_gere_evenement_partie_apercu();
+
+
+});
+function fe_gere_evenement_partie_apercu(){
+    $('#btn_ajout_apercu_equipement').click(function(){
+        fe_affiche_input_partie_apercu();
+    });
+    $('#btn_annule_ajout_config').click(function(){
+        fe_cache_input_partie_apercu();
+    });
+}
+function fe_cache_input_partie_apercu(){
+    $('#titre_nouvelle_apercu').attr('style', 'visibility:hidden');
+    
+    $('#btn_parcourir').attr('style', 'visibility:hidden');
+    $('#btn_valid_ajout_apercu').attr('style', 'visibility:hidden');
+    $('#btn_annule_ajout_config').attr('style', 'visibility:hidden');
+    
+    $('#lib_apercu').attr('style', 'visibility:hidden');
+    $('#lib_apercu').attr('disabled', 'false');
+}
+function fe_affiche_input_partie_apercu(){
+    $('#titre_nouvelle_apercu').attr('style', 'visibility:visible');
+    
+    $('#btn_parcourir').attr('style', 'visibility:visible');
+    $('#btn_valid_ajout_apercu').attr('style', 'visibility:visible');
+    $('#btn_annule_ajout_config').attr('style', 'visibility:visible');
+    
+    $('#lib_apercu').attr('style', 'visibility:visible');
+    $('#lib_apercu').attr('disabled', 'enabled');
+       
+}
+function fe_affiche_input_partie_detail(){
+    
+    $('#lib_equipement').attr("disabled","false");
+    $('#num_serie').attr("disabled","false");
+    $('#lib_constructeur').attr("disabled","false");
+    $('#adresse_ip_local').attr("disabled","false");
+    $('#adresse_ip_vpn').attr("disabled","false");
+    $('#adresse_mac').attr("disabled","false");
+    $('#version_firmware').attr("disabled","false");
+    $('#btn_valid_modif_details_equipement').attr('style', 'visibility:visible');
+    $('#btn_annule_modif_details_equipement').attr('style', 'visibility:visible');
+}
+function fe_cache_input_partie_detail(){
+    $('#lib_equipement').attr("disabled","disabled");
+    $('#num_serie').attr("disabled","disabled");
+    $('#lib_constructeur').attr("disabled","disabled");
+    $('#adresse_ip_local').attr("disabled","disabled");
+    $('#adresse_ip_vpn').attr("disabled","disabled");
+    $('#adresse_mac').attr("disabled","disabled");
+    $('#version_firmware').attr("disableddisabledfalse");
+    $('#btn_valid_modif_details_equipement').attr('style', 'visibility:hidden');
+    $('#btn_annule_modif_details_equipement').attr('style', 'visibility:hidden');
+    
+}
+function fe_affiche_input_partie_acces(){}
+function fe_cache_input_partie_acces(){}
+
+function fe_gere_evenement_partie_config_equipement(){
+    
+}
+function fe_gere_evenement_partie_acces_equipement(){
+    
+}
+
+function fe_gere_evenement_partie_details_equipement(){
+    $('#btn_modif_details_equipement').click(function () {
+      
+        
+
+     
+    });
+
+    $('#btn_valid_modif_details_equipement').click(function () {
+
+        if (id_central !== "" & fre_formulaire_est_valide()) {
+            //validation de la modification
+
+            if (newEquipement) {
+                fre_addEquipement()
+            } else {
+                fre_modifEquipement();
+            }
+        } else {
+
+            alert("Saisie non valide");
+
+        }
+        fre_desactive_input();
+        fre_cacheBtnValidAnnulle();
+    });
+
+    $('#btn_annuler_modif_equipement').click(function () {
+
+
+        //UI
+        $('#btn_valid_modif_equipement').attr('style', 'visibility:hidden');
+        $('#btn_annuler_modif_equipement').attr('style', 'visibility:hidden');
+
+        $('#lib_equipement').attr('disabled', 'disabled');
+        $('#mac_equipement').attr('disabled', 'disabled');
+        $('#version_equipement').attr('disabled', 'disabled');
+        fre_displayEquipementByIdEquipement(id_equipement);
+
+    });
+}
+function  fe_affiche_panel_par_defaut(){
+     $('#lien_menu_equipement').attr("class", "active");
+}
+
+function fe_chargeParametreInitial() {
+    $('#lien_page_equipement').attr('href', pathEquipements);
+}
+;
+
+function fe_chargeToutLesEquipements() {
+    $.ajax({
+        method: 'GET',
+        async: false,
+        url: pathEquipements + 'getAllEtendue',
+        //  data: {'id_central':id_central},
+        dataType: 'json', // on veut un retour JSON
+        success: function (json) {
+            var i = 0;
+
+            $.each(json, function (index, value) { // pour chaque noeud JSON
+                equipements['id_equipement'][index] = value.id_equipement;
+                equipements['lib_equipement'][index] = value.lib_equipement;
+                ;
+                equipements['lib_centrale'][index] = value.lib_central;
+                equipements['id_constructeur'][index] = value.id_constructeur;
+                equipements['lib_constructeur'][index] = value.lib_constructeur;
+                //equipements['id_type'][index]=value.id_type;
+                //equipements['lib_type'][index]=value.lib_type;
+
+                //fe_chercheEtChargeAccessEquipement(value.id_equipement);
+
+
+                i++;
+            });
+        },
+        error: function () {
+        }
+    });
+}
+;
+
+function fe_chercheEtChargeAccessEquipement(i) {
+
+
+    $.ajax({
+        method: 'GET',
+        async: false,
+        url: pathEquipements + 'getAllEtendue',
+        dataType: 'json', // on veut un retour JSON
+        success: function (json) {
+            var i = 0;
+
+            $.each(json, function (index, value) { // pour chaque noeud JSON
+                equipements['adresse_ip'][index] = value.adresse_ip;
+                equipements['login'][index] = value.login;
+                equipements['mdp'][index] = value.password;
+                i++;
+            });
+        },
+        error: function () {
+        }
+    });
+}
+;
+function fe_afficheToutLesEquipements() {
+    //$('#lib_equipement1').val(equipements['lib_equipement'[i]]);
+
+    for (var i = 0; i < equipements['lib_equipement'].length; i++) {
+        var lienEquipement = '#lien_equipement' + i;
+        $(lienEquipement).val(equipements['id_equipement'][i]);
+
+
+        var libEquipement = '#lib_equipement' + i;
+        //  $('t:nth-child('+i+')').append("equipements['lib_equipement']");
+        $(libEquipement).append(equipements['lib_equipement'][i]);
+
+        /*var id_constructeur='#id_constructeur'+i;
+         $(id_constructeur).val(equipements['id_constructeur'][i]);*/
+
+        var libConstructeur = '#lib_constructeur' + i;
+        //$(libConstructeur).val('fff');
+        $(libConstructeur).append(
+                //$(libConstructeur).append("<option id=" + equipements['id_constructeur'][i] + ">" +
+                equipements['lib_constructeur'][i]
+                );
+
+        /* var libCentrale = '#lib_centrale' + i;
+         $(libCentrale).val(
+         equipements['lib_centrale'][i]);
+         
+         var id_type='#id_type'+i;
+         $(id_type).val(equipements['id_type'][i]);
+         
+         var lib_type='#lib_type'+i;
+         $(lib_type).val(equipements['lib_type']);
+         
+         var id_version='#id_version'+i;
+         $(id_version).val(equipements['id_version']);
+         
+         var lien_access='#lien_access'+i;
+         $(lien_access).val(equipements['adresse_ip'][i]);
+         */
+
+    }
+
+}
+
+function fe_modifieEquipement() {
+
+}
+
+function fe_select(i) {
+    //j efface l'anciene selection graphique
+    $('.list-group-item').attr("class", "list-group-item list-group-item-action flex-column align-items-start");
+
+
+    var lien_eq = '#lien_equipement' + i;
+    var attribut = "list-group-item list-group-item-action flex-column align-items-start active"
+    $(lien_eq).attr("class", attribut);
+
+    id_equipement = $(lien_eq).val();
+    fe_charge_et_affiche_equipement_par_id(id_equement);
+
+}
+function fe_charge_et_affiche_equipement_par_id(id) {
+    fe_charge_equipement_par_id(id);
+    fe_affiche_equipement_par_id(id);
+
+}
+function fe_charge_equipement_par_id(id) {
+    
+}
+
+function fe_affiche_equipement_par_id(id) {
+
+    fe_affiche_info_equipement_par_id(id);
+    fe_affiche_access_equipement_par_id(id);
+    fe_affiche_config_equipement_par_id(id);
+    fe_affiche_apercu_equipement_par_id(id);
+
+}
+function fe_affiche_apercu_equipement_par_id(i){
+    index = apercu['id_equipement'].indexOf(i);
+    if (index !== -1) {
+        $('#n_apercu').html(apercu['lib_apercu'][index]);
+        
+        $('#id_apercu').val(apercu['id_apercu'][index]);
+        
+        fe_affiche_image_apercu(apercu['lib_apercu'][index]);
+    }
+}
+function fe_affiche_image_apercu(lien_image){
+    //$('#preview_file').html(apercu['lib_apercu'][index]);
+}
+function fe_affiche_info_equipement_par_id(i) {
+    index = equipements['id_equipement'].indexOf(i);
+    if (index !== -1) {
+        $('#adresse_mac').val(equipements['mac_adresse'][index]);
+        $('#lib_equipement').val(equipements['lib_equipement'][index]);
+        $('#num_serie').val(equipements['num_serie'][index]);
+        $('#lib_constructeur').val(equipements['lib_constructeur'][index]);
+        $('#adresse_ip_local').val(equipements['adresse_ip_local'][index]);
+        $('#adresse_ip_vpn').val(equipements['adresse_ip_vpn'][index]);
+        $('#version_firmware').val(equipements['version_firmware'][index]);
+    }
+
+}
+function fe_affiche_access_equipement_par_id(i) {
+    index = acces['id_equipement'].indexOf(id);
+    if (index !== -1) {
+        $('lib_acces').val(acces['lib_acces'][index]);
+        $('lib_acces').val(acces['adresse_ip_aces'][index]);
+        $('lib_acces').val(acces['login_access'][index]);
+        $('lib_acces').val(acces['passwxord_access'][index]);
+        $('lib_acces').val(acces['port_access'][index]);
+        $('lib_acces').val(acces['protocol_access'][index]);
+    }
+}
+
+function fe_affiche_config_equipement_par_id(i) {
+    index = config['id_equipement'].indexOf(id);
+     if (index !== -1) {
+        $('lib_acces').val(config['lib_access'][index]);
+        $('lien_acces').val(config['lien_access'][index]);
+        $('id_acces').val(config['id_access'][index]);
+    }
+}
+
+function fe_css_select_details_equipement() {
+    $('#menu_details').attr("class", "active");
+    $('#menu_acces').attr("class", "");
+    $('#menu_config').attr("class", "");
+
+    $('#config_equipement').attr("class", "tab-pane fade");
+    $('#acces_equipement').attr("class", "tab-pane fade");
+    $('#details_equipement').attr("class", "tab-pane fade active in");
+}
+function fe_css_select_acces_equipement() {
+    $('#menu_details').attr("class", "");
+    $('#menu_acces').attr("class", "active");
+    //$('#menu_config').attr("class", "");
+
+    $('#config_equipement').attr("class", "tab-pane fade");
+    $('#acces_equipement').attr("class", "tab-pane fade active in ");
+    $('#details_equipement').attr("class", "tab-pane fade");
+
+}
+function fe_css_select_config_equipement() {
+    $('#menu_details').attr("class", "");
+    $('#menu_acces').attr("class", "none");
+    $('#menu_config').attr("class", "active");
+
+    $('#config_equipement').attr("class", "tab-pane fade active in");
+    $('#acces_equipement').attr("class", "tab-pane fade");
+    $('#details_equipement').attr("class", "tab-pane fade");
+}
+
+ 

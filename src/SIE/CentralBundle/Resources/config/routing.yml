@@ -17,6 +17,18 @@ central_get_all_json:
     path:     /getAll
     defaults: { _controller: "SIECentralBundle:Admin:json_getAll_central" }
    
+central_get_all_json:
+    path:     /getCentral/{id}
+    defaults: { _controller: "SIECentralBundle:Admin:getCentral" }
+   
+central_get_central:
+    path:     /getCentral/{id}/
+    defaults: { _controller: "SIECentralBundle:Admin:getCentral" }
+   
+central_get_allEtendue_json:
+    path:     /getAllEtendue
+    defaults: { _controller: "SIECentralBundle:Admin:json_getAllEtendue_central" }
+   
 modif_central:
     path:     /modifCentral
     defaults: { _controller: "SIECentralBundle:Admin:modifCentral" }
