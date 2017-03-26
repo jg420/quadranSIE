@@ -244,7 +244,7 @@ function  fc_gere_evenement_partie_apercu_central() {
     });
     $('#btn_annule_ajout_apercu').click(function () {
         fc_cache_input_nouveau_prestataire_central();
-        fc_affiche_btn_valid_annule_apercu();
+        fc_cache_btn_valid_annule_apercu();
     });
     $('#btn_next_apercu_equipement').click(function(){fc_affiche_apercus_suivant();});
     $('#btn_last_apercu_equipement').click(function(){fc_affiche_apercus_precedent();});
