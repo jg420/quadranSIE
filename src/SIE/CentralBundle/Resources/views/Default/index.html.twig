@@ -4,14 +4,14 @@
 {# include "SIEEquipementBundle:Default:search_equipement.html.twig" #} 
 {% block javascripts %}
     {% javascripts '@SIECoreBundle/Resources/public/js/setUp.js' %}
-    <script src="{{ asset_url }}"></script>          
+    <script src="{{ asset_url }}" charset="UTF-8"></script>          
     {% endjavascripts %}
     {% javascripts '@SIECentralBundle/Resources/public/js/front_centrale.js' %}
-    <script src="{{ asset_url }}"></script>          
+    <script src="{{ asset_url }}" charset="UTF-8"></script>          
     {% endjavascripts %}
 {% endblock %}
 <title id="titre">Centrales</title>
-<body data-spy="scroll" data-target="#detail_central" data-target="#apercu_central" >
+<body data-spy="scroll" data-target="#detail_central" data-target="#apercu_central" charset="iso-8859-1" >
     <!-- <body data-spy="scroll" data-target=".panel-body" data-offset="15">-->
 
     <div class="container ">

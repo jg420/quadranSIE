@@ -1,0 +1,610 @@
+/* 
+ * Copyright (C) 2016 g.juillerot
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+var pathCentrale = hostPath_dev + "central/";
+var path_document= hostPath_dev+"document/";
+
+var centrales = []; //sert a stocker toutes les centrales 
+centrales['lib_direction'] = []; // lib direction ex: DR SUD - METHANERGY
+centrales['id_centrale'] = [];  //id_centrale
+centrales['lib_centrale'] = [];  //lib_centrale
+centrales['lib_puissance'] = []; //lib puissance en kWh
+ centrales['lib_societe_principale'] = []; //lib societe
+ centrales['code_ana'] = []; //code analytique
+
+var details_centrale = []; // sert a stocker une centrale en particulier
+details_centrale['lib_centrale'] = [];  //lib_centrale
+details_centrale['lib_direction'] = []; // lib direction ex: DR SUD - METHANERGY
+details_centrale['lib_centrale'] = [];  //lib_centrale
+details_centrale['code_ana'] = [];  //code analytique
+details_centrale['lib_societe_principale'] = []; //lib societe
+details_centrale['lib_puissance'] = [];
+details_centrale['lib_type'] = [];  //lib_type
+details_centrale['id_cex'] = [];  //id_cex
+details_centrale['lib_cex'] = [];  //lib_cex en trigrame ex: LNI
+details_centrale['id_direction'] = []; // id_direction
+
+var apercus_centrale = []; //sert a stocker les différents document image d'une centrale
+apercus_centrale['id_apercus'] = [];
+apercus_centrale['lib_apercus'] = [];
+apercus_centrale['lien_apercus'] = [];
+
+var prestataires_centrale = []; //sert a stocker les différents prestataires d'une centrale
+prestataires_centrale['id_societe'] = [];
+prestataires_centrale['lib_societe'] = [];
+
+var equipements_centrale = []; //sert a stocker les différents equipement d'une centrale
+equipements_centrale['id_equipement'] = [];
+equipements_centrale['lib_equipement'] = [];
+
+
+var cex = []; //pour l'autocomplétion pour la modif 
+cex['id_cex'] = [];    //id_cex
+cex['lib_cex'] = [];    //lib_cex
+
+//pour l'autocomplétion
+var type_centrale = [];
+type_centrale['id_type_centrale'] = [];
+type_centrale['lib_type_centrale'] = [];
+
+//pour l'autocomplétion
+var directions = [];
+directions['id_direction'] = [];
+directions['lib_direction'] = [];
+
+
+var id_centrale = "";  //equipement en cours
+
+var new_centrale = false;
+
+$(document).ready(function () {
+
+    $('#lien_menu_central').attr("class", "active");
+
+    fc_charge_parametre_initial();
+    fc_charge_tout_les_centrales();
+    fc_affiche_toutes_les_centrales();
+
+
+    fc_affiche_panel_par_defaut();
+
+    /*fc_gere_evenement_partie_details_central();
+     fc_gere_evenement_partie_equipements_central();
+     fc_gere_evenement_partie_prestataire_central();*/
+    fc_gere_evenement_partie_apercu_central();
+
+
+
+});
+
+function fc_affiche_panel_par_defaut() {
+    $('#lien_menu_centrale').attr("class", "active");
+}
+function  fc_gere_evenement_partie_apercu_central() {
+
+    $('#btn_ajout_schema_central').click(function () {
+
+        fc_affiche_input_partie_apercu_central();
+    });
+    $('#btn_valid_ajout_apercu').click(function () {
+        if(fc_creation_apercu_est_valide()){
+            fc_ajoute_doc();
+        }
+    });
+    $('#btn_annule_ajout_apercu').click(function () {
+        fc_cache_input_partie_apercu_central();
+    });
+  
+}
+function fc_gere_evenement_partie_details_central() {
+    $('#btn_modif_info_central').click(function () {
+        fc_affiche_input_partie_details_central();
+    });
+
+    $('#btn_annule_modif_details_central').click(function () {
+        fc_cache_input_partie_details_central();
+    });
+}
+function fc_gere_evenement_partie_prestataire_central() {
+    $('#btn_modif_presta_central').click(function () {
+        fc_affiche_input_prestataire_central();
+    });
+    $('#btn_annule_modif_presta_central').click(function () {
+        fc_cache_input_prestataire_central();
+    });
+}
+
+function fc_creation_apercu_est_valide(){}
+function fc_modification_info_central_est_valide(){}
+function fc_modification_prestataire_est_valide(){}
+function fc_modification_equipement_est_valide(){}
+
+function fc_affiche_input_partie_details_central() {
+    $('#direction').attr('disabled', 'false');
+    $('#cex').attr('disabled', 'false');
+    $('#val_adresse_postal').attr('disabled', 'false');
+    $('#societe_principale').attr('disabled', 'false');
+    $('#puissance_estimee').attr('disabled', 'false');
+    $('#btn_valid_modif_details_central').attr('style', 'visibility:visible');
+    $('#btn_annule_modif_details_central').attr('style', 'visibility:visible');
+}
+function fc_cache_input_partie_details_central() {
+    $('#direction').attr('disabled', 'true');
+    $('#cex').attr('disabled', 'true');
+    $('#val_adresse_postal').attr('disabled', 'true');
+    $('#societe_principale').attr('disabled', 'true');
+    $('#puissance_estimee').attr('disabled', 'true');
+    $('#btn_valid_modif_details_central').attr('style', 'visibility:hidden');
+    $('#btn_annule_modif_details_central').attr('style', 'visibility:hidden');
+}
+
+
+function fc_affiche_input_prestataire_central() {
+
+}
+function fc_cache_input_prestataire_central() {
+
+}
+
+function fc_affiche_input_partie_apercu_central() {
+    $('#titre_nouvelle_apercu').attr('style', 'visibility:visible');
+    $('#lib_apercu').attr('style', 'visibility:visible');
+    $('#btn_valid_ajout_apercu').attr('style', 'visibility:visible');
+    $('#btn_annule_ajout_apercu').attr('style', 'visibility:visible');
+    $('#file_apercu').attr('style', 'visibility:visible');
+}
+function fc_cache_input_partie_apercu_central() {
+    $('#titre_nouvelle_apercu').attr('style', 'visibility:hidden');
+    $('#lib_apercu').attr('style', 'visibility:hidden');
+    $('#btn_valid_ajout_apercu').attr('style', 'visibility:hidden');
+    $('#file_apercu').attr('style', 'visibility:hidden');
+    $('#btn_annule_ajout_apercu').attr('style', 'visibility:hidden');
+    
+}
+
+
+function fc_charge_parametre_initial() {
+    $('#lien_page_centrale').attr('href', pathCentrale);
+}
+;
+
+function fc_charge_tout_les_centrales() {
+    $.ajax({
+        method: 'GET',
+        async: false,
+        url: pathCentrale + 'getAll',
+        //  data: {'id_central':id_central},
+        dataType: 'json', // on veut un retour JSON
+        success: function (json) {
+            var i = 0;
+
+            $.each(json, function (index, value) { // pour chaque noeud JSON
+                centrales['id_centrale'][index] = value.id_central;
+                centrales['lib_centrale'][index] = value.lib_central;
+
+
+
+                centrales['lib_direction'][index] = value.lib_direction;
+                centrales['lib_societe_principale'][index] = value.lib_societe;
+                centrales['code_ana'][index] = value.code_ana;
+
+
+
+
+                //details_centrale['id_type'][index]=value.id_type;
+                //centrales['lib_type'][index]=value.lib_type;
+
+                //fc_cherche_et_charge_details_centrale(value.id_centrale);
+
+
+                i++;
+            });
+        },
+        error: function () {
+        }
+    });
+}
+;
+
+function fc_cherche_et_charge_details_centrale(i) {
+
+
+    $.ajax({
+        method: 'GET',
+        async: false,
+        url: pathCentrale + 'get_info_centrale',
+        dataType: 'json', // on veut un retour JSON
+        success: function (json) {
+            var i = 0;
+
+            $.each(json, function (index, value) { // pour chaque noeud JSON
+                centrales['id_centrale'][index] = value.id_central;
+                centrales['lib_centrale'][index] = value.lib_central;
+
+                centrales['lib_direction'][index] = value.lib_direction;
+
+
+                centrales['code_ana'][index] = value.code_ana;
+                centrales['lib_societe_principale'][index] = value.lib_societe;
+
+
+                centrale['id_direction'][index] = value.id_direction;
+                details_centrale['id_type'][index] = value.id_type;
+                centrales['lib_type'][index] = value.lib_type;
+                centrales['id_cex'][index] = value.id_cex;
+                centrales['lib_cex'][index] = value.lib_cex;
+
+
+
+            });
+        },
+        error: function () {
+        }
+    });
+}
+;
+function fc_affiche_toutes_les_centrales() {
+    //$('#lib_centrale1').val(centrales['lib_centrale'[i]]);
+
+    for (var i = 0; i < centrales['lib_centrale'].length; i++) {
+        var lib_central = '#lib_central' + i;
+        //  $('t:nth-child('+i+')').append("centrales['lib_centrale']");
+        $(lib_central).append(centrales['lib_centrale'][i]);
+
+
+        /*var id_constructeur='#id_constructeur'+i;
+         $(id_constructeur).val(centrales['id_constructeur'][i]);*/
+
+        var lib_direction = '#lib_dr' + i;
+        //$(lib_direction).val('fff');
+        $(lib_direction).append(
+                //$(lib_direction).append("<option id=" + centrales['id_constructeur'][i] + ">" +
+                centrales['lib_direction'][i]
+                );
+
+        /* var libCentrale = '#lib_centrale' + i;
+         $(libCentrale).val(
+         centrales['lib_centrale'][i]);
+         
+         var id_type='#id_type'+i;
+         $(id_type).val(details_centrale['id_type'][i]);
+         
+         var lib_type='#lib_type'+i;
+         $(lib_type).val(centrales['lib_type']);
+         
+         var id_version='#id_version'+i;
+         $(id_version).val(centrales['id_version']);
+         
+         var lien_access='#lien_access'+i;
+         $(lien_access).val(centrales['adresse_ip'][i]);
+         */
+
+    }
+
+}
+
+function fc_modifie_central() {
+
+}
+
+function fc_select(i) {
+    //j efface l'anciene selection graphique
+    $('.list-group-item').attr("class", "list-group-item list-group-item-action flex-column align-items-start");
+
+
+    var v = '#lien_central' + i;
+    var attribut = "list-group-item list-group-item-action flex-column align-items-start active"
+    $(v).attr("class", attribut);
+    fc_charge_et_affiche_central(i+1);
+    /*TODO 
+     * fc_charge_et_affiche_central(id)
+     *  fc_charge_et_affiche_info_central(id)
+     *  fc_charge_et_affiche_equipement_central(id)
+     *  fc_charge_et_affiche_prestataire_central(id)
+     * 
+     * */
+
+}
+
+function fc_charge_et_affiche_central(id) {
+       //alert('ici ok');
+    fc_charge_et_affiche_infos_central(id);
+    //fc_charge_et_affiche_equipements_central(id);
+    //fc_charge_et_affiche_prestaires_central(id);
+ 
+    fc_charge_et_affiche_apercus_central(id);
+}
+
+function fc_charge_et_affiche_infos_central(id) {
+    fc_charge_infos_central(id);
+    fc_affiche_infos_central();
+}
+function fc_charge_et_affiche_equipements_central(id) {
+    fc_charge_equipments_central(id);
+    fc_affiche_equipments_central();
+}
+function fc_charge_et_affiche_prestataires_central(id) {
+    fc_charge_prestataires_central(id);
+    fc_affiche_prestataires_central();
+}
+function fc_charge_et_affiche_apercus_central(id) {
+    fc_charge_apercus_central(id);
+    fc_affiche_apercus_central();
+}
+
+function fc_charge_infos_central(id) {
+    $.ajax({
+        method: 'GET',
+        async: false,
+        url: pathCentrale + 'getCentral/'+id,
+          //data: {'id_central':id},
+        dataType: 'json', // on veut un retour JSON
+        success: function (json) {
+            //var i = 0;
+            fc_vide_infos_central_en_cache();
+            $.each(json, function (index, value) { // pour chaque noeud JSON
+
+                details_centrale['lib_centrale'][index] = value.lib_central;  //lib_centrale
+                details_centrale['lib_direction'] [index] = value.lib_direction; // lib direction ex: DR SUD - METHANERGY
+
+                details_centrale['code_ana'] [index] = value.code_ana;  //code analytique
+                details_centrale['lib_societe_principale'][index] = value.lib_societe; //lib societe
+                details_centrale['lib_puissance'][index] = value.lib_puissance;
+                details_centrale['lib_type'][index] = value.lib_type;  //lib_type
+                details_centrale['id_cex'] [index] = value.id_cex;  //id_cex
+                details_centrale['lib_cex'][index] = value.lib_cex;  //lib_cex en trigrame ex: LNI
+                details_centrale['id_direction'][index] = value.id_direction; // id_direction
+                details_centrale['lib_direction'][index] = value.lib_direction; // lib_direction
+
+                //      i++;
+            });
+        },
+        error: function () {
+        }
+    });
+}
+function fc_charge_equipements_central(id) {
+       $.ajax({
+        method: 'GET',
+        async: false,
+        url: pathCentrale + 'getEquipements',
+          data: {'id_central':id},
+        dataType: 'json', // on veut un retour JSON
+        success: function (json) {
+            //var i = 0;
+            fc_vide_infos_equipements_en_cache();
+            $.each(json, function (index, value) { // pour chaque noeud JSON
+
+                equipements_centrale['id_equipement'][index] = value.id_equipement;   
+                equipements_centrale['lib_equipement'] [index] = value.id_equipement;  
+
+
+            });
+        },
+        error: function () {
+        }
+    });
+}
+function fc_charge_prestaires_central(id) {
+   $.ajax({
+        method: 'GET',
+        async: false,
+        url: pathCentrale + 'getEquipements',
+          data: {'id_central':id},
+        dataType: 'json', // on veut un retour JSON
+        success: function (json) {
+            //var i = 0;
+            fc_vide_infos_prestaires_en_cache();
+            $.each(json, function (index, value) { // pour chaque noeud JSON
+
+                prestataires_centrale['id_prestataire'][index] = value.id_prestataire;   
+                prestataires_centrale['lib_prestaire'] [index] = value.lib_prestataire;  
+
+            });
+        },
+        error: function () {
+        }
+    });
+}
+function fc_charge_apercus_central(id) {
+          $.ajax({
+        method: 'GET',
+        async: false,
+        url: pathCentrale + 'getApercus',
+          data: {'id_central':id},
+        dataType: 'json', // on veut un retour JSON
+        success: function (json) {
+            //var i = 0;
+            fc_vide_apercus_central_en_cache();
+            $.each(json, function (index, value) { // pour chaque noeud JSON
+
+                apercus_centrale['id_apercus'][index] = value.id_apercus;   
+                apercus_centrale['lib_apercus'] [index] = value.lib_apercus;  
+
+            });
+        },
+        error: function () {
+        }
+    });
+}
+
+function fc_affiche_infos_central() {
+    $('#code_ana').val(details_centrale['code_ana'][0]); 
+    $('#lib_central').val(details_centrale['lib_centrale'][0]); 
+    $('#direction').val(details_centrale['lib_direction'][0]); 
+    $('#cex').val(details_centrale['lib_cex'][0]); 
+    $('#type_central').val(details_centrale['lib_type'][0]); 
+    $('#societe_principale').val(details_centrale['societe'][0]); 
+    $('#puissance_estimee').val(details_centrale['puissance'][0]); 
+    
+}
+function fc_affiche_equipements_central( ) {
+    var v;
+}
+function fc_affiche_prestaires_central( ) {
+    var v;
+}
+function fc_affiche_apercus_central( ) {
+    $('#id_apercu').val(apercus_centrale['id_apercus'][0]);
+    $('#lbl_titre_apercu').html(apercus_centrale['lib_apercus'][0]);
+    fc_affiche_image(apercus_centrale['lien_centrale'][0]);
+}
+function fc_affiche_image(lien_image){
+    $('#img_apercu_centrale').attr('src',lien_image);
+}
+
+function fc_efface_input_infos_central(){
+    $('#direction').val('');
+    $('#cex').val('');
+    $('#val_adresse_postal').val('');
+    $('#societe_principale').val('');
+    $('#puissance_estimee').val('');
+    
+}
+function fc_efface_input_equipements_central(){}
+function fc_efface_input_prestataires_central(){}
+function fc_efface_input_apercus_central(){
+    
+}
+
+
+function fc_vide_infos_central_en_cache() {
+    var details_centrale = []; // sert a afficher une centrale en particulier
+    details_centrale['lib_centrale'] = [];  //lib_centrale
+    details_centrale['lib_direction'] = []; // lib direction ex: DR SUD - METHANERGY
+    details_centrale['lib_centrale'] = [];  //lib_centrale
+    details_centrale['code_ana'] = [];  //code analytique
+    details_centrale['lib_societe_principale'] = []; //lib societe
+    details_centrale['lib_puissance'] = [];
+    details_centrale['lib_type'] = [];  //lib_type
+    details_centrale['id_cex'] = [];  //id_cex
+    details_centrale['lib_cex'] = [];  //lib_cex en trigrame ex: LNI
+    details_centrale['id_direction'] = []; // id_direction
+}
+
+function fc_vide_equipements_central_en_cache() {
+    var equipements_centrale=[];
+    equipements_centrale['id_equipement']=[];
+    equipements_centrale['lib_equipement']=[];
+}
+function fc_vide_prestataires_central_en_cache() {
+    var prestataires_centrale = []; //sert a stocker les différents prestataires d'une centrale
+prestataires_centrale['id_societe'] = [];
+prestataires_centrale['lib_societe'] = [];
+}
+function fc_vide_apercus_central_en_cache() {
+    var equipements_centrale=[];
+    equipements_centrale['id_equipement']=[];
+    equipements_centrale['lib_equipement']=[];
+}
+
+function fc_css_select_details_centrale() {
+    $('#menu_information').attr("class", "active");
+    $('#menu_equipement').attr("class", "");
+    $('#menu_prestataire').attr("class", "");
+
+    $('#informations_centrale').attr("class", "tab-pane fade active in");
+    $('#equipement_centrale').attr("class", "tab-pane fade");
+    $('#prestataire_centrale').attr("class", "tab-pane fade");
+}
+function fc_css_select_prestataire_centrale() {
+    /*$('#menu_details').attr("class", "");
+     $('#menu_acces').attr("class", "active");
+     //$('#menu_config').attr("class", "");*/
+
+    $('#equipement_centrale').attr("class", "tab-pane fade");
+    $('#prestataire_centrale').attr("class", "tab-pane fade  active in");
+    $('#informations_centrale').attr("class", "tab-pane fade");
+
+    $('#menu_information').attr("class", "");
+    $('#menu_equipement').attr("class", "");
+    $('#menu_prestataire').attr("class", "active");
+
+}
+function fc_css_select_equipement_centrale() {
+    /*$('#menu_details').attr("class", "");
+     $('#menu_acces').attr("class", "none");
+     $('#menu_config').attr("class", "active");*/
+
+    $('#equipement_centrale').attr("class", "tab-pane fade  active in");
+    $('#prestataire_centrale').attr("class", "tab-pane fade");
+    $('#informations_centrale').attr("class", "tab-pane fade");
+
+    $('#menu_information').attr("class", "");
+    $('#menu_equipement').attr("class", "active");
+    $('#menu_prestataire').attr("class", "");
+}
+
+function fc_ajoute_doc() {
+    
+    //verification du nom avant d ajouter 
+    lib_document = $('#lib_apercu').val(); 
+     
+    document = $('#file_apercu').val();
+
+    var form = document.getElementById("form_doc");
+    data_doc = new FormData(form);
+    //data_doc.append('file',document);
+    //alert('fin declaration');
+
+    //alert('path_document : '+path_document);
+    $.ajax({
+        method: 'POST',
+        url: path_document + 'add_document',
+        data: data_doc,
+        /*  'lib_document': lib_document,
+         'lien': lien_document  },*/
+        async: false,
+        cache: 'cache',
+        contentType: false,
+        processData: false,
+        //   dataType: 'html', // on veut un retour JSON
+        success: function (id_doc) {
+            //alert('id doc : '+id_doc);
+            fc_ajoute_doc_central(id_doc, lib_document, id_central);
+            // displayInfoPrincipalEquipement(id_central);
+            fc_charge_et_affiche_central(id_central);
+
+        }, error: function () {
+
+        }
+
+
+    });
+
+}
+function fc_ajoute_doc_central(id_doc, lib_document, id_central) {
+    $.ajax({
+        method: 'POST',
+        url: path_document + 'add_document_central',
+        data: {'id_doc': id_doc,
+            'lib_doc': lib_document,
+            'id_central': id_central},
+        /*  'lib_document': lib_document,
+         'lien': lien_document  },*/
+        async: false,
+        dataType: 'html', // on veut un retour JSON
+        success: function (request) {
+            //alert('request : ' + request);
+            alert('Document ajouté avec succés : ' );
+
+        }, error: function () {
+
+        }
+    });
+}

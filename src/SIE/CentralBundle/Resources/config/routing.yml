@@ -2,14 +2,14 @@
 # src/SIE/CentralBundle/Resources/config/routing.yml
  
  
-sie_central_homepage:
+central_homepage:
     path:     / 
     defaults: { _controller: "SIECentralBundle:Admin:index" }
     methods:  GET
 
 
 
-societe:
+central_societe:
     path: /getSociete
     defaults: { _controller: "SIECentralBundle:Admin:get_societe" }
     
@@ -17,35 +17,36 @@ central_get_all_json:
     path:     /getAll
     defaults: { _controller: "SIECentralBundle:Admin:json_getAll_central" }
    
-central_get_all_json:
-    path:     /getCentral/{id}
-    defaults: { _controller: "SIECentralBundle:Admin:getCentral" }
-   
+ 
 central_get_central:
-    path:     /getCentral/{id}/
-    defaults: { _controller: "SIECentralBundle:Admin:getCentral" }
+    path:     /getDetailsCentral/{id}/
+    defaults: { _controller: "SIECentralBundle:Admin:renvoi_details_central" }
    
 central_get_allEtendue_json:
     path:     /getAllEtendue
     defaults: { _controller: "SIECentralBundle:Admin:json_getAllEtendue_central" }
    
-modif_central:
+central_modif_central:
     path:     /modifCentral
     defaults: { _controller: "SIECentralBundle:Admin:modifCentral" }
     methods:  [POST]
     
-select_central:
-    path:     /selectCentral/{id}/
-    defaults: { _controller: "SIECentralBundle:Admin:selectCentral" }
+ 
     
-get_all_societe:
+central_get_all_societe:
     path:     /getAllSociete
     defaults: { _controller: "SIECentralBundle:Admin:get_all_societe" }
  
     
-
+central_get_details_central:
+    path:     /getApercus/{id_central}/
+    defaults: { _controller: "SIECentralBundle:Admin:renvoi_apercus" }
 
 central_get_societe:
     path:     /getSociete
     defaults: { _controller: "SIECentralBundle:ORM:getSociete" }
     methods:  [GET]    
+
+central_get_equipement:
+    path:     /getEquipements/{id_central}/
+    defaults: { _controller: "SIECentralBundle:Admin:renvoi_equipement_par_id_central" }

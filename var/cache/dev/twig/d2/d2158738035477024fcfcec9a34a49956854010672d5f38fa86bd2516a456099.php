@@ -16,8 +16,8 @@ class __TwigTemplate_60f0fff51ea503856bc738b2f56465a220f0c4d9ac7d2b48492f56b335e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_9045c320c2d16594e0fe3dca00401c6d15ebcbb8f829f10c5ddefa16577efd4e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_9045c320c2d16594e0fe3dca00401c6d15ebcbb8f829f10c5ddefa16577efd4e->enter($__internal_9045c320c2d16594e0fe3dca00401c6d15ebcbb8f829f10c5ddefa16577efd4e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIECentralBundle:Default:index.html.twig"));
+        $__internal_1682a83eb2df083384dc41e5079ecc5a8ec8fc22779f549a07639e7056e9bae8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_1682a83eb2df083384dc41e5079ecc5a8ec8fc22779f549a07639e7056e9bae8->enter($__internal_1682a83eb2df083384dc41e5079ecc5a8ec8fc22779f549a07639e7056e9bae8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIECentralBundle:Default:index.html.twig"));
 
         // line 2
         echo "
@@ -33,7 +33,7 @@ class __TwigTemplate_60f0fff51ea503856bc738b2f56465a220f0c4d9ac7d2b48492f56b335e
         $this->displayBlock('javascripts', $context, $blocks);
         // line 13
         echo "<title id=\"titre\">Centrales</title>
-<body data-spy=\"scroll\" data-target=\"#detail_central\" data-target=\"#apercu_central\" >
+<body data-spy=\"scroll\" data-target=\"#detail_central\" data-target=\"#apercu_central\" charset=\"iso-8859-1\" >
     <!-- <body data-spy=\"scroll\" data-target=\".panel-body\" data-offset=\"15\">-->
 
     <div class=\"container \">
@@ -164,15 +164,15 @@ class __TwigTemplate_60f0fff51ea503856bc738b2f56465a220f0c4d9ac7d2b48492f56b335e
 </body>
 </html>";
         
-        $__internal_9045c320c2d16594e0fe3dca00401c6d15ebcbb8f829f10c5ddefa16577efd4e->leave($__internal_9045c320c2d16594e0fe3dca00401c6d15ebcbb8f829f10c5ddefa16577efd4e_prof);
+        $__internal_1682a83eb2df083384dc41e5079ecc5a8ec8fc22779f549a07639e7056e9bae8->leave($__internal_1682a83eb2df083384dc41e5079ecc5a8ec8fc22779f549a07639e7056e9bae8_prof);
 
     }
 
     // line 5
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_1e802167d06b295c43d0f9f0932be63444f007fa7458ffed3f6527ac74a210e6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_1e802167d06b295c43d0f9f0932be63444f007fa7458ffed3f6527ac74a210e6->enter($__internal_1e802167d06b295c43d0f9f0932be63444f007fa7458ffed3f6527ac74a210e6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_d224604730ca77770a66217955ddeb1b95e8d51521fbde76a5c8a1e0f0d3fa10 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d224604730ca77770a66217955ddeb1b95e8d51521fbde76a5c8a1e0f0d3fa10->enter($__internal_d224604730ca77770a66217955ddeb1b95e8d51521fbde76a5c8a1e0f0d3fa10_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 6
         echo "    ";
@@ -182,14 +182,14 @@ class __TwigTemplate_60f0fff51ea503856bc738b2f56465a220f0c4d9ac7d2b48492f56b335e
             // line 7
             echo "    <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script>          
+            echo "\" charset=\"UTF-8\"></script>          
     ";
         } else {
             // asset "66960f5"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_66960f5") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/66960f5.js");
             echo "    <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script>          
+            echo "\" charset=\"UTF-8\"></script>          
     ";
         }
         unset($context["asset_url"]);
@@ -201,19 +201,19 @@ class __TwigTemplate_60f0fff51ea503856bc738b2f56465a220f0c4d9ac7d2b48492f56b335e
             // line 10
             echo "    <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script>          
+            echo "\" charset=\"UTF-8\"></script>          
     ";
         } else {
             // asset "4158b03"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_4158b03") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/js/4158b03.js");
             echo "    <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"></script>          
+            echo "\" charset=\"UTF-8\"></script>          
     ";
         }
         unset($context["asset_url"]);
         
-        $__internal_1e802167d06b295c43d0f9f0932be63444f007fa7458ffed3f6527ac74a210e6->leave($__internal_1e802167d06b295c43d0f9f0932be63444f007fa7458ffed3f6527ac74a210e6_prof);
+        $__internal_d224604730ca77770a66217955ddeb1b95e8d51521fbde76a5c8a1e0f0d3fa10->leave($__internal_d224604730ca77770a66217955ddeb1b95e8d51521fbde76a5c8a1e0f0d3fa10_prof);
 
     }
 
@@ -248,14 +248,14 @@ class __TwigTemplate_60f0fff51ea503856bc738b2f56465a220f0c4d9ac7d2b48492f56b335e
 {# include \"SIEEquipementBundle:Default:search_equipement.html.twig\" #} 
 {% block javascripts %}
     {% javascripts '@SIECoreBundle/Resources/public/js/setUp.js' %}
-    <script src=\"{{ asset_url }}\"></script>          
+    <script src=\"{{ asset_url }}\" charset=\"UTF-8\"></script>          
     {% endjavascripts %}
     {% javascripts '@SIECentralBundle/Resources/public/js/front_centrale.js' %}
-    <script src=\"{{ asset_url }}\"></script>          
+    <script src=\"{{ asset_url }}\" charset=\"UTF-8\"></script>          
     {% endjavascripts %}
 {% endblock %}
 <title id=\"titre\">Centrales</title>
-<body data-spy=\"scroll\" data-target=\"#detail_central\" data-target=\"#apercu_central\" >
+<body data-spy=\"scroll\" data-target=\"#detail_central\" data-target=\"#apercu_central\" charset=\"iso-8859-1\" >
     <!-- <body data-spy=\"scroll\" data-target=\".panel-body\" data-offset=\"15\">-->
 
     <div class=\"container \">

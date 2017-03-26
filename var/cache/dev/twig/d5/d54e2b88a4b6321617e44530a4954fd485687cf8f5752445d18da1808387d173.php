@@ -15,8 +15,8 @@ class __TwigTemplate_c7da8a66f015861207aae59f836d5ff7809fd628d9b445e0947896d177e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_589723a6b060c07319dae9a9e856ca4f954d97b0d83c11355e48260d6f9e1297 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_589723a6b060c07319dae9a9e856ca4f954d97b0d83c11355e48260d6f9e1297->enter($__internal_589723a6b060c07319dae9a9e856ca4f954d97b0d83c11355e48260d6f9e1297_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIECentralBundle:Default:detail_central.html.twig"));
+        $__internal_33163ef07192a2585725347c22f2274f62d3b681cee8d93d05b3291504b9a34d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_33163ef07192a2585725347c22f2274f62d3b681cee8d93d05b3291504b9a34d->enter($__internal_33163ef07192a2585725347c22f2274f62d3b681cee8d93d05b3291504b9a34d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIECentralBundle:Default:detail_central.html.twig"));
 
         // line 2
         echo "
@@ -27,15 +27,15 @@ class __TwigTemplate_c7da8a66f015861207aae59f836d5ff7809fd628d9b445e0947896d177e
         <ul class=\"nav nav-tabs\">
             ";
         // line 9
-        echo "            <li id=\"menu_information\" class=\"active\"><a  onClick=\"fc_css_select_details_centrale()\" data-toggle=\"tab\" href=\"#informations_centrale\">Global</a></li>
+        echo "            <li id=\"menu_information\" class=\"active\"><a  onClick=\"fc_css_select_details_centrale()\" data-toggle=\"tab\" >Global</a></li>
                 ";
         // line 11
         echo "                ";
         // line 12
-        echo "            <li  id=\"menu_equipement\"  ><a onClick=\"fc_css_select_equipement_centrale()\" data-toggle=\"#nav_detail\"   href=\"#equipement_centrale\">Equipements</a></li>
+        echo "            <li  id=\"menu_equipement\"  ><a onClick=\"fc_css_select_equipement_centrale()\" data-toggle=\"#nav_detail\"  >Equipements</a></li>
                 ";
         // line 14
-        echo "            <li  id=\"menu_prestataire\" class=\"\"><a onClick=\"fc_css_select_prestataire_centrale()\" data-toggle=\"#nav_detail\"  href=\"#schema_centrale\">Prestaire</a></li>
+        echo "            <li  id=\"menu_prestataire\" class=\"\"><a onClick=\"fc_css_select_prestataire_centrale()\" data-toggle=\"#nav_detail\"  >Prestaire</a></li>
                 ";
         // line 16
         echo "        </ul>
@@ -139,52 +139,67 @@ class __TwigTemplate_c7da8a66f015861207aae59f836d5ff7809fd628d9b445e0947896d177e
 
             </div>
             <div id=\"equipement_centrale\" class=\"tab-pane fade\">
-                ";
-        // line 69
-        echo "                <table class=\"table-condensed\">
-
-                    <tbody class=\"content_tab\" >
-
-                        <tr><td>Libellé equipement</td><td><input type=\"text\" id=\"lib_equipement_centrale\" disabled=\"true\"></td></tr>
-                        <tr><td>Constructeur</td><td><input type=\"text\" id=\"constructeur\" disabled=\"true\"> </td></tr>
-                        <tr><td>Type</td><td><input type=\"text\" id=\"type\" disabled=\"true\"></td></tr>
-
-                    </tbody>
-
-                </table>
-            </div>
-            <div id=\"prestataire_centrale\" class=\"tab-pane fade\">
-                <button id=\"btn_modif_presta_central\" class=\"btn_modifier\"   style=\" float: right;\">
+              
+                <button  id=\"btn_ajout_equipement_central\" class=\"btn_ajout\"   style=\" float: right;\">
                     ";
-        // line 83
+        // line 65
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "cae2646_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_cae2646_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/cae2646_btn_modif_1.jpeg");
-            // line 85
+            // asset "a935514_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_a935514_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/a935514_btn_ajout_1.jpeg");
+            // line 67
             echo "                    <img  class=\"img-background-button\"    src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"  alt=\"Modif\"/>
+            echo "\"  alt=\"AJout\"/>
                     ";
         } else {
-            // asset "cae2646"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_cae2646") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/cae2646.jpeg");
+            // asset "a935514"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_a935514") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/a935514.jpeg");
             echo "                    <img  class=\"img-background-button\"    src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\"  alt=\"Modif\"/>
+            echo "\"  alt=\"AJout\"/>
                     ";
         }
         unset($context["asset_url"]);
-        // line 87
+        // line 69
         echo "                </button>
+                <table class=\"table-condensed\">
 
-                liste prestataire
-                <button  id=\"btn_valid_modif_presta_central\" class=\"btn_valider\"    style=\"visibility: hidden\">
+
+                    <tbody class=\"content_tab\" id='tab_equipement_central' charset=\"UTF-8\">
+
+                        <tr> <td> Nom de l'équipment </td>
+                            <td> Constructeur </td>
+                            <td> Type </td>
+                            <td> Modif </td>
+                        </tr>
+                        <tr>
+                            
+                            <td><input type=\"text\" id=\"lib_equipement_centrale\" disabled=\"true\"></td>
+
+
+                            <td><input type=\"text\" id=\"lib_constructeur\" disabled=\"true\"> </td>
+
+
+                            <td><input type=\"text\" id=\"lib_type\" disabled=\"true\"></td>
+
+
+                            
+                        </tr>
+
+
+                    </tbody>
+                    <input type=\"hidden\" id=\"id_equipement_centrale\" disabled=\"true\"> 
+                    <input type=\"hidden\" id=\"id_constructeur\" disabled=\"true\"> 
+                    <input type=\"hidden\" id=\"id_type\" disabled=\"true\"> 
+                    
+                </table>
+                <button  id=\"btn_valid_modif_equipement_central\" class=\"btn_valider\"    style=\"visibility: hidden\">
                     ";
-        // line 91
+        // line 102
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "aef7376_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_aef7376_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/aef7376_btn_valider_1.jpeg");
-            // line 92
+            // line 103
             echo "                    <img  class=\"img-background-button\"    src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"  alt=\"Modif\"/>
@@ -198,34 +213,131 @@ class __TwigTemplate_c7da8a66f015861207aae59f836d5ff7809fd628d9b445e0947896d177e
                     ";
         }
         unset($context["asset_url"]);
-        // line 94
+        // line 105
         echo "                </button> 
-                <button  id=\"btn_annule_modif_presta_central\" class=\"btn_annuler\"  style=\"visibility: hidden\"  >
+                <button  id=\"btn_annule_modif_equipement_central\" class=\"btn_annuler\"  style=\"visibility: hidden\"  >
                     ";
-        // line 96
+        // line 107
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "02f85ee_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_02f85ee_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/02f85ee_btn_annuler_1.jpeg");
-            // line 97
+            // line 108
             echo "
                     <img  class=\"img-background-button\"    src=\"";
-            // line 98
+            // line 109
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"  alt=\"Modif\"/>
                     ";
         } else {
             // asset "02f85ee"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_02f85ee") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/02f85ee.jpeg");
-            // line 97
+            // line 108
             echo "
                     <img  class=\"img-background-button\"    src=\"";
-            // line 98
+            // line 109
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"  alt=\"Modif\"/>
                     ";
         }
         unset($context["asset_url"]);
-        // line 100
+        // line 111
+        echo "                </button> 
+            </div>
+            <div id=\"prestataire_centrale\" class=\"tab-pane fade\">
+                <button id=\"btn_ajout_presta_central\" class=\"btn_modifier\"   style=\" float: right;\">
+                    ";
+        // line 115
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "cae2646_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_cae2646_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/cae2646_btn_modif_1.jpeg");
+            // line 117
+            echo "                    <img  class=\"img-background-button\"    src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"  alt=\"Modif\"/>
+                    ";
+        } else {
+            // asset "cae2646"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_cae2646") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/cae2646.jpeg");
+            echo "                    <img  class=\"img-background-button\"    src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"  alt=\"Modif\"/>
+                    ";
+        }
+        unset($context["asset_url"]);
+        // line 119
+        echo "                </button>
+                <button  id=\"btn_ajout_presta_central\" class=\"btn_ajout\"   style=\" float: right;\">
+                    ";
+        // line 121
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "a935514_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_a935514_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/a935514_btn_ajout_1.jpeg");
+            // line 123
+            echo "                    <img  class=\"img-background-button\"    src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"  alt=\"AJout\"/>
+                    ";
+        } else {
+            // asset "a935514"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_a935514") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/a935514.jpeg");
+            echo "                    <img  class=\"img-background-button\"    src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"  alt=\"AJout\"/>
+                    ";
+        }
+        unset($context["asset_url"]);
+        // line 125
+        echo "                </button>
+
+                liste prestataire
+                <button  id=\"btn_valid_modif_presta_central\" class=\"btn_valider\"    style=\"visibility: hidden\">
+                    ";
+        // line 129
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "aef7376_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_aef7376_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/aef7376_btn_valider_1.jpeg");
+            // line 130
+            echo "                    <img  class=\"img-background-button\"    src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"  alt=\"Modif\"/>
+                    ";
+        } else {
+            // asset "aef7376"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_aef7376") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/aef7376.jpeg");
+            echo "                    <img  class=\"img-background-button\"    src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"  alt=\"Modif\"/>
+                    ";
+        }
+        unset($context["asset_url"]);
+        // line 132
+        echo "                </button> 
+                <button  id=\"btn_annule_modif_presta_central\" class=\"btn_annuler\"  style=\"visibility: hidden\"  >
+                    ";
+        // line 134
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "02f85ee_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_02f85ee_0") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/02f85ee_btn_annuler_1.jpeg");
+            // line 135
+            echo "
+                    <img  class=\"img-background-button\"    src=\"";
+            // line 136
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"  alt=\"Modif\"/>
+                    ";
+        } else {
+            // asset "02f85ee"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("_assetic_02f85ee") : $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("_controller/images/02f85ee.jpeg");
+            // line 135
+            echo "
+                    <img  class=\"img-background-button\"    src=\"";
+            // line 136
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"  alt=\"Modif\"/>
+                    ";
+        }
+        unset($context["asset_url"]);
+        // line 138
         echo "                </button> 
 
             </div>
@@ -238,7 +350,7 @@ class __TwigTemplate_c7da8a66f015861207aae59f836d5ff7809fd628d9b445e0947896d177e
 </div>
 ";
         
-        $__internal_589723a6b060c07319dae9a9e856ca4f954d97b0d83c11355e48260d6f9e1297->leave($__internal_589723a6b060c07319dae9a9e856ca4f954d97b0d83c11355e48260d6f9e1297_prof);
+        $__internal_33163ef07192a2585725347c22f2274f62d3b681cee8d93d05b3291504b9a34d->leave($__internal_33163ef07192a2585725347c22f2274f62d3b681cee8d93d05b3291504b9a34d_prof);
 
     }
 
@@ -254,7 +366,7 @@ class __TwigTemplate_c7da8a66f015861207aae59f836d5ff7809fd628d9b445e0947896d177e
 
     public function getDebugInfo()
     {
-        return array (  229 => 100,  223 => 98,  220 => 97,  213 => 98,  210 => 97,  206 => 96,  202 => 94,  188 => 92,  184 => 91,  178 => 87,  164 => 85,  160 => 83,  144 => 69,  130 => 51,  124 => 49,  121 => 48,  114 => 49,  111 => 48,  107 => 47,  103 => 45,  89 => 43,  85 => 42,  70 => 29,  56 => 27,  52 => 25,  41 => 16,  38 => 14,  35 => 12,  33 => 11,  30 => 9,  22 => 2,);
+        return array (  341 => 138,  335 => 136,  332 => 135,  325 => 136,  322 => 135,  318 => 134,  314 => 132,  300 => 130,  296 => 129,  290 => 125,  276 => 123,  272 => 121,  268 => 119,  254 => 117,  250 => 115,  244 => 111,  238 => 109,  235 => 108,  228 => 109,  225 => 108,  221 => 107,  217 => 105,  203 => 103,  199 => 102,  164 => 69,  150 => 67,  146 => 65,  130 => 51,  124 => 49,  121 => 48,  114 => 49,  111 => 48,  107 => 47,  103 => 45,  89 => 43,  85 => 42,  70 => 29,  56 => 27,  52 => 25,  41 => 16,  38 => 14,  35 => 12,  33 => 11,  30 => 9,  22 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -275,12 +387,12 @@ class __TwigTemplate_c7da8a66f015861207aae59f836d5ff7809fd628d9b445e0947896d177e
         <h3 class=\"panel-title\">Détails </h3> <!-- panel title -->
         <ul class=\"nav nav-tabs\">
             {#<li id=\"menu_information\" class=\"\"><a data-toggle=\"#informations_centrale\" href=\"#informations_centrale\">Global</a></li>#}
-            <li id=\"menu_information\" class=\"active\"><a  onClick=\"fc_css_select_details_centrale()\" data-toggle=\"tab\" href=\"#informations_centrale\">Global</a></li>
+            <li id=\"menu_information\" class=\"active\"><a  onClick=\"fc_css_select_details_centrale()\" data-toggle=\"tab\" >Global</a></li>
                 {#<button onClick=\"fc_css_select_details_centrale()\"> Glogal</button>#}
                 {#<li id=\"menu_information\"><a onClick=\"fc_css_select_menu_informations_centrale();\" data-toggle=\"tab\" href=\"#informations_centrale\">Global</a></li>#}
-            <li  id=\"menu_equipement\"  ><a onClick=\"fc_css_select_equipement_centrale()\" data-toggle=\"#nav_detail\"   href=\"#equipement_centrale\">Equipements</a></li>
+            <li  id=\"menu_equipement\"  ><a onClick=\"fc_css_select_equipement_centrale()\" data-toggle=\"#nav_detail\"  >Equipements</a></li>
                 {#<li  id=\"menu_equipement\"  class=\"active\"><a data-toggle=\"tab\" onClick=\"fc_css_select_menu_equipement_centrale();\" href=\"#equipement_centrale\">Equipements</a></li>#}
-            <li  id=\"menu_prestataire\" class=\"\"><a onClick=\"fc_css_select_prestataire_centrale()\" data-toggle=\"#nav_detail\"  href=\"#schema_centrale\">Prestaire</a></li>
+            <li  id=\"menu_prestataire\" class=\"\"><a onClick=\"fc_css_select_prestataire_centrale()\" data-toggle=\"#nav_detail\"  >Prestaire</a></li>
                 {#<li  id=\"menu_schema\"><a data-toggle=\"tab\" onClick=\"fc_css_select_menu_schema_centrale();\"  href=\"#\">Schémas</a></li>#}
         </ul>
     </div>
@@ -329,29 +441,67 @@ class __TwigTemplate_c7da8a66f015861207aae59f836d5ff7809fd628d9b445e0947896d177e
 
             </div>
             <div id=\"equipement_centrale\" class=\"tab-pane fade\">
-                {#    <button id=\"btn_modif_equipement_central\" class=\"btn_modifier\"    style=\" float: right;\">
-         {% image '@SIECoreBundle/Resources/public/images/btn_modif.jpeg'
-           %}
-           <img  class=\"img-background-button\"    src=\"{{ asset_url }}\"  alt=\"Modif\"/>
-        {% endimage %}
-        </button>#}
+              
+                <button  id=\"btn_ajout_equipement_central\" class=\"btn_ajout\"   style=\" float: right;\">
+                    {% image '@SIECoreBundle/Resources/public/images/btn_ajout.jpeg'
+                    %}
+                    <img  class=\"img-background-button\"    src=\"{{ asset_url }}\"  alt=\"AJout\"/>
+                    {% endimage %}
+                </button>
                 <table class=\"table-condensed\">
 
-                    <tbody class=\"content_tab\" >
 
-                        <tr><td>Libellé equipement</td><td><input type=\"text\" id=\"lib_equipement_centrale\" disabled=\"true\"></td></tr>
-                        <tr><td>Constructeur</td><td><input type=\"text\" id=\"constructeur\" disabled=\"true\"> </td></tr>
-                        <tr><td>Type</td><td><input type=\"text\" id=\"type\" disabled=\"true\"></td></tr>
+                    <tbody class=\"content_tab\" id='tab_equipement_central' charset=\"UTF-8\">
+
+                        <tr> <td> Nom de l'équipment </td>
+                            <td> Constructeur </td>
+                            <td> Type </td>
+                            <td> Modif </td>
+                        </tr>
+                        <tr>
+                            
+                            <td><input type=\"text\" id=\"lib_equipement_centrale\" disabled=\"true\"></td>
+
+
+                            <td><input type=\"text\" id=\"lib_constructeur\" disabled=\"true\"> </td>
+
+
+                            <td><input type=\"text\" id=\"lib_type\" disabled=\"true\"></td>
+
+
+                            
+                        </tr>
+
 
                     </tbody>
-
+                    <input type=\"hidden\" id=\"id_equipement_centrale\" disabled=\"true\"> 
+                    <input type=\"hidden\" id=\"id_constructeur\" disabled=\"true\"> 
+                    <input type=\"hidden\" id=\"id_type\" disabled=\"true\"> 
+                    
                 </table>
+                <button  id=\"btn_valid_modif_equipement_central\" class=\"btn_valider\"    style=\"visibility: hidden\">
+                    {% image '@SIECoreBundle/Resources/public/images/btn_valider.jpeg'%}
+                    <img  class=\"img-background-button\"    src=\"{{ asset_url }}\"  alt=\"Modif\"/>
+                    {% endimage %}
+                </button> 
+                <button  id=\"btn_annule_modif_equipement_central\" class=\"btn_annuler\"  style=\"visibility: hidden\"  >
+                    {% image '@SIECoreBundle/Resources/public/images/btn_annuler.jpeg'%}
+
+                    <img  class=\"img-background-button\"    src=\"{{ asset_url }}\"  alt=\"Modif\"/>
+                    {% endimage %}
+                </button> 
             </div>
             <div id=\"prestataire_centrale\" class=\"tab-pane fade\">
-                <button id=\"btn_modif_presta_central\" class=\"btn_modifier\"   style=\" float: right;\">
+                <button id=\"btn_ajout_presta_central\" class=\"btn_modifier\"   style=\" float: right;\">
                     {% image '@SIECoreBundle/Resources/public/images/btn_modif.jpeg'
                     %}
                     <img  class=\"img-background-button\"    src=\"{{ asset_url }}\"  alt=\"Modif\"/>
+                    {% endimage %}
+                </button>
+                <button  id=\"btn_ajout_presta_central\" class=\"btn_ajout\"   style=\" float: right;\">
+                    {% image '@SIECoreBundle/Resources/public/images/btn_ajout.jpeg'
+                    %}
+                    <img  class=\"img-background-button\"    src=\"{{ asset_url }}\"  alt=\"AJout\"/>
                     {% endimage %}
                 </button>
 

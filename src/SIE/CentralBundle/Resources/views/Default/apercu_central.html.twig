@@ -3,31 +3,36 @@
 <div id="apercu" class="panel panel-default"  >
     <div class="panel-heading"> <!-- panel heading -->
 
-        <h3 class="panel-title">Schema </h3> <!-- panel title -->
+        <h3 id="lbl_titre_partie_apercu" class="panel-title">Apercu </h3> <!-- panel title -->
     </div>
     <div class="panel-body"  > <!-- panel body -->
-   <button  id="btn_ajout_schema_central" class="btn_ajout"   style=" float: right;">
-        {% image '@SIECoreBundle/Resources/public/images/btn_ajout.jpeg'
-        %}
-        <img  class="img-background-button"    src="{{ asset_url }}"  alt="AJout"/>
-        {% endimage %}
-    </button>
-    <div id="titre_nouvelle_apercu" style="visibility: hidden">nouvel apercu</div>
+        <img id="img_apercu_centrale" src=" " class="img-rounded"  height="300" width="300" >
+        <input id="id_apercu" type="hidden">
+        <button  id="btn_ajout_schema_central" class="btn_ajout"   style=" float: right;">
+            {% image '@SIECoreBundle/Resources/public/images/btn_ajout.jpeg'
+            %}
+            <img  class="img-background-button"    src="{{ asset_url }}"  alt="AJout"/>
+            {% endimage %}
+        </button>
+        <div id="titre_nouvelle_apercu" style="visibility: hidden">nouvel apercu</div>
         <form id="form_doc" method='POST'>  
-        <input  type="text" disabled="true" id="lib_apercu" style="visibility: hidden"  >  
-             <input id="file_apercu" style="visibility: hidden" type="file"  >
-                 <button  id="btn_valid_ajout_apercu" class="btn_valider"    style="visibility: hidden">
-                    {% image '@SIECoreBundle/Resources/public/images/btn_valider.jpeg'%}
-                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
-                    {% endimage %}
-                </button> 
-                <button  id="btn_annule_ajout_apercu" class="btn_annuler"  style="visibility: hidden"  >
-                    {% image '@SIECoreBundle/Resources/public/images/btn_annuler.jpeg'%}
+            <input  type="text"   id="lib_apercu" style="visibility: hidden"  >  
+            <input name="file_document"  id="file_document" style="visibility: hidden" type="file"  >
+        
+        </form>
+                <button  id="btn_valid_ajout_apercu" class="btn_valider"    style="visibility: hidden">
+                {% image '@SIECoreBundle/Resources/public/images/btn_valider.jpeg'%}
+                <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                {% endimage %}
+            </button> 
+            <button  id="btn_annule_ajout_apercu" class="btn_annuler"  style="visibility: hidden"  >
+                {% image '@SIECoreBundle/Resources/public/images/btn_annuler.jpeg'%}
 
-                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
-                    {% endimage %}
-                </button> 
-                </form>
+                <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                {% endimage %}
+            </button> 
+                
+
     </div>
 
 
@@ -35,19 +40,19 @@
 
 
 </div>
-    <div id="nav_apercu" class="panel-footer clearfix"> 
-          
-         
-       
-        <button   id="btn_next_apercu_equipement" class="btn_suivant" style="float: right;"  >
-            {% image '@SIECoreBundle/Resources/public/images/droite.jpeg'%}
-            <img  class="img-background-button"    src="{{ asset_url }}"  alt="AJout"/>
-            {% endimage %}
-        </button>
-        Nom de l'apercu 
-        <button   id="btn_last_apercu_equipement" class="btn_precedent" style="float: left;"  >
-            {% image '@SIECoreBundle/Resources/public/images/btn_gauche.jpeg'%}
-            <img  class="img-background-button"    src="{{ asset_url }}"  alt="AJout"/>
-            {% endimage %}
-        </button>
-    </div>
+<div id="nav_apercu" class="panel-footer clearfix"> 
+
+
+
+    <button   id="btn_next_apercu_equipement" class="btn_suivant" style="float: right;"  >
+        {% image '@SIECoreBundle/Resources/public/images/droite.jpeg'%}
+        <img  class="img-background-button"    src="{{ asset_url }}"  alt="AJout"/>
+        {% endimage %}
+    </button>
+    <b id="lbl_titre_apercu">Nom de l'apercu </b>
+    <button   id="btn_last_apercu_equipement" class="btn_precedent" style="float: left;"  >
+        {% image '@SIECoreBundle/Resources/public/images/btn_gauche.jpeg'%}
+        <img  class="img-background-button"    src="{{ asset_url }}"  alt="AJout"/>
+        {% endimage %}
+    </button>
+</div>

@@ -15,8 +15,8 @@ class __TwigTemplate_0255228934dde1d014b936900bbc8efb136fff627ce4c24a43f95665af8
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_37cd2f9f7d9e94284e9e37c68aeeb44a1f78aedd68c21ea17a35e813d9d948b6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_37cd2f9f7d9e94284e9e37c68aeeb44a1f78aedd68c21ea17a35e813d9d948b6->enter($__internal_37cd2f9f7d9e94284e9e37c68aeeb44a1f78aedd68c21ea17a35e813d9d948b6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIECoreBundle:Default:index.html.twig"));
+        $__internal_2e274413ae3202e6b571dc59f942ce6055496d5cf70efc3d7b0a6eede216ed99 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_2e274413ae3202e6b571dc59f942ce6055496d5cf70efc3d7b0a6eede216ed99->enter($__internal_2e274413ae3202e6b571dc59f942ce6055496d5cf70efc3d7b0a6eede216ed99_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIECoreBundle:Default:index.html.twig"));
 
         // line 2
         $this->loadTemplate("SIECoreBundle:Default:head.html.twig", "SIECoreBundle:Default:index.html.twig", 2)->display($context);
@@ -72,7 +72,7 @@ class __TwigTemplate_0255228934dde1d014b936900bbc8efb136fff627ce4c24a43f95665af8
 </html>
 ";
         
-        $__internal_37cd2f9f7d9e94284e9e37c68aeeb44a1f78aedd68c21ea17a35e813d9d948b6->leave($__internal_37cd2f9f7d9e94284e9e37c68aeeb44a1f78aedd68c21ea17a35e813d9d948b6_prof);
+        $__internal_2e274413ae3202e6b571dc59f942ce6055496d5cf70efc3d7b0a6eede216ed99->leave($__internal_2e274413ae3202e6b571dc59f942ce6055496d5cf70efc3d7b0a6eede216ed99_prof);
 
     }
 

@@ -16,14 +16,14 @@ class __TwigTemplate_20b27a51c35379d619ef5262388b065e9fad4fcf7340fe15407c54df588
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_870101e3a792348eb8a53d4af9d8176d77fcaca9fb0b055705dfedb019cda2de = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_870101e3a792348eb8a53d4af9d8176d77fcaca9fb0b055705dfedb019cda2de->enter($__internal_870101e3a792348eb8a53d4af9d8176d77fcaca9fb0b055705dfedb019cda2de_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@SIECore/Default/head.html.twig"));
+        $__internal_191b23a42fb1f972e568d902aedeacbc899a4de79e5269169af281ced169043a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_191b23a42fb1f972e568d902aedeacbc899a4de79e5269169af281ced169043a->enter($__internal_191b23a42fb1f972e568d902aedeacbc899a4de79e5269169af281ced169043a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@SIECore/Default/head.html.twig"));
 
         // line 2
         echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 
 <!DOCTYPE html>
-<html xmlns=\"http://www.w3.org/1999/xhtml\" ng-app=\"app_ref_sie\">
+<html xmlns=\"http://www.w3.org/1999/xhtml\"  >
     <head>
        <link href=\"//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" rel=\"stylesheet\">
      <script src=\"//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>
@@ -81,15 +81,15 @@ class __TwigTemplate_20b27a51c35379d619ef5262388b065e9fad4fcf7340fe15407c54df588
         $this->loadTemplate("SIECoreBundle:Default:header.html.twig", "@SIECore/Default/head.html.twig", 37)->display($context);
         echo " ";
         
-        $__internal_870101e3a792348eb8a53d4af9d8176d77fcaca9fb0b055705dfedb019cda2de->leave($__internal_870101e3a792348eb8a53d4af9d8176d77fcaca9fb0b055705dfedb019cda2de_prof);
+        $__internal_191b23a42fb1f972e568d902aedeacbc899a4de79e5269169af281ced169043a->leave($__internal_191b23a42fb1f972e568d902aedeacbc899a4de79e5269169af281ced169043a_prof);
 
     }
 
     // line 19
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_682b5fb862d2fa35a092a466ec0ddd4ddbab4e9770e357e471a9a75d02b43a42 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_682b5fb862d2fa35a092a466ec0ddd4ddbab4e9770e357e471a9a75d02b43a42->enter($__internal_682b5fb862d2fa35a092a466ec0ddd4ddbab4e9770e357e471a9a75d02b43a42_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_44b21ba7c8a7e45300a3eacba503175b6cf08afa477e72c2ddc1e3c32bd96cf2 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_44b21ba7c8a7e45300a3eacba503175b6cf08afa477e72c2ddc1e3c32bd96cf2->enter($__internal_44b21ba7c8a7e45300a3eacba503175b6cf08afa477e72c2ddc1e3c32bd96cf2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 20
         echo "            ";
@@ -141,7 +141,7 @@ class __TwigTemplate_20b27a51c35379d619ef5262388b065e9fad4fcf7340fe15407c54df588
      
         ";
         
-        $__internal_682b5fb862d2fa35a092a466ec0ddd4ddbab4e9770e357e471a9a75d02b43a42->leave($__internal_682b5fb862d2fa35a092a466ec0ddd4ddbab4e9770e357e471a9a75d02b43a42_prof);
+        $__internal_44b21ba7c8a7e45300a3eacba503175b6cf08afa477e72c2ddc1e3c32bd96cf2->leave($__internal_44b21ba7c8a7e45300a3eacba503175b6cf08afa477e72c2ddc1e3c32bd96cf2_prof);
 
     }
 
@@ -174,7 +174,7 @@ class __TwigTemplate_20b27a51c35379d619ef5262388b065e9fad4fcf7340fe15407c54df588
 <?xml version=\"1.0\" encoding=\"UTF-8\"?>
 
 <!DOCTYPE html>
-<html xmlns=\"http://www.w3.org/1999/xhtml\" ng-app=\"app_ref_sie\">
+<html xmlns=\"http://www.w3.org/1999/xhtml\"  >
     <head>
        <link href=\"//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" rel=\"stylesheet\">
      <script src=\"//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>

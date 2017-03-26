@@ -6,12 +6,12 @@
         <h3 class="panel-title">Détails </h3> <!-- panel title -->
         <ul class="nav nav-tabs">
             {#<li id="menu_information" class=""><a data-toggle="#informations_centrale" href="#informations_centrale">Global</a></li>#}
-            <li id="menu_information" class="active"><a  onClick="fc_css_select_details_centrale()" data-toggle="tab" href="#informations_centrale">Global</a></li>
+            <li id="menu_information" class="active"><a  onClick="fc_css_select_details_centrale()" data-toggle="tab" >Global</a></li>
                 {#<button onClick="fc_css_select_details_centrale()"> Glogal</button>#}
                 {#<li id="menu_information"><a onClick="fc_css_select_menu_informations_centrale();" data-toggle="tab" href="#informations_centrale">Global</a></li>#}
-            <li  id="menu_equipement"  ><a onClick="fc_css_select_equipement_centrale()" data-toggle="#nav_detail"   href="#equipement_centrale">Equipements</a></li>
+            <li  id="menu_equipement"  ><a onClick="fc_css_select_equipement_centrale()" data-toggle="#nav_detail"  >Equipements</a></li>
                 {#<li  id="menu_equipement"  class="active"><a data-toggle="tab" onClick="fc_css_select_menu_equipement_centrale();" href="#equipement_centrale">Equipements</a></li>#}
-            <li  id="menu_prestataire" class=""><a onClick="fc_css_select_prestataire_centrale()" data-toggle="#nav_detail"  href="#schema_centrale">Prestaire</a></li>
+            <li  id="menu_prestataire" class=""><a onClick="fc_css_select_prestataire_centrale()" data-toggle="#nav_detail"  >Prestaire</a></li>
                 {#<li  id="menu_schema"><a data-toggle="tab" onClick="fc_css_select_menu_schema_centrale();"  href="#">Schémas</a></li>#}
         </ul>
     </div>
@@ -60,29 +60,67 @@
 
             </div>
             <div id="equipement_centrale" class="tab-pane fade">
-                {#    <button id="btn_modif_equipement_central" class="btn_modifier"    style=" float: right;">
-         {% image '@SIECoreBundle/Resources/public/images/btn_modif.jpeg'
-           %}
-           <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
-        {% endimage %}
-        </button>#}
+              
+                <button  id="btn_ajout_equipement_central" class="btn_ajout"   style=" float: right;">
+                    {% image '@SIECoreBundle/Resources/public/images/btn_ajout.jpeg'
+                    %}
+                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="AJout"/>
+                    {% endimage %}
+                </button>
                 <table class="table-condensed">
 
-                    <tbody class="content_tab" >
 
-                        <tr><td>Libellé equipement</td><td><input type="text" id="lib_equipement_centrale" disabled="true"></td></tr>
-                        <tr><td>Constructeur</td><td><input type="text" id="constructeur" disabled="true"> </td></tr>
-                        <tr><td>Type</td><td><input type="text" id="type" disabled="true"></td></tr>
+                    <tbody class="content_tab" id='tab_equipement_central' charset="UTF-8">
+
+                        <tr> <td> Nom de l'équipment </td>
+                            <td> Constructeur </td>
+                            <td> Type </td>
+                            <td> Modif </td>
+                        </tr>
+                        <tr>
+                            
+                            <td><input type="text" id="lib_equipement_centrale" disabled="true"></td>
+
+
+                            <td><input type="text" id="lib_constructeur" disabled="true"> </td>
+
+
+                            <td><input type="text" id="lib_type" disabled="true"></td>
+
+
+                            
+                        </tr>
+
 
                     </tbody>
-
+                    <input type="hidden" id="id_equipement_centrale" disabled="true"> 
+                    <input type="hidden" id="id_constructeur" disabled="true"> 
+                    <input type="hidden" id="id_type" disabled="true"> 
+                    
                 </table>
+                <button  id="btn_valid_modif_equipement_central" class="btn_valider"    style="visibility: hidden">
+                    {% image '@SIECoreBundle/Resources/public/images/btn_valider.jpeg'%}
+                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                    {% endimage %}
+                </button> 
+                <button  id="btn_annule_modif_equipement_central" class="btn_annuler"  style="visibility: hidden"  >
+                    {% image '@SIECoreBundle/Resources/public/images/btn_annuler.jpeg'%}
+
+                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                    {% endimage %}
+                </button> 
             </div>
             <div id="prestataire_centrale" class="tab-pane fade">
-                <button id="btn_modif_presta_central" class="btn_modifier"   style=" float: right;">
+                <button id="btn_ajout_presta_central" class="btn_modifier"   style=" float: right;">
                     {% image '@SIECoreBundle/Resources/public/images/btn_modif.jpeg'
                     %}
                     <img  class="img-background-button"    src="{{ asset_url }}"  alt="Modif"/>
+                    {% endimage %}
+                </button>
+                <button  id="btn_ajout_presta_central" class="btn_ajout"   style=" float: right;">
+                    {% image '@SIECoreBundle/Resources/public/images/btn_ajout.jpeg'
+                    %}
+                    <img  class="img-background-button"    src="{{ asset_url }}"  alt="AJout"/>
                     {% endimage %}
                 </button>
 

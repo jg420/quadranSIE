@@ -711,25 +711,25 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/central')) {
-            // sie_central_homepage
+            // central_homepage
             if (rtrim($pathinfo, '/') === '/central') {
                 if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                     $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_sie_central_homepage;
+                    goto not_central_homepage;
                 }
 
                 if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'sie_central_homepage');
+                    return $this->redirect($pathinfo.'/', 'central_homepage');
                 }
 
-                return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::indexAction',  '_route' => 'sie_central_homepage',);
+                return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::indexAction',  '_route' => 'central_homepage',);
             }
-            not_sie_central_homepage:
+            not_central_homepage:
 
             if (0 === strpos($pathinfo, '/central/get')) {
-                // societe
+                // central_societe
                 if ($pathinfo === '/central/getSociete') {
-                    return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::get_societeAction',  '_route' => 'societe',);
+                    return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::get_societeAction',  '_route' => 'central_societe',);
                 }
 
                 // central_get_all_json
@@ -738,12 +738,12 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 }
 
                 // central_get_central
-                if (0 === strpos($pathinfo, '/central/getCentral') && preg_match('#^/central/getCentral/(?P<id>[^/]++)/?$#s', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/central/getDetailsCentral') && preg_match('#^/central/getDetailsCentral/(?P<id>[^/]++)/?$#s', $pathinfo, $matches)) {
                     if (substr($pathinfo, -1) !== '/') {
                         return $this->redirect($pathinfo.'/', 'central_get_central');
                     }
 
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'central_get_central')), array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::getCentralAction',));
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'central_get_central')), array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::renvoi_details_centralAction',));
                 }
 
                 // central_get_allEtendue_json
@@ -753,30 +753,33 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            // modif_central
+            // central_modif_central
             if ($pathinfo === '/central/modifCentral') {
                 if ($this->context->getMethod() != 'POST') {
                     $allow[] = 'POST';
-                    goto not_modif_central;
+                    goto not_central_modif_central;
                 }
 
-                return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::modifCentralAction',  '_route' => 'modif_central',);
+                return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::modifCentralAction',  '_route' => 'central_modif_central',);
             }
-            not_modif_central:
-
-            // select_central
-            if (0 === strpos($pathinfo, '/central/selectCentral') && preg_match('#^/central/selectCentral/(?P<id>[^/]++)/?$#s', $pathinfo, $matches)) {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'select_central');
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'select_central')), array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::selectCentralAction',));
-            }
+            not_central_modif_central:
 
             if (0 === strpos($pathinfo, '/central/get')) {
-                // get_all_societe
-                if ($pathinfo === '/central/getAllSociete') {
-                    return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::get_all_societeAction',  '_route' => 'get_all_societe',);
+                if (0 === strpos($pathinfo, '/central/getA')) {
+                    // central_get_all_societe
+                    if ($pathinfo === '/central/getAllSociete') {
+                        return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::get_all_societeAction',  '_route' => 'central_get_all_societe',);
+                    }
+
+                    // central_get_details_central
+                    if (0 === strpos($pathinfo, '/central/getApercus') && preg_match('#^/central/getApercus/(?P<id_central>[^/]++)/?$#s', $pathinfo, $matches)) {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'central_get_details_central');
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'central_get_details_central')), array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::renvoi_apercusAction',));
+                    }
+
                 }
 
                 // central_get_societe
@@ -789,6 +792,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'SIECentralBundle:ORM:getSociete',  '_route' => 'central_get_societe',);
                 }
                 not_central_get_societe:
+
+                // central_get_equipement
+                if (0 === strpos($pathinfo, '/central/getEquipements') && preg_match('#^/central/getEquipements/(?P<id_central>[^/]++)/?$#s', $pathinfo, $matches)) {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'central_get_equipement');
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'central_get_equipement')), array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::renvoi_equipement_par_id_centralAction',));
+                }
 
             }
 

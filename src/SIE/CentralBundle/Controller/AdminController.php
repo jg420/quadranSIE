@@ -49,11 +49,14 @@ class AdminController extends Controller {
         return sizeof($this->dataManager->getAllCentral());
     }
     
-    public function getCentralAction($id){
+    public function renvoi_details_centralAction($id){
          $this->setUpDataManager(); 
-         return(new JsonResponse($this->dataManager->getCentral($id)));
+         return(new JsonResponse($this->dataManager->getDetailsCentral($id)));
     }
-    
+    public function renvoi_apercusAction($id_central){
+        $this->setUpDataManager(); 
+         return(new JsonResponse($this->dataManager->getApercus($id_central)));
+    }
     public function json_getAll_centralAction() {
         $this->setUpDataManager();
 
@@ -67,7 +70,7 @@ class AdminController extends Controller {
         return new JsonResponse(null);
 
     }
-      public function get_societeAction() {
+    public function get_societeAction() {
         $this->setUpDataManager();
 
         return new JsonResponse($this->dataManager->getSociete());
@@ -117,8 +120,12 @@ class AdminController extends Controller {
         
     }
    
-    
-   function get_all_societeAction(){
+    public function renvoi_equipement_par_id_centralAction($id_central){
+        $this->setUpDataManager();
+        //return new Response($this->dataManager->getEquipements($id_central));;
+         return new JsonResponse($this->dataManager->getEquipements($id_central));
+    }
+   public function get_all_societeAction(){
        $this->setUpDataManager();
        
        

@@ -15,8 +15,8 @@ class __TwigTemplate_b1963983517dba18d8d164d9312377a541a420b821c30561a7407198351
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_0aff96426b402f84ae38f266662886e0d69bd46e929fb686cc2f8c913cbd3663 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_0aff96426b402f84ae38f266662886e0d69bd46e929fb686cc2f8c913cbd3663->enter($__internal_0aff96426b402f84ae38f266662886e0d69bd46e929fb686cc2f8c913cbd3663_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@SIEEquipement/Default/apercu_equipement.html.twig"));
+        $__internal_30c251261c4df5d6fd52bed00ded1a76759a59d55c895d1c5b6a8ce23cab32c2 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_30c251261c4df5d6fd52bed00ded1a76759a59d55c895d1c5b6a8ce23cab32c2->enter($__internal_30c251261c4df5d6fd52bed00ded1a76759a59d55c895d1c5b6a8ce23cab32c2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@SIEEquipement/Default/apercu_equipement.html.twig"));
 
         // line 2
         echo "<div class=\"panel panel-default\" id=\"apercu\" >
@@ -52,7 +52,7 @@ class __TwigTemplate_b1963983517dba18d8d164d9312377a541a420b821c30561a7407198351
              
             <div id=\"titre_nouvelle_apercu\" style=\"visibility: hidden\">nouvel apercu</div>
             <input  type=\"text\" disabled=\"true\" id=\"lib_apercu\" style=\"visibility: hidden\"  >  
-             <button id=\"btn_parcourir\" style=\"visibility: hidden\"  >Parcourir</button>
+             <button id=\"btn_parcourir_apercu\" style=\"visibility: hidden\"  >Parcourir</button>
                 <button  id=\"btn_valid_ajout_apercu\" class=\"btn_valider\"    style=\"visibility: hidden\">
                     ";
         // line 20
@@ -75,7 +75,7 @@ class __TwigTemplate_b1963983517dba18d8d164d9312377a541a420b821c30561a7407198351
         unset($context["asset_url"]);
         // line 23
         echo "                </button> 
-                <button  id=\"btn_annule_ajout_config\" class=\"btn_annuler\"  style=\"visibility: hidden\"  >
+                <button  id=\"btn_annule_ajout_apercu\" class=\"btn_annuler\"  style=\"visibility: hidden\"  >
                     ";
         // line 25
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
@@ -166,7 +166,7 @@ class __TwigTemplate_b1963983517dba18d8d164d9312377a541a420b821c30561a7407198351
         echo "        </button>
     </div>";
         
-        $__internal_0aff96426b402f84ae38f266662886e0d69bd46e929fb686cc2f8c913cbd3663->leave($__internal_0aff96426b402f84ae38f266662886e0d69bd46e929fb686cc2f8c913cbd3663_prof);
+        $__internal_30c251261c4df5d6fd52bed00ded1a76759a59d55c895d1c5b6a8ce23cab32c2->leave($__internal_30c251261c4df5d6fd52bed00ded1a76759a59d55c895d1c5b6a8ce23cab32c2_prof);
 
     }
 
@@ -212,13 +212,13 @@ class __TwigTemplate_b1963983517dba18d8d164d9312377a541a420b821c30561a7407198351
              
             <div id=\"titre_nouvelle_apercu\" style=\"visibility: hidden\">nouvel apercu</div>
             <input  type=\"text\" disabled=\"true\" id=\"lib_apercu\" style=\"visibility: hidden\"  >  
-             <button id=\"btn_parcourir\" style=\"visibility: hidden\"  >Parcourir</button>
+             <button id=\"btn_parcourir_apercu\" style=\"visibility: hidden\"  >Parcourir</button>
                 <button  id=\"btn_valid_ajout_apercu\" class=\"btn_valider\"    style=\"visibility: hidden\">
                     {% image '@SIECoreBundle/Resources/public/images/btn_valider.jpeg'%}
                     <img  class=\"img-background-button\"    src=\"{{ asset_url }}\"  alt=\"Modif\"/>
                     {% endimage %}
                 </button> 
-                <button  id=\"btn_annule_ajout_config\" class=\"btn_annuler\"  style=\"visibility: hidden\"  >
+                <button  id=\"btn_annule_ajout_apercu\" class=\"btn_annuler\"  style=\"visibility: hidden\"  >
                     {% image '@SIECoreBundle/Resources/public/images/btn_annuler.jpeg'%}
 
                     <img  class=\"img-background-button\"    src=\"{{ asset_url }}\"  alt=\"Modif\"/>

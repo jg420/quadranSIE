@@ -98,6 +98,8 @@
   'SIECoreBundle:Default:search_central.html.twig' => 'E:\\DEV\\quadranSIE\\src\\SIE\\CoreBundle/Resources/views/Default/search_central.html.twig',
   'SIECoreBundle:Default:index.html.twig' => 'E:\\DEV\\quadranSIE\\src\\SIE\\CoreBundle/Resources/views/Default/index.html.twig',
   'SIECoreBundle:Default:header.html.twig' => 'E:\\DEV\\quadranSIE\\src\\SIE\\CoreBundle/Resources/views/Default/header.html.twig',
+  'SIECoreBundle:Default:head_sous_menu.html.twig' => 'E:\\DEV\\quadranSIE\\src\\SIE\\CoreBundle/Resources/views/Default/head_sous_menu.html.twig',
+  'SIECoreBundle:Default:header_sous_menu.html.twig' => 'E:\\DEV\\quadranSIE\\src\\SIE\\CoreBundle/Resources/views/Default/header_sous_menu.html.twig',
   'SIEAccessBundle:Default:result_access.html.twig' => 'E:\\DEV\\quadranSIE\\src\\SIE\\AccessBundle/Resources/views/Default/result_access.html.twig',
   'SIEAccessBundle:Default:index.html.twig' => 'E:\\DEV\\quadranSIE\\src\\SIE\\AccessBundle/Resources/views/Default/index.html.twig',
   'SIEAccessBundle:Default:apercu_acces.html.twig' => 'E:\\DEV\\quadranSIE\\src\\SIE\\AccessBundle/Resources/views/Default/apercu_acces.html.twig',

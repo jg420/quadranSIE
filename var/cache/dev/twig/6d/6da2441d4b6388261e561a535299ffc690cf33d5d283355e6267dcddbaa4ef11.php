@@ -15,8 +15,8 @@ class __TwigTemplate_b0d20e694cfa924940583149443393a8c38459f086619691d1e89c1ff7d
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b96d5b6d897af4cb11ee28c5d964efb61b55d71d567115480ef4567c55b40622 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b96d5b6d897af4cb11ee28c5d964efb61b55d71d567115480ef4567c55b40622->enter($__internal_b96d5b6d897af4cb11ee28c5d964efb61b55d71d567115480ef4567c55b40622_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIECoreBundle:Default:search.html.twig"));
+        $__internal_61b6d1bb6f7df16f883e97822a87b5116f0161cb51c0548bd36a3313cb9684e5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_61b6d1bb6f7df16f883e97822a87b5116f0161cb51c0548bd36a3313cb9684e5->enter($__internal_61b6d1bb6f7df16f883e97822a87b5116f0161cb51c0548bd36a3313cb9684e5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SIECoreBundle:Default:search.html.twig"));
 
         // line 2
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
@@ -41,7 +41,7 @@ class __TwigTemplate_b0d20e694cfa924940583149443393a8c38459f086619691d1e89c1ff7d
         echo "</div>
 ";
         
-        $__internal_b96d5b6d897af4cb11ee28c5d964efb61b55d71d567115480ef4567c55b40622->leave($__internal_b96d5b6d897af4cb11ee28c5d964efb61b55d71d567115480ef4567c55b40622_prof);
+        $__internal_61b6d1bb6f7df16f883e97822a87b5116f0161cb51c0548bd36a3313cb9684e5->leave($__internal_61b6d1bb6f7df16f883e97822a87b5116f0161cb51c0548bd36a3313cb9684e5_prof);
 
     }
 

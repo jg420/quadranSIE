@@ -164,6 +164,32 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
             }
 
+            if (0 === strpos($pathinfo, '/images/aef7376')) {
+                // _assetic_aef7376
+                if ($pathinfo === '/images/aef7376.jpeg') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'aef7376',  'pos' => NULL,  '_format' => 'jpeg',  '_route' => '_assetic_aef7376',);
+                }
+
+                // _assetic_aef7376_0
+                if ($pathinfo === '/images/aef7376_btn_valider_1.jpeg') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'aef7376',  'pos' => 0,  '_format' => 'jpeg',  '_route' => '_assetic_aef7376_0',);
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/images/02f85ee')) {
+                // _assetic_02f85ee
+                if ($pathinfo === '/images/02f85ee.jpeg') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '02f85ee',  'pos' => NULL,  '_format' => 'jpeg',  '_route' => '_assetic_02f85ee',);
+                }
+
+                // _assetic_02f85ee_0
+                if ($pathinfo === '/images/02f85ee_btn_annuler_1.jpeg') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '02f85ee',  'pos' => 0,  '_format' => 'jpeg',  '_route' => '_assetic_02f85ee_0',);
+                }
+
+            }
+
             if (0 === strpos($pathinfo, '/images/a935514')) {
                 // _assetic_a935514
                 if ($pathinfo === '/images/a935514.jpeg') {
@@ -199,32 +225,6 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 // _assetic_67d988a_0
                 if ($pathinfo === '/images/67d988a_btn_gauche_1.jpeg') {
                     return array (  '_controller' => 'assetic.controller:render',  'name' => '67d988a',  'pos' => 0,  '_format' => 'jpeg',  '_route' => '_assetic_67d988a_0',);
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/images/aef7376')) {
-                // _assetic_aef7376
-                if ($pathinfo === '/images/aef7376.jpeg') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'aef7376',  'pos' => NULL,  '_format' => 'jpeg',  '_route' => '_assetic_aef7376',);
-                }
-
-                // _assetic_aef7376_0
-                if ($pathinfo === '/images/aef7376_btn_valider_1.jpeg') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'aef7376',  'pos' => 0,  '_format' => 'jpeg',  '_route' => '_assetic_aef7376_0',);
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/images/02f85ee')) {
-                // _assetic_02f85ee
-                if ($pathinfo === '/images/02f85ee.jpeg') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '02f85ee',  'pos' => NULL,  '_format' => 'jpeg',  '_route' => '_assetic_02f85ee',);
-                }
-
-                // _assetic_02f85ee_0
-                if ($pathinfo === '/images/02f85ee_btn_annuler_1.jpeg') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '02f85ee',  'pos' => 0,  '_format' => 'jpeg',  '_route' => '_assetic_02f85ee_0',);
                 }
 
             }
@@ -614,6 +614,11 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
                 }
 
+                // get_equipement_etendu
+                if (0 === strpos($pathinfo, '/equipement/getDetailEquipement') && preg_match('#^/equipement/getDetailEquipement/(?P<id_equipement>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'get_equipement_etendu')), array (  '_controller' => 'SIE\\EquipementBundle\\Controller\\AdminController::getDetailEquipementAction',));
+                }
+
                 if (0 === strpos($pathinfo, '/equipement/getA')) {
                     // get_all_equipement
                     if ($pathinfo === '/equipement/getAll') {
@@ -685,66 +690,75 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
         }
 
         if (0 === strpos($pathinfo, '/central')) {
-            // sie_central_homepage
+            // central_homepage
             if (rtrim($pathinfo, '/') === '/central') {
                 if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                     $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_sie_central_homepage;
+                    goto not_central_homepage;
                 }
 
                 if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'sie_central_homepage');
+                    return $this->redirect($pathinfo.'/', 'central_homepage');
                 }
 
-                return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::indexAction',  '_route' => 'sie_central_homepage',);
+                return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::indexAction',  '_route' => 'central_homepage',);
             }
-            not_sie_central_homepage:
+            not_central_homepage:
 
             if (0 === strpos($pathinfo, '/central/get')) {
-                // societe
+                // central_societe
                 if ($pathinfo === '/central/getSociete') {
-                    return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::get_societeAction',  '_route' => 'societe',);
+                    return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::get_societeAction',  '_route' => 'central_societe',);
                 }
 
-                if (0 === strpos($pathinfo, '/central/getAll')) {
-                    // central_get_all_json
-                    if ($pathinfo === '/central/getAll') {
-                        return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::json_getAll_centralAction',  '_route' => 'central_get_all_json',);
+                // central_get_all_json
+                if ($pathinfo === '/central/getAll') {
+                    return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::json_getAll_centralAction',  '_route' => 'central_get_all_json',);
+                }
+
+                // central_get_central
+                if (0 === strpos($pathinfo, '/central/getDetailsCentral') && preg_match('#^/central/getDetailsCentral/(?P<id>[^/]++)/?$#s', $pathinfo, $matches)) {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'central_get_central');
                     }
 
-                    // central_get_allEtendue_json
-                    if ($pathinfo === '/central/getAllEtendue') {
-                        return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::json_getAllEtendue_centralAction',  '_route' => 'central_get_allEtendue_json',);
-                    }
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'central_get_central')), array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::renvoi_details_centralAction',));
+                }
 
+                // central_get_allEtendue_json
+                if ($pathinfo === '/central/getAllEtendue') {
+                    return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::json_getAllEtendue_centralAction',  '_route' => 'central_get_allEtendue_json',);
                 }
 
             }
 
-            // modif_central
+            // central_modif_central
             if ($pathinfo === '/central/modifCentral') {
                 if ($this->context->getMethod() != 'POST') {
                     $allow[] = 'POST';
-                    goto not_modif_central;
+                    goto not_central_modif_central;
                 }
 
-                return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::modifCentralAction',  '_route' => 'modif_central',);
+                return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::modifCentralAction',  '_route' => 'central_modif_central',);
             }
-            not_modif_central:
-
-            // select_central
-            if (0 === strpos($pathinfo, '/central/selectCentral') && preg_match('#^/central/selectCentral/(?P<id>[^/]++)/?$#s', $pathinfo, $matches)) {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'select_central');
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'select_central')), array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::selectCentralAction',));
-            }
+            not_central_modif_central:
 
             if (0 === strpos($pathinfo, '/central/get')) {
-                // get_all_societe
-                if ($pathinfo === '/central/getAllSociete') {
-                    return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::get_all_societeAction',  '_route' => 'get_all_societe',);
+                if (0 === strpos($pathinfo, '/central/getA')) {
+                    // central_get_all_societe
+                    if ($pathinfo === '/central/getAllSociete') {
+                        return array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::get_all_societeAction',  '_route' => 'central_get_all_societe',);
+                    }
+
+                    // central_get_details_central
+                    if (0 === strpos($pathinfo, '/central/getApercus') && preg_match('#^/central/getApercus/(?P<id_central>[^/]++)/?$#s', $pathinfo, $matches)) {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'central_get_details_central');
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'central_get_details_central')), array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::renvoi_apercusAction',));
+                    }
+
                 }
 
                 // central_get_societe
@@ -757,6 +771,15 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                     return array (  '_controller' => 'SIECentralBundle:ORM:getSociete',  '_route' => 'central_get_societe',);
                 }
                 not_central_get_societe:
+
+                // central_get_equipement
+                if (0 === strpos($pathinfo, '/central/getEquipements') && preg_match('#^/central/getEquipements/(?P<id_central>[^/]++)/?$#s', $pathinfo, $matches)) {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'central_get_equipement');
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'central_get_equipement')), array (  '_controller' => 'SIE\\CentralBundle\\Controller\\AdminController::renvoi_equipement_par_id_centralAction',));
+                }
 
             }
 
